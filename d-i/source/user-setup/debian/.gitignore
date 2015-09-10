@@ -1,0 +1,6 @@
+files
+user-setup
+user-setup-udeb
+*.debhelper*
+*.substvars
+

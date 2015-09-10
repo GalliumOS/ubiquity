@@ -1,0 +1,2 @@
+deb-src http://archive.ubuntu.com/ubuntu vivid main
+deb-src http://archive.ubuntu.com/ubuntu vivid-proposed main
