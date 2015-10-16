@@ -97,7 +97,7 @@ void insert_line(const char *line) {
 		  ((strcmp(dummy->typ, "ext2") == 0) ||
 		   (strcmp(dummy->typ, "ext3") == 0) ||
 		   (strcmp(dummy->typ, "ext4") == 0))) {
-			dummy->options = strdup("errors=remount-ro,noatime,discard");
+			dummy->options = strdup("errors=remount-ro,relatime,discard");
 		} else {
 			dummy->options = strdup("defaults");
 		}
