@@ -1,3 +1,16 @@
+ubiquity (2.21.29) vivid-galliumos; urgency=medium
+
+  * Disabled swap for automatic partitioning in the regular case
+  * Disabled the option to resize if multiple operating systems are detected
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Mon, 27 Oct 2015 13:32:25 +0200
+
+ubiquity (2.21.28) vivid-galliumos; urgency=medium
+
+  * Patches for setting relatime and discard options in fstab
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Fri, 16 Oct 2015 13:32:25 +0200
+
 ubiquity (2.21.27) vivid-galliumos; urgency=medium
 
   * Patches for GalliumOS
