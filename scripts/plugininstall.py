@@ -1685,7 +1685,7 @@ class Install(install_misc.InstallBase):
                 status_gz.write(data)
             status_gz.close()
             status.close()
-        except IOError:
+        except:
             pass
         try:
             if self.db.get('oem-config/enable') == 'true':

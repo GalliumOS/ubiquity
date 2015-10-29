@@ -1,3 +1,10 @@
+ubiquity (2.21.30) vivid-galliumos; urgency=medium
+
+  * Changed distro name to GalliumOS
+  * Added support for SLiM in the autologin script 
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Wed, 28 Oct 2015 13:32:25 +0200
+
 ubiquity (2.21.29) vivid-galliumos; urgency=medium
 
   * Disabled swap for automatic partitioning in the regular case

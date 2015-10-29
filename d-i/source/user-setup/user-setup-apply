@@ -324,6 +324,13 @@ EOF
 					sed -i "s/PLACEHOLDER/$SDDMSESSION/" sddm.conf
 				fi
 			fi
+			if $chroot $ROOT [ -f /etc/slim.conf ]; then
+				# Configure slim autologin
+				SLiMCustomFile=$ROOT/etc/slim.conf
+				AutologinParameters="default_user         $USER\n\
+auto_login         yes"
+				echo $AutologinParameters >> $SLiMCustomFile
+			fi
 			if $chroot $ROOT [ -d /etc/lightdm ]; then
 				# Configure LightDM autologin
 				LightDMCustomFile=$ROOT/etc/lightdm/lightdm.conf

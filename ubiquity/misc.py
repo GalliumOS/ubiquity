@@ -436,7 +436,7 @@ def os_prober():
             if res[2] == 'Ubuntu':
                 version = [v for v in re.findall('[0-9.]*', res[1]) if v][0]
                 # Get rid of the superfluous (development version) (11.04)
-                text = re.sub('\s*\(.*\).*', '', res[1])
+                text = "GalliumOS"
                 _os_prober_oslist[res[0]] = text
                 _os_prober_osvers[res[0]] = version
             else:
