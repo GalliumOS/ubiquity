@@ -1,4 +1,4 @@
-ubiquity (2.21.30) vivid-galliumos; urgency=medium
+ubiquity (2.21.31) vivid-galliumos; urgency=medium
 
   * Changed distro name to GalliumOS
   * Added support for SLiM in the autologin script 
