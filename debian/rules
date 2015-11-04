@@ -298,4 +298,4 @@ binary-arch: tests install-stamp
 	NO_PNG_PKG_MANGLE=1 dh_builddeb -- -Zxz
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install tests
+.PHONY: build clean binary-indep binary-arch binary ## install tests
