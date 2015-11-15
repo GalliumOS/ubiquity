@@ -625,7 +625,7 @@ class PageGtk(PageBase):
         self.extra_options = extra_options
         fmt = '<span size="small">%s</span>'
         option_to_widget = (
-            ("resize", "resize_use_free"),
+            #("resize", "resize_use_free"),
             ("reuse", "reuse_partition"),
             ("replace", "replace_partition"),
             ("use_device", "use_device"),
