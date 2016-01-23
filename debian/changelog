@@ -1,35 +1,3 @@
-ubiquity (2.21.26-0galliumos4) vivid-galliumos; urgency=medium
-
-  * Set package version to match provenance
-
- -- reynhout <reynhout@galliumos.org>  Sun, 10 Jan 2016 21:05:33 +0000
-
-ubiquity (2.21.31) vivid-galliumos; urgency=medium
-
-  * Changed distro name to GalliumOS
-  * Added support for SLiM in the autologin script 
-
- -- Hugh Greenberg <hugh@galliumos.org>  Wed, 28 Oct 2015 13:32:25 +0200
-
-ubiquity (2.21.29) vivid-galliumos; urgency=medium
-
-  * Disabled swap for automatic partitioning in the regular case
-  * Disabled the option to resize if multiple operating systems are detected
-
- -- Hugh Greenberg <hugh@galliumos.org>  Mon, 27 Oct 2015 13:32:25 +0200
-
-ubiquity (2.21.28) vivid-galliumos; urgency=medium
-
-  * Patches for setting relatime and discard options in fstab
-
- -- Hugh Greenberg <hugh@galliumos.org>  Fri, 16 Oct 2015 13:32:25 +0200
-
-ubiquity (2.21.27) vivid-galliumos; urgency=medium
-
-  * Patches for GalliumOS
-
- -- Hugh Greenberg <hugh@galliumos.org>  Fri, 04 Sep 2015 13:32:25 +0200
-
 ubiquity (2.21.26) vivid; urgency=medium
 
   * ubiquity/plugins/ubi-console-setup.py: use untranslated keyboard

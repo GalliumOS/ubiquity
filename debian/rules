@@ -34,7 +34,6 @@ build-indep: build-stamp
 build-stamp:
 	dh_testdir
 
-	dh_quilt_patch
 	dh_autoreconf -- ./autogen.sh
 	dh_auto_configure -- --libexecdir=\$${prefix}/lib
 	dh_auto_build
@@ -59,7 +58,7 @@ check:
 pychecker:
 	./run-pychecker
 
-clean: 
+clean: check
 	dh_testdir
 	dh_testroot
 
@@ -67,7 +66,6 @@ clean:
 	dh_auto_clean
 	dh_autoreconf_clean
 	dh_clean
-	dh_quilt_unpatch
 	rm -rf build-locale tests/partman-tree pixmaps/ubiquity.xpm
 
 	$(MAKE) -C d-i check
@@ -298,4 +296,4 @@ binary-arch: tests install-stamp
 	NO_PNG_PKG_MANGLE=1 dh_builddeb -- -Zxz
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary ## install tests
+.PHONY: build clean binary-indep binary-arch binary install tests

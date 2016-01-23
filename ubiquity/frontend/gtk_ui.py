@@ -42,7 +42,6 @@ import subprocess
 import sys
 import syslog
 import traceback
-import textwrap
 
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
@@ -371,10 +370,6 @@ class Wizard(BaseFrontend):
                               file=sys.stderr)
             self.live_installer.connect(
                 'key-press-event', self.a11y_profile_keys)
-
-    #Re-format error messages so each line is at most 100 characters long
-    def fix_msg_line_len(self, msg):
-        return '\n'.join(textwrap.wrap(msg, 100))
 
     def all_children(self, parent):
         if isinstance(parent, Gtk.Container):
@@ -823,7 +818,6 @@ class Wizard(BaseFrontend):
             else:
                 txt = self.finished_label.get_label()
                 txt = txt.replace('${RELEASE}', misc.get_release().name)
-            txt = self.fix_msg_line_len(txt)
             self.finished_label.set_label(txt)
             with misc.raised_privileges():
                 with open('/var/run/reboot-required', "w"):
@@ -1729,7 +1723,6 @@ class Wizard(BaseFrontend):
         self.set_busy_cursor(False)
         if not msg:
             msg = title
-        msg = self.fix_msg_line_len(msg)
         dialog = Gtk.MessageDialog(
             self.live_installer, Gtk.DialogFlags.MODAL,
             Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
@@ -1778,7 +1771,6 @@ class Wizard(BaseFrontend):
         self.set_busy_cursor(False)
         if not msg:
             msg = title
-        msg = self.fix_msg_line_len(msg)
         buttons = []
         for option in options:
             if use_templates:
