@@ -1,20 +1,19 @@
 --- a/bin/ubiquity-wrapper
 +++ b/bin/ubiquity-wrapper
-@@ -11,7 +11,7 @@
+@@ -11,6 +11,7 @@
  sys.path.insert(0, '/usr/lib/ubiquity')
  
  from ubiquity import osextras
--
 +from subprocess import call
  
+ 
  def main():
-     newargv = []
-@@ -34,6 +34,10 @@
+@@ -34,6 +35,10 @@
  
      if os.getuid() == 0:
          # no privilege escalation required
 +
-+        #Turn off all swaps to fix issues with zram
++        # Turn off all swaps to fix issues with zram
 +        call(["swapoff", "--all"])
 +
          inner = ['/usr/lib/ubiquity/bin/ubiquity'] + newargv
@@ -87,44 +86,52 @@
              if self.db.get('oem-config/enable') == 'true':
 --- a/ubiquity/frontend/gtk_ui.py
 +++ b/ubiquity/frontend/gtk_ui.py
-@@ -42,6 +42,7 @@
- import sys
- import syslog
- import traceback
-+import textwrap
- 
- import dbus
- from dbus.mainloop.glib import DBusGMainLoop
-@@ -75,6 +76,8 @@
+@@ -75,6 +75,8 @@
  # Define locale path
  LOCALEDIR = "/usr/share/locale"
  
-+DIALOG_WIDTH = 450
-+DIALOG_HEIGHT = 160
++DIALOG_CHARS = 100
++
  
  def set_root_cursor(cursor=None):
      if cursor is None:
-@@ -824,6 +827,7 @@
+@@ -717,6 +719,7 @@
+             dialog = Gtk.MessageDialog(
+                 self.live_installer, Gtk.DialogFlags.MODAL,
+                 Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE, title)
++            dialog.label.set_max_width_chars(DIALOG_CHARS)
+             dialog.run()
+             sys.exit(1)
+ 
+@@ -818,12 +821,15 @@
+             else:
+                 txt = self.finished_label.get_label()
+                 txt = txt.replace('${RELEASE}', misc.get_release().name)
++
++            self.finished_label.set_max_width_chars(DIALOG_CHARS)
+             self.finished_label.set_label(txt)
+             with misc.raised_privileges():
+                 with open('/var/run/reboot-required', "w"):
                      pass
              self.finished_dialog.set_keep_above(True)
              self.set_busy_cursor(False)
-+            self.finished_dialog.set_size_request(DIALOG_WIDTH, DIALOG_HEIGHT)
++
              self.finished_dialog.run()
          elif self.get_reboot():
              self.reboot()
-@@ -1727,6 +1731,7 @@
+@@ -1726,6 +1732,7 @@
+         dialog = Gtk.MessageDialog(
              self.live_installer, Gtk.DialogFlags.MODAL,
              Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
++        dialog.label.set_max_width_chars(DIALOG_CHARS)
          dialog.set_title(title)
-+        dialog.set_size_request(DIALOG_WIDTH, DIALOG_HEIGHT)
          dialog.run()
          self.set_busy_cursor(saved_busy_cursor)
-         dialog.hide()
-@@ -1782,6 +1787,7 @@
+@@ -1782,6 +1789,7 @@
              buttons.append((text, len(buttons) + 1))
  
          self.ubi_question_dialog.set_title(title)
-+        self.ubi_question_dialog.set_size_request(DIALOG_WIDTH, DIALOG_HEIGHT)
++        self.question_label.set_max_width_chars(DIALOG_CHARS)
          self.question_label.set_text(msg)
          actions = self.ubi_question_dialog.get_action_area()
          for action in actions.get_children():

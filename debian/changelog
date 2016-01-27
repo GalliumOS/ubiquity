@@ -1,3 +1,9 @@
+ubiquity (2.21.26-0galliumos6) vivid-galliumos; urgency=medium
+
+  * Improved miniumum dialog width patch
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Tue, 26 Jan 2016 21:05:33 +0000
+
 ubiquity (2.21.26-0galliumos5) vivid-galliumos; urgency=medium
 
   * Removed slim autologin support
