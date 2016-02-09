@@ -1,3 +1,10 @@
+ubiquity (2.21.26-0galliumos7) vivid-galliumos; urgency=medium
+
+  * Set the live installer dialog width
+  * Removed the third party non free software option
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Mon, 8 Feb 2016 21:05:33 +0000
+
 ubiquity (2.21.26-0galliumos6) vivid-galliumos; urgency=medium
 
   * Improved miniumum dialog width patch
