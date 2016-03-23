@@ -113,6 +113,25 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         nxt_button.click()
 
         if wait:
+            # When the test clicks "Install now" a confirm overwrite disk
+            # dialog appears. This is an "ubi_question_dialog" and although
+            # we can grab it with autopilot we cannot easily select the
+            # continue button as it has no name or BuilderName properties
+            # There are two buttons that basically have identical xpaths
+            # so even identifying the correct button is not really possible.
+            # We experience the same during the manual partition step when
+            # creating a new table. The dialog seems to be a generic msg dialog
+            # that's created on the fly so we can't even add those properties.
+            # The best we can do here is a bit of damage limitation and use a
+            # lengthy sleep and keyboard right to the continue button.
+            print("go_to_next_page() Entering workaround "
+                  "for ubi_question_dialog")
+            print("If the test failed here it is most likely a timing issue")
+            # This maybe overkill but better to be safe
+            time.sleep(20)
+            self.kbd.press_and_release('Right')
+            self.kbd.press_and_release('Enter')
+            print("Workaround ended continuing with wait for next step")
             # This sleep just bridges a weird error when the next button,
             # sometimes flickers its sensitive property back to 1 once clicked
             # and then goes back to 0

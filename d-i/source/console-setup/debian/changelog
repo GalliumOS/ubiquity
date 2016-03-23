@@ -1,3 +1,52 @@
+console-setup (1.108ubuntu11) xenial; urgency=medium
+
+  * Add ConditionPathExists=/dev/tty0 to the console-setup.service, to
+    avoid running the unit on platforms without virtual consoles,
+    e.g. s390x. LP: #1552733
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 03 Mar 2016 14:41:05 +0000
+
+console-setup (1.108ubuntu10) xenial; urgency=medium
+
+  * debian/rules: Drop obsolete and no-op dh_installinit --upstart-only
+    option. (LP: #1519228)
+  * Add debian/keyboard-configuration.links to (statically) enable
+    console-setup.service. It is not being pulled in by plymouth any more, and
+    doing so was brittle and unexpected. (LP: #1531442)
+  * console-setup.service: Set RemainAfterExit.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 11 Jan 2016 15:02:09 +0100
+
+console-setup (1.108ubuntu9) wily; urgency=medium
+
+  * Cherry-pick fix from git for udpkg/Hurd noise in keyboard-configuration.
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Tue, 20 Oct 2015 12:51:36 +0100
+
+console-setup (1.108ubuntu8) wily; urgency=medium
+
+  * Properly handle setting XKBVARIANT when using keyboard detection.
+    (LP: #1506551)
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 19 Oct 2015 11:13:01 +0100
+
+console-setup (1.108ubuntu7) wily; urgency=medium
+
+  * Fix incorrect versioning change from last upload; initramfs-tools
+    0.85eubuntu12 looks wrong but was in fact correct.
+  * If the locale is C during configuration, only set CHARMAP to ISO-8859-15
+    on kFreeBSD; otherwise restore the previous behaviour from before the
+    kFreeBSD port of using UTF-8 in that case (LP: #1484101).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Fri, 02 Oct 2015 11:18:04 +0100
+
+console-setup (1.108ubuntu6) wily; urgency=medium
+
+  * debian/control: allow dracut to be installable by adding an alternate
+    depends on linux-initramfs-tool for console-setup.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 08 Sep 2015 22:36:52 -0400
+
 console-setup (1.108ubuntu5) vivid; urgency=medium
 
   * Reinstate checking for XKBLAYOUT being in the config file: this handles

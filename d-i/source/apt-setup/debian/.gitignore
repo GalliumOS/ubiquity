@@ -1,7 +1,0 @@
-*.debhelper*
-*.substvars
-apt-cdrom-setup
-apt-mirror-setup
-apt-setup-udeb
-files
-

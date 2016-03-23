@@ -75,7 +75,7 @@
  
 --- a/scripts/plugininstall.py
 +++ b/scripts/plugininstall.py
-@@ -1685,7 +1685,7 @@
+@@ -1698,7 +1698,7 @@
                  status_gz.write(data)
              status_gz.close()
              status.close()
@@ -86,7 +86,7 @@
              if self.db.get('oem-config/enable') == 'true':
 --- a/ubiquity/frontend/gtk_ui.py
 +++ b/ubiquity/frontend/gtk_ui.py
-@@ -75,6 +75,8 @@
+@@ -76,6 +76,8 @@
  # Define locale path
  LOCALEDIR = "/usr/share/locale"
  
@@ -95,7 +95,7 @@
  
  def set_root_cursor(cursor=None):
      if cursor is None:
-@@ -717,6 +719,7 @@
+@@ -700,6 +702,7 @@
              dialog = Gtk.MessageDialog(
                  self.live_installer, Gtk.DialogFlags.MODAL,
                  Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE, title)
@@ -103,7 +103,7 @@
              dialog.run()
              sys.exit(1)
  
-@@ -818,12 +821,15 @@
+@@ -801,12 +804,15 @@
              else:
                  txt = self.finished_label.get_label()
                  txt = txt.replace('${RELEASE}', misc.get_release().name)
@@ -119,7 +119,7 @@
              self.finished_dialog.run()
          elif self.get_reboot():
              self.reboot()
-@@ -918,6 +924,7 @@
+@@ -916,6 +922,7 @@
          # FIXME shrink the window horizontally instead of locking the window
          # size.
          self.live_installer.set_resizable(False)
@@ -127,7 +127,7 @@
  
          def expand(widget):
              if widget.get_property('expanded'):
-@@ -1726,6 +1733,7 @@
+@@ -1724,6 +1731,7 @@
          dialog = Gtk.MessageDialog(
              self.live_installer, Gtk.DialogFlags.MODAL,
              Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
@@ -135,7 +135,7 @@
          dialog.set_title(title)
          dialog.run()
          self.set_busy_cursor(saved_busy_cursor)
-@@ -1782,6 +1790,7 @@
+@@ -1780,6 +1788,7 @@
              buttons.append((text, len(buttons) + 1))
  
          self.ubi_question_dialog.set_title(title)
@@ -155,14 +155,3 @@
  
          # Irrespective of os_counts
          # We always have the manual partitioner, and it always has the same
---- a/gui/gtk/stepPrepare.ui
-+++ b/gui/gtk/stepPrepare.ui
-@@ -110,7 +110,7 @@
-             </child>
-             <child>
-               <object class="GtkBox" id="vbox3">
--                <property name="visible">True</property>
-+                <property name="visible">False</property>
-                 <property name="can_focus">False</property>
-                 <property name="orientation">vertical</property>
-                 <property name="spacing">6</property>

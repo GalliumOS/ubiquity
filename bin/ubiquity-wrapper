@@ -11,6 +11,7 @@ import sys
 sys.path.insert(0, '/usr/lib/ubiquity')
 
 from ubiquity import osextras
+from subprocess import call
 
 
 def main():
@@ -34,6 +35,10 @@ def main():
 
     if os.getuid() == 0:
         # no privilege escalation required
+
+        # Turn off all swaps to fix issues with zram
+        call(["swapoff", "--all"])
+
         inner = ['/usr/lib/ubiquity/bin/ubiquity'] + newargv
 
         # Make sure ibus works

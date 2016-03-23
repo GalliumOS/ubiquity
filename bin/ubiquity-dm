@@ -290,8 +290,8 @@ EndSection
                     if type(status) is int and status != 0:
                         if plymouth_running:
                             subprocess.call(['plymouth', 'quit'])
-                        raise XStartupError('X server exited with return code '
-                                            + str(status))
+                        raise XStartupError('X server exited with return '
+                                            'code ' + str(status))
                     if timeout == 0:
                         if plymouth_running:
                             subprocess.call(['plymouth', 'quit'])
@@ -515,20 +515,12 @@ EndSection
 
             if osextras.find_on_path('xfsettingsd'):
                 extras.append(subprocess.Popen(
-                    ['xsetroot', '-solid', 'black'],
-                    stdin=null, stdout=logfile, stderr=logfile,
-                    preexec_fn=self.drop_privileges))
-                extras.append(subprocess.Popen(
                     ['xprop', '-root', '-format', '_NET_NUMBER_OF_DESKTOPS',
                      '32c', '-set', '_NET_NUMBER_OF_DESKTOPS', '1'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
                 extras.append(subprocess.Popen(
                     ['xfsettingsd', '--sm-client-disable'],
-                    stdin=null, stdout=logfile, stderr=logfile,
-                    preexec_fn=self.drop_privileges))
-                extras.append(subprocess.Popen(
-                    ['xfdesktop', '--sm-client-disable'],
                     stdin=null, stdout=logfile, stderr=logfile,
                     preexec_fn=self.drop_privileges))
 
@@ -554,7 +546,7 @@ EndSection
                             'indicator-keyboard/indicator-keyboard-service',
                             'indicator-keyboard-service',
                             'indicator-power/indicator-power-service',
-                            )]))
+                        )]))
                     extras.append(subprocess.Popen(
                         ['/usr/lib/ubiquity/panel'],
                         stdin=null, stdout=logfile, stderr=logfile,
@@ -604,6 +596,8 @@ EndSection
                             stdin=null, stdout=logfile, stderr=logfile,
                             preexec_fn=self.drop_privileges))
         elif self.frontend == 'kde_ui':
+            # Force Qt5 KDE theming to load for kwin and friends.
+            os.environ["QT_QPA_PLATFORMTHEME"] = "kde"
             if 'access=v1' not in proc_cmdline:
                 log('paint background')
                 path = \
@@ -615,6 +609,24 @@ EndSection
 
             log("add_ubiquity_kdedir")
             add_ubiquity_kdedir()
+            log('start kde4breeze')
+            if osextras.find_on_path('kf5-config'):
+                output = subprocess.check_output(
+                    ['kf5-config', '--path', 'lib'],
+                    preexec_fn=self.drop_privileges)
+                output = output.decode()
+                output = output.replace('\n', '')
+                output = output.split(':')[1]
+                breeze = subprocess.Popen(
+                    [output + '/kconf_update_bin/kde4breeze'],
+                    stdin=null, stdout=logfile, stderr=logfile,
+                    preexec_fn=self.drop_privileges)
+                ret = breeze.wait()
+                log('kde4breeze exited with code {}'.format(ret))
+                if ret != 0:
+                    raise
+            else:
+                raise
             log('start kwin')
             if osextras.find_on_path('kwin'):
                 wm_cmd = ['kwin']

@@ -37,6 +37,7 @@ import atexit
 import configparser
 from functools import reduce
 import gettext
+import gi
 import os
 import subprocess
 import sys
@@ -74,6 +75,8 @@ os.environ['UBIQUITY_GLADE'] = UIDIR
 
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
+
+DIALOG_CHARS = 100
 
 
 def set_root_cursor(cursor=None):
@@ -196,10 +199,9 @@ class Wizard(BaseFrontend):
             elif isinstance(widget, gtkwidgets.StateBox):
                 label = widget.label
 
-            # If we're runing Orca, we want to be able to read labels.
             if label:
-                label.set_property('can-focus', self.screen_reader)
-                label.set_selectable(self.screen_reader)
+                label.set_selectable(True)
+                label.set_property('can-focus', False)
 
         BaseFrontend.__init__(self, distro)
         self.previous_excepthook = sys.excepthook
@@ -347,27 +349,18 @@ class Wizard(BaseFrontend):
 
         self.customize_installer()
 
-        # Put up the a11y indicator in *-ubiquity and oemconfig.
-        if osextras.find_on_path('casper-a11y-enable'):
-            with open('/proc/cmdline') as fp:
-                if ('UBIQUITY_GREETER' in os.environ or self.oem_user_config or
-                        'only-ubiquity' in fp.read()):
-                    try:
-                        from gi.repository import AppIndicator3 as AppIndicator
-                        self.indicator = AppIndicator.Indicator.new(
-                            'ubiquity', 'accessibility-directory',
-                            AppIndicator.IndicatorCategory.OTHER)
-                        self.indicator.set_status(
-                            AppIndicator.IndicatorStatus.ACTIVE)
-                        self.indicator.set_menu(
-                            self.builder.get_object('a11y_indicator_menu'))
-                        if osextras.find_on_path('canberra-gtk-play'):
-                            subprocess.Popen(
-                                ['canberra-gtk-play', '--id=system-ready'],
-                                preexec_fn=misc.drop_all_privileges)
-                    except:
-                        print("Unable to set up accessibility profile support",
-                              file=sys.stderr)
+        # Put up the a11y indicator.
+        if osextras.find_on_path('a11y-profile-manager-indicator'):
+            try:
+                subprocess.Popen(['a11y-profile-manager-indicator',
+                                  '-i'], preexec_fn=misc.drop_all_privileges)
+                if osextras.find_on_path('canberra-gtk-play'):
+                    subprocess.Popen(
+                        ['canberra-gtk-play', '--id=system-ready'],
+                        preexec_fn=misc.drop_all_privileges)
+            except:
+                print("Unable to set up accessibility profile support",
+                      file=sys.stderr)
             self.live_installer.connect(
                 'key-press-event', self.a11y_profile_keys)
 
@@ -405,9 +398,6 @@ class Wizard(BaseFrontend):
                 if toplevel.get_name() != 'live_installer':
                     for c in self.all_children(toplevel):
                         widgets.append((c, None))
-        if hasattr(self, "indicator"):
-            for c in self.all_children(self.indicator.get_menu()):
-                widgets.append((c, None))
         self.translate_widgets(lang=lang, widgets=widgets, reget=False)
         self.set_page_title(current_page, lang)
 
@@ -662,51 +652,46 @@ class Wizard(BaseFrontend):
             self.thunar_set_volmanrc(self.thunar_previous)
 
     def a11y_profile_keys(self, window, event):
-        if (event.state & Gdk.ModifierType.CONTROL_MASK and
-                event.keyval == Gdk.keyval_from_name('h')):
-            self.a11y_profile_high_contrast_activate()
-        elif (event.state & Gdk.ModifierType.CONTROL_MASK and
-                event.keyval == Gdk.keyval_from_name('s')):
-            self.a11y_profile_screen_reader_activate()
-        elif (event.state & Gdk.ModifierType.SUPER_MASK and
-                event.state & Gdk.ModifierType.MOD1_MASK and
-                event.keyval == Gdk.keyval_from_name('s')):
-            self.a11y_profile_screen_reader_activate()
+        if osextras.find_on_path('a11y-profile-manager'):
+            hc_profile_found = False
+            sr_profile_found = False
 
-    def a11y_profile_high_contrast_activate(self, widget=None):
-        subprocess.call(['log-output', '-t', 'ubiquity',
-                         '--pass-stdout', 'casper-a11y-enable',
-                         'high-contrast'], preexec_fn=misc.drop_all_privileges)
-        os.environ['UBIQUITY_A11Y_PROFILE'] = 'high-contrast'
+            subp = subprocess.Popen(['a11y-profile-manager',
+                                    '-l'],
+                                    stdout=subprocess.PIPE,
+                                    preexec_fn=misc.drop_all_privileges,
+                                    universal_newlines=True)
+
+            for line in subp.stdout:
+                value = line.rstrip('\n')
+                if value == 'high-contrast':
+                    hc_profile_found = True
+                if value == 'blindness':
+                    sr_profile_found = True
+
+            if (hc_profile_found is True and event.state &
+                Gdk.ModifierType.CONTROL_MASK and
+                    event.keyval == Gdk.keyval_from_name('h')):
+                self.a11y_profile_high_contrast_activate()
+            elif (sr_profile_found is True and event.state &
+                  Gdk.ModifierType.SUPER_MASK and
+                    event.state & Gdk.ModifierType.MOD1_MASK and
+                    event.keyval == Gdk.keyval_from_name('s')):
+                self.a11y_profile_screen_reader_activate()
+
+    def a11y_profile_set(self, value):
+        gsettings.set("com.canonical.a11y-profile-manager",
+                      "active-profile", value)
+
+    def a11y_profile_high_contrast_activate(self):
+        self.a11y_profile_set("high-contrast")
 
     def a11y_profile_screen_reader_activate(self, widget=None):
-        if self.orca_process and self.orca_process.poll() != 0:
-            return
-
-        subprocess.call(
-            ['log-output', '-t', 'ubiquity', '--pass-stdout',
-             'casper-a11y-enable', 'blindness'],
-            preexec_fn=misc.drop_all_privileges)
+        self.a11y_profile_set("blindness")
         os.environ['UBIQUITY_A11Y_PROFILE'] = 'screen-reader'
-        if osextras.find_on_path('orca'):
-            self.orca_process = subprocess.Popen(
-                ['orca'], preexec_fn=misc.drop_all_privileges)
-
-    def a11y_profile_keyboard_modifiers_activate(self, widget=None):
-        subprocess.call(
-            ['log-output', '-t', 'ubiquity', '--pass-stdout',
-             'casper-a11y-enable', 'keyboard-modifiers'],
-            preexec_fn=misc.drop_all_privileges)
-        os.environ['UBIQUITY_A11Y_PROFILE'] = 'keyboard-modifiers'
 
     def a11y_profile_onscreen_keyboard_activate(self, widget=None):
-        subprocess.call(
-            ['log-output', '-t', 'ubiquity', '--pass-stdout',
-             'casper-a11y-enable', 'onscreen-keyboard'],
-            preexec_fn=misc.drop_all_privileges)
-        os.environ['UBIQUITY_A11Y_PROFILE'] = 'onscreen-keyboard'
-        if osextras.find_on_path('onboard'):
-            subprocess.Popen(['onboard'], preexec_fn=misc.drop_all_privileges)
+        self.a11y_profile_set("onscreen-keyboard")
 
     def run(self):
         """run the interface."""
@@ -717,6 +702,7 @@ class Wizard(BaseFrontend):
             dialog = Gtk.MessageDialog(
                 self.live_installer, Gtk.DialogFlags.MODAL,
                 Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE, title)
+            dialog.label.set_max_width_chars(DIALOG_CHARS)
             dialog.run()
             sys.exit(1)
 
@@ -818,12 +804,15 @@ class Wizard(BaseFrontend):
             else:
                 txt = self.finished_label.get_label()
                 txt = txt.replace('${RELEASE}', misc.get_release().name)
+
+            self.finished_label.set_max_width_chars(DIALOG_CHARS)
             self.finished_label.set_label(txt)
             with misc.raised_privileges():
                 with open('/var/run/reboot-required', "w"):
                     pass
             self.finished_dialog.set_keep_above(True)
             self.set_busy_cursor(False)
+
             self.finished_dialog.run()
         elif self.get_reboot():
             self.reboot()
@@ -832,15 +821,27 @@ class Wizard(BaseFrontend):
 
         return self.returncode
 
-    def on_slideshow_link_clicked(self, unused_view, unused_frame, req,
-                                  unused_action, decision):
-        uri = req.get_uri()
-        decision.ignore()
-        subprocess.Popen(['sensible-browser', uri],
-                         close_fds=True, preexec_fn=misc.drop_all_privileges)
+    def on_context_menu(self, unused_web_view, unused_context_menu,
+                        unused_event, unused_hit_test_result):
+        # True will not show the menu
         return True
 
+    def on_slideshow_link_clicked(self, web_view, decision, decision_type):
+        gi.require_version('WebKit2', '4.0')
+        from gi.repository import WebKit2
+        if decision_type == WebKit2.PolicyDecisionType.NEW_WINDOW_ACTION:
+            request = decision.get_request()
+            uri = request.get_uri()
+            decision.ignore()
+            subprocess.Popen(['sensible-browser', uri],
+                             close_fds=True,
+                             preexec_fn=misc.drop_all_privileges)
+            return True
+        return False
+
     def start_slideshow(self):
+        # WebKit2 spawns a process which we don't want to run as root
+        misc.drop_privileges_save()
         self.progress_mode.set_current_page(
             self.progress_pages['progress_bar'])
 
@@ -864,32 +865,35 @@ class Wizard(BaseFrontend):
 
         slides = 'file://%s#%s' % (slideshow_main, parameters_encoded)
 
-        from gi.repository import WebKit
+        gi.require_version('WebKit2', '4.0')
+        from gi.repository import WebKit2
         # We have no significant browsing interface, so there isn't much point
         # in WebKit creating a memory-hungry cache.
-        WebKit.set_cache_model(WebKit.CacheModel.DOCUMENT_VIEWER)
-        webview = WebKit.WebView()
+        context = WebKit2.WebContext.get_default()
+        context.set_cache_model(WebKit2.CacheModel.DOCUMENT_VIEWER)
+        webview = WebKit2.WebView()
         # WebKit puts file URLs in their own domain by default.
         # This means that anything which checks for the same origin,
         # such as creating a XMLHttpRequest, will fail unless this
         # is disabled.
         # http://www.gitorious.org/webkit/webkit/commit/624b946
         s = webview.get_settings()
-        s.set_property('enable-file-access-from-file-uris', True)
-        s.set_property('enable-default-context-menu', False)
+        s.set_property('allow-file-access-from-file-urls', True)
+        webview.connect('context-menu', self.on_context_menu)
         if (os.environ.get('UBIQUITY_A11Y_PROFILE') == 'screen-reader'):
             s.set_property('enable-caret-browsing', True)
 
-        webview.connect('new-window-policy-decision-requested',
+        webview.connect('decide-policy',
                         self.on_slideshow_link_clicked)
 
-        self.webkit_scrolled_window.add(webview)
-        webview.open(slides)
+        webview.show()
+        self.page_mode.insert_page(webview, None, 1)
+        webview.load_uri(slides)
         # TODO do these in a page loaded callback
         self.page_mode.show()
         self.page_mode.set_current_page(1)
-        webview.show()
         webview.grab_focus()
+        misc.regain_privileges_save()
 
     def customize_installer(self):
         """Initial UI setup."""
@@ -918,6 +922,7 @@ class Wizard(BaseFrontend):
         # FIXME shrink the window horizontally instead of locking the window
         # size.
         self.live_installer.set_resizable(False)
+        self.live_installer.set_size_request(500, -1)
 
         def expand(widget):
             if widget.get_property('expanded'):
@@ -1726,6 +1731,7 @@ class Wizard(BaseFrontend):
         dialog = Gtk.MessageDialog(
             self.live_installer, Gtk.DialogFlags.MODAL,
             Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
+        dialog.label.set_max_width_chars(DIALOG_CHARS)
         dialog.set_title(title)
         dialog.run()
         self.set_busy_cursor(saved_busy_cursor)
@@ -1782,6 +1788,7 @@ class Wizard(BaseFrontend):
             buttons.append((text, len(buttons) + 1))
 
         self.ubi_question_dialog.set_title(title)
+        self.question_label.set_max_width_chars(DIALOG_CHARS)
         self.question_label.set_text(msg)
         actions = self.ubi_question_dialog.get_action_area()
         for action in actions.get_children():

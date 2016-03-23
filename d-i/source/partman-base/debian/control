@@ -12,7 +12,7 @@ Vcs-Bzr: http://bazaar.launchpad.net/~ubuntu-core-dev/partman-base/ubuntu
 Package: partman-base
 Package-Type: udeb
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, partman-utils, partman-partitioning (>=54), partman-target, archdetect, harddrive-detection, di-utils-mapdevfs, di-utils (>= 1.66), cdebconf-udeb (>= 0.133)
+Depends: ${shlibs:Depends}, ${misc:Depends}, partman-utils, partman-partitioning (>=54), partman-target, archdetect, disk-detect (>= 1.95ubuntu4), di-utils-mapdevfs, di-utils (>= 1.66), cdebconf-udeb (>= 0.133)
 Provides: ${provides}
 XB-Installer-Menu-Item: ${menuitemnum}
 Description: Partition the storage devices (partman)

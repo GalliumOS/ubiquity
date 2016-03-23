@@ -22,7 +22,7 @@ def get_distribution():
         for line in f:
             distro = line[:max(line.find(' '), 0) or None]
             if distro:
-                if distro == 'Ubuntu-GNOME':
+                if distro == 'Ubuntu-GNOME' or distro == "Ubuntu-MATE":
                     return str(distro.replace('-', ' '))
                 else:
                     return str(distro)
@@ -73,7 +73,8 @@ def generate_config():
         'Erase disk and install {0}'.format(distro_flavor)
     stepPartAsk['use_device_desc'] = \
         '<span size="small"><span foreground="darkred">Warning:</span> ' \
-        'This will delete any files on the disk.</span>'
+        'This will delete all your programs, documents, photos, music, ' \
+        'and any other files in all operating systems.</span>'
     stepPartAsk['use_crypto'] = \
         'Encrypt the new {0} installation for security'.format(distro_flavor)
     stepPartAsk['use_crypto_desc'] = \

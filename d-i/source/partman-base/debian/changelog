@@ -1,3 +1,101 @@
+partman-base (187ubuntu2) xenial; urgency=medium
+
+  [ Viktor Mihajlovski ]
+  * Add disk label type to device directory, such that
+    e.g. partman-partitioning can elect dasd partitioning table for dasd
+    drives. LP: #1548411.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 29 Feb 2016 14:47:30 +0000
+
+partman-base (187ubuntu1) wily; urgency=medium
+
+  * Resynchronise with Debian.  Remaining changes:
+    - Ubiquity integration: If PARTMAN_NO_COMMIT is set, then exit rather
+      than running commit.d and finish.d scripts; add a partman-commit
+      script; dump extra information to /var/lib/partman/snoop if
+      PARTMAN_SNOOP is set; check for per-menu 'no_show_choices' file in
+      ask_user and don't reshow the menu if it exists.
+    - Don't skip over dmraid devices if the user chooses not to activate
+      them.
+    - If the only thing mounted on a disk is the installation medium and it
+      uses more or less the whole disk, then silently exclude that disk; if
+      the installation medium is mounted but doesn't use the whole disk,
+      issue a warning that partitioning may be difficult; if anything else
+      is mounted, offer to unmount it. partman/filter_mounted=false disables
+      this.
+    - debian/control: replace harddrive-detection Depends with the specific
+      disk-detect version needed (>= 1.95ubuntu4) to support multipath-tools
+      0.5.0. There are no other harddrive-detection providers yet anyway.
+    - Multipath support: 
+      - lib/base.sh: is_multipath_part(): Use 'p' (not '-part') as multipath
+        disk-partition separator.
+      - lib/base.sh: humandev(): Accept spaces in multipath WWID.
+      - init.d/parted: part_of_multipath(): Update grep expression for more
+        recent output of 'multipath -l'.
+      - lib/base.sh: drop the p separator for multipath partitions
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 10 Aug 2015 11:23:02 -0400
+
+partman-base (187) unstable; urgency=medium
+
+  [ Philip Hands ]
+  * Do not list /dev/mmcblk.(rpmb|boot.) devices, as they cannot be
+    usefully partitioned (Closes: #773229)
+    Prompted by a patch from Tsung-Han Lin <tsung-han.lin@canonical.com>
+
+  [ Updated translations ]
+  * Turkish (tr.po) by Mert Dirik
+
+ -- Christian Perrier <bubulle@debian.org>  Wed, 22 Jul 2015 11:05:28 +0200
+
+partman-base (186) unstable; urgency=medium
+
+  [ Updated translations ]
+  * Turkish (tr.po) by Mert Dirik
+
+ -- Christian Perrier <bubulle@debian.org>  Thu, 02 Jul 2015 15:55:21 +0200
+
+partman-base (185) unstable; urgency=medium
+
+  [ Updated translations ]
+  * Portuguese (Brazil) (pt_BR.po) by Adriano Rafael Gomes
+
+ -- Christian Perrier <bubulle@debian.org>  Tue, 19 May 2015 19:16:36 +0200
+
+partman-base (184) unstable; urgency=low
+
+  [ Updated translations ]
+  * Romanian (ro.po) by Ioan Eugen Stan
+
+ -- Christian Perrier <bubulle@debian.org>  Thu, 09 Apr 2015 20:06:18 +0200
+
+partman-base (183) unstable; urgency=low
+
+  * Drop cruft files from an unclean git copy:
+    - Makefile
+    - debian/partman-base.dirs
+    - debian/partman-utils.dirs
+
+ -- Christian Perrier <bubulle@debian.org>  Mon, 09 Mar 2015 17:02:04 +0100
+
+partman-base (182) unstable; urgency=low
+
+  [ Updated translations ]
+  * Danish (da.po) by Joe Hansen
+
+ -- Christian Perrier <bubulle@debian.org>  Sun, 08 Mar 2015 11:59:54 +0100
+
+partman-base (181ubuntu4) wily; urgency=medium
+
+  * lib/base.sh: drop the p separator for multipath partitions: since
+    multipath-tools 0.5.0, there is no separator, devices are of the format
+    mpath[a-z]+[0-9]+, where [0-9]+ is the partition number.
+  * debian/control: replace harddrive-detection Depends with the specific
+    disk-detect version needed (>= 1.95ubuntu4) to support multipath-tools
+    0.5.0. There are no other harddrive-detection providers yet anyway.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 06 Jul 2015 11:42:55 -0400
+
 partman-base (181ubuntu3) vivid; urgency=medium
 
   [ Mauricio Faria de Oliveira ]

@@ -47,6 +47,7 @@ VNCOPTS="-vnc localhost:$VNCPORT"
 QEMUOPTS="-m $RAMSIZE -smp $VCPU \
     -localtime -no-reboot \
     -net nic,model=virtio -net user -redir tcp:$SSHPORT::22 \
+    -cpu core2duo \
     -daemonize
     "
 

@@ -4,6 +4,7 @@
 #export DH_VERBOSE=1
 
 export DH_OPTIONS
+export LC_ALL=C.UTF-8
 
 VERSION := $(shell dpkg-parsechangelog | awk '/^Version:/ { print $$2 }')
 EXPECTED_AC_VERSION := $(shell echo "$(VERSION)" | cut -d. -f1,2)
@@ -211,7 +212,7 @@ endif
 
 tests: install-stamp
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	CODE=0; env -u LD_PRELOAD ./tests/run --xvfb-log debian/xvfb.log || CODE=$$?; \
+	CODE=0; env -i LANG=C.UTF-8 ./tests/run --xvfb-log debian/xvfb.log || CODE=$$?; \
 	echo "xauth/Xrdb output:"; \
 	cat debian/xvfb.log; \
 	rm -f debian/xvfb.log; \

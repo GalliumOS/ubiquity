@@ -61,20 +61,37 @@ ARTIFACTS="$TESTBASE /var/log/installer /var/log/syslog $HOME/.cache/upstart /va
 
 
 # Specific configurations for various DE
-case $SESSION in
-    ubuntu)    # Covers Ubuntu and Edubuntu
-        SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
-        ;;
-    xubuntu)
-        SESSION_LOG=$HOME/.cache/upstart/startxfce4.log
-        ;;
-    Lubuntu)
-        SESSION_LOG=$HOME/.cache/lxsession/Lubuntu/run.log
-        ARTIFACTS="$ARTIFACTS $HOME/.cache/lxsession"
-        ;;
-    gnome)     # ubuntu-gnome
-        SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
-esac
+if [ -n "${SESSION+1}" ]; then
+    case $SESSION in
+        ubuntu)    # Covers Ubuntu and Edubuntu
+            SESSION_LOG=$HOME/.cache/upstart/gnome-session.log
+            ;;
+        xubuntu)
+            SESSION_LOG=$HOME/.cache/upstart/startxfce4.log
+            ;;
+        Lubuntu)
+            SESSION_LOG=$HOME/.cache/lxsession/Lubuntu/run.log
+            ARTIFACTS="$ARTIFACTS $HOME/.cache/lxsession"
+            ;;
+    esac
+elif [ -n "${DESKTOP_SESSION+1}" ]; then
+    # These 2 don't seem to log apt stuff to syslog
+    # And there doesn't seem to be a user session log???
+    # So let's tail it and also include in the artifacts
+    case $DESKTOP_SESSION in
+        mate)    # Covers Ubuntu-mate
+            SESSION_LOG=/var/log/apt/term.log
+            ARTIFACTS="$ARTIFACTS /var/log/apt"
+            ;;
+        gnome) #ubuntu-gnome
+            SESSION_LOG=/var/log/apt/term.log
+            ARTIFACTS="$ARTIFACTS /var/log/apt"
+            ;;
+    esac
+else
+    echo "I: Unknown SESSION"
+    exit 1
+fi
 
 PACKAGES="bzr ssh python3-autopilot libautopilot-gtk python3-xlib \
     recordmydesktop"
@@ -90,9 +107,11 @@ on_exit() {
     if [ -n "$(ls /var/crash/)" ]; then
         export CRASH_DB_URL=https://daisy.ubuntu.com 
         export CRASH_DB_IDENTIFIER=$(echo ubiquity_autopilot_$(lsb_release -sc)_$(arch)|sha512sum|cut -d' ' -f1)
-        sudo -E whoopsie||true
-        sleep 3
-        [ -x "/usr/share/apport/whoopsie-upload-all" ] && echo "I: Uploading crash files" && sudo -E /usr/share/apport/whoopsie-upload-all -t 300
+        #sudo -E whoopsie||true
+        #sleep 3
+        #[ -x "/usr/share/apport/whoopsie-upload-all" ] && echo "I: Uploading crash files" && sudo -E /usr/share/apport/whoopsie-upload-all -t 300
+        echo "I: The following crash were found:"
+        ls -l /var/crash/ || true
         chmod og+r /var/crash/* 2>/dev/null || true
     fi
 

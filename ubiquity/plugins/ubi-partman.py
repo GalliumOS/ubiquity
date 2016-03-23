@@ -338,8 +338,8 @@ class PageGtk(PageBase):
             reuse or replace)
 
         # Looks like not... go to disk space allocation page
-        if (self.current_page in [self.page_ask, self.page_crypto]
-                and not done_partitioning):
+        if (self.current_page in [self.page_ask, self.page_crypto] and
+                not done_partitioning):
             if resize:
                 self.set_page_title(self.resize_use_free.get_label())
                 if 'wubi' in self.extra_options:
@@ -1448,8 +1448,8 @@ class PageGtk(PageBase):
             complete = False
             self.password_match.set_current_page(
                 self.password_match_pages['empty'])
-            if passw and (not passw.startswith(vpassw)
-                          or len(vpassw) / len(passw) > 0.8):
+            if passw and (not passw.startswith(vpassw) or
+                          len(vpassw) / len(passw) > 0.8):
                 self.password_match.set_current_page(
                     self.password_match_pages['mismatch'])
         else:
@@ -2150,8 +2150,7 @@ class Page(plugin.Plugin):
                 self.debug('Partman: dropping resize option.')
                 del self.extra_options['resize']
 
-        resize_option = ('resize' in self.extra_options or
-                         'biggest_free' in self.extra_options)
+        resize_option = None
 
         # Irrespective of os_counts
         # We always have the manual partitioner, and it always has the same

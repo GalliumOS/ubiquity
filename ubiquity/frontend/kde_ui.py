@@ -49,6 +49,7 @@ from ubiquity.frontend.kde_components import ProgressDialog
 from ubiquity.frontend.kde_components.Breadcrumb import Breadcrumb
 from ubiquity.frontend.kde_components import qssutils
 from ubiquity.plugin import Plugin
+from ubiquity.qtwidgets import SquareSvgWidget
 import ubiquity.progressposition
 
 
@@ -84,10 +85,15 @@ class UbiquityUI(QtGui.QMainWindow):
             for line in fp:
                 if "DISTRIB_ID=" in line:
                     name = str.strip(line.split("=")[1], '\n')
+                    if name.startswith('"') and name.endswith('"'):
+                        name = name[1:-1]
                     if name != "Ubuntu":
                         distro_name = name
                 elif "DISTRIB_RELEASE=" in line:
                     distro_release = str.strip(line.split("=")[1], '\n')
+                    if distro_release.startswith('"') and \
+                            distro_release.endswith('"'):
+                        distro_release = distro_release[1:-1]
 
         self.distro_name_label.setText(distro_name)
         self.distro_release_label.setText(distro_release)
@@ -164,6 +170,8 @@ class Wizard(BaseFrontend):
         # might kick in such as in QIconLoader.cpp:QString fallbackTheme.
         # http://goo.gl/6LkM7X
         os.environ["KDE_SESSION_VERSION"] = "4"
+        # Pretty much all of the above but for Qt5
+        os.environ["QT_QPA_PLATFORMTHEME"] = "kde"
 
         self.app = QtGui.QApplication([])
         # The "hicolor" icon theme gets picked when Ubiquity is running as a
@@ -179,6 +187,33 @@ class Wizard(BaseFrontend):
 
         self.ui = UbiquityUI()
 
+        # Branding logo is spaced from left and right to cause it to shrink
+        # an undefined amount. This reduces the risk of having the branding
+        # shrink the steps_widget and thus cause text to be cut off or.
+        # Above the branding there is also a spacer pushing down on the logo
+        # and up on the steps to make sure spacing between steps is not
+        # awkwardly huge.
+        self.icon_widget = SquareSvgWidget(self.ui)
+        distro = self.ui.distro_name_label.text()
+        logoDirectory = "/usr/share/ubiquity/qt/images/"
+        if os.path.isfile(logoDirectory + distro + ".svgz"):
+            self.icon_widget.load(logoDirectory + distro + ".svgz")
+        else:
+            self.icon_widget.load(logoDirectory + "branding.svgz")
+        branding_layout = QtGui.QHBoxLayout()
+        branding_layout.addItem(QtGui.QSpacerItem(1, 1,
+                                                  QtGui.QSizePolicy.Expanding,
+                                                  QtGui.QSizePolicy.Minimum))
+        branding_layout.addWidget(self.icon_widget)
+        branding_layout.addItem(QtGui.QSpacerItem(1, 1,
+                                                  QtGui.QSizePolicy.Expanding,
+                                                  QtGui.QSizePolicy.Minimum))
+        branding_spacer = QtGui.QSpacerItem(1, 1,
+                                            QtGui.QSizePolicy.Minimum,
+                                            QtGui.QSizePolicy.Expanding)
+        self.ui.sidebar_widget.layout().addItem(branding_spacer)
+        self.ui.sidebar_widget.layout().addItem(branding_layout)
+
         # initially the steps widget is not visible
         # it becomes visible once the first step becomes active
         self.ui.steps_widget.setVisible(False)
@@ -186,10 +221,10 @@ class Wizard(BaseFrontend):
 
         if 'UBIQUITY_GREETER' in os.environ:
             self.ui.setWindowFlags(
-                QtCore.Qt.Dialog
-                | QtCore.Qt.CustomizeWindowHint
-                | QtCore.Qt.WindowTitleHint
-                )
+                QtCore.Qt.Dialog |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint
+            )
 
         self.ui.setWizard(self)
 

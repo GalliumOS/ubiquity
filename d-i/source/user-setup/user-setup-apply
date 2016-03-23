@@ -293,7 +293,6 @@ AutomaticLogin=$USER\n"
     				# Configure LXDM autologin with LXDE session
    				$log $chroot $ROOT sed -i$BACKUP -r \
         				-e "s/^# autologin=dgod/autologin=$USER/" \
-        				-e "s/^# session/session/" \
         				/etc/lxdm/lxdm.conf
 			fi
 
@@ -329,13 +328,12 @@ EOF
 				LightDMCustomFile=$ROOT/etc/lightdm/lightdm.conf
 				AutologinParameters="autologin-guest=false\n\
 autologin-user=$USER\n\
-autologin-user-timeout=0\n\
-autologin-session=lightdm-autologin"
+autologin-user-timeout=0"
 				if ! grep -qs '^autologin-user' $LightDMCustomFile; then
-					if ! grep -qs '^\[SeatDefaults\]' $LightDMCustomFile; then
-						echo '[SeatDefaults]' >> $LightDMCustomFile
+					if ! grep -qs '^\[Seat:\*\]' $LightDMCustomFile; then
+						echo '[Seat:*]' >> $LightDMCustomFile
 					fi
-					sed -i "s/\[SeatDefaults\]/\[SeatDefaults\]\n$AutologinParameters/" $LightDMCustomFile
+					sed -i "s/\[Seat:\*\]/\[Seat:\*\]\n$AutologinParameters/" $LightDMCustomFile
 				#oem config scenario
 				else
 					sed -i "s/^\(\(str  *\)\?autologin-user\)=.*$/\1=$USER/g;" $ROOT/etc/lightdm/lightdm.conf

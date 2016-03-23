@@ -1,55 +1,326 @@
-ubiquity (2.21.26-0galliumos7) vivid-galliumos; urgency=medium
+ubiquity (2.21.50-galliumos1) xenial; urgency=medium
 
-  * Set the live installer dialog width
-  * Removed the third party non free software option
+  * Added galliumos patches
 
- -- Hugh Greenberg <hugh@galliumos.org>  Mon, 8 Feb 2016 21:05:33 +0000
+ -- Hugh Greenberg <hugh@galliumos.org>  Tue, 22 Mar 2016 19:23:36 +0000
 
-ubiquity (2.21.26-0galliumos6) vivid-galliumos; urgency=medium
+ubiquity (2.21.50) xenial; urgency=medium
 
-  * Improved miniumum dialog width patch
+  * Adjust code for change of fwupdate-%arch-signed renaming to fwupdate-signed
+  * Automatic update of included source packages: hw-detect
+    1.114ubuntu4.
 
- -- Hugh Greenberg <hugh@galliumos.org>  Tue, 26 Jan 2016 21:05:33 +0000
+ -- Mario Limonciello <mario_limonciello@dell.com>  Mon, 21 Mar 2016 19:23:36 +0000
 
-ubiquity (2.21.26-0galliumos5) vivid-galliumos; urgency=medium
+ubiquity (2.21.49) xenial; urgency=medium
 
-  * Removed slim autologin support
-  * Modified lxdm autologin support
-  * Improved the dialog width
+  * Make sure to keep fwupdate-$ARCH-signed packages installed when removing
+    extra stuff from the live filesystem if on EFI.
 
- -- Hugh Greenberg <hugh@galliumos.org>  Fri, 22 Jan 2016 21:05:33 +0000
+ -- Mario Limonciello <mario_limonciello@dell.com>  Fri, 18 Mar 2016 13:29:15 -0500
 
-ubiquity (2.21.26-0galliumos4) vivid-galliumos; urgency=medium
+ubiquity (2.21.48) xenial; urgency=medium
 
-  * Set package version to match provenance
+  * Make sure we keep mokutil files installed when we remove extra stuff from
+    the installed system that was pulled in because of the live filesystem.
+  * debian/control, d-i/update-control: replace pyflakes from Build-Depends
+    with pyflakes3, since the binary for pyflakes3 was moved.
+  * Automatic update of included source packages: console-setup
+    1.108ubuntu11, grub-installer 1.128ubuntu5, hw-detect 1.114ubuntu3,
+    partman-auto 134ubuntu1, partman-base 187ubuntu2, partman-
+    partitioning 110ubuntu4, preseed 1.71ubuntu1, user-setup
+    1.63ubuntu2.
 
- -- reynhout <reynhout@galliumos.org>  Sun, 10 Jan 2016 21:05:33 +0000
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 15 Mar 2016 14:38:58 -0400
 
-ubiquity (2.21.31) vivid-galliumos; urgency=medium
+ubiquity (2.21.47) xenial; urgency=medium
 
-  * Changed distro name to GalliumOS
-  * Added support for SLiM in the autologin script 
+  [ Marc Deslauriers ]
+  * scripts/plugininstall.py: Write initial random seed to systemd
+    location (LP: #1523199)
 
- -- Hugh Greenberg <hugh@galliumos.org>  Wed, 28 Oct 2015 13:32:25 +0200
+  [ Jonathan Riddell ]
+  * kde_ui.py: strip any quotes from the lsb-release values
+  * Allow for alternate logos
 
-ubiquity (2.21.29) vivid-galliumos; urgency=medium
+  [ Mathieu Trudel-Lapierre ]
+  * ubi-prepare: when non-free is disabled, drop the foss_disclaimer_extra
+    widget, and make the whole nonfree_vbox invisible (third-party drivers and
+    such are non-free, and disabling Secure Boot is unnecessary if you don't
+    install any non-free drivers). (LP: #1549816)
 
-  * Disabled swap for automatic partitioning in the regular case
-  * Disabled the option to resize if multiple operating systems are detected
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 25 Feb 2016 14:41:41 -0500
 
- -- Hugh Greenberg <hugh@galliumos.org>  Mon, 27 Oct 2015 13:32:25 +0200
+ubiquity (2.21.46) xenial; urgency=medium
 
-ubiquity (2.21.28) vivid-galliumos; urgency=medium
+  * ubiquity/upower.py: Revert commit 6376, blank "except:" is wrong.
+  * ubiquity/upower.py: Actually specify the correct D-Bus interface name
+    instead of the object path name when querying the OnBattery property.
+    (LP: #1547956)
+  * debian/rules: Build under C.UTF-8 locale. grep 2.23 causes broken debconf
+    templates to be built under the C locale.
 
-  * Patches for setting relatime and discard options in fstab
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 24 Feb 2016 16:02:19 +0100
 
- -- Hugh Greenberg <hugh@galliumos.org>  Fri, 16 Oct 2015 13:32:25 +0200
+ubiquity (2.21.45) xenial; urgency=medium
 
-ubiquity (2.21.27) vivid-galliumos; urgency=medium
+  [ Luke Yelavich ]
+  * Rework the accessibility profile code to use the accessibility profile
+    manager if available
 
-  * Patches for GalliumOS
+  [ Mathieu Trudel-Lapierre ]
+  * Don't crash if we can't reach the DBus interface for UPower.
+  * Automatic update of included source packages: hw-detect
+    1.114ubuntu2.
 
- -- Hugh Greenberg <hugh@galliumos.org>  Fri, 04 Sep 2015 13:32:25 +0200
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 22 Feb 2016 17:37:59 -0500
+
+ubiquity (2.21.44) xenial; urgency=medium
+
+  [ Iain Lane ]
+  * Port the slideshow screen to WebKit 2 (LP: #1469221)
+  * Automatic update of included source packages: apt-setup
+    1:0.104ubuntu3, bterm-unifont 1.4, choose-mirror 2.65ubuntu4, flash-
+    kernel 3.0~rc.4ubuntu58, partconf 1.49, partman-basicmethods 61,
+    partman-lvm 112, partman-newworld 34, partman-xfs 58.
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: apt-setup 1:0.104ubuntu4,
+    choose-mirror 2.65ubuntu5, flash-kernel 3.0~rc.4ubuntu62,
+    partman-partitioning 110ubuntu3, partman-jfs 47.
+  * Redesign the prepare screen for less clutter.
+  * Unbreak the Kubuntu installer with respect to Secure Boot.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 16 Feb 2016 06:10:51 -0500
+
+ubiquity (2.21.43) xenial; urgency=medium
+
+  * ubiquity/install_misc.py: be extra careful retrieving the state of the
+    SecureBoot variable the system if booted in EFI, to avoid invalid data.
+    (LP: #1531779)
+  * Automatic update of included source packages: base-installer
+    1.158ubuntu2, console-setup 1.108ubuntu10.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 26 Jan 2016 19:23:41 -0500
+
+ubiquity (2.21.42) xenial; urgency=medium
+
+  * Automatic update of included source packages: grub-installer
+    1.128ubuntu2.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 04 Jan 2016 16:27:15 +0000
+
+ubiquity (2.21.41) xenial; urgency=medium
+
+  * Pass "-term linux" when running setterm from start-ubiquity-dm, as
+    without TERM set it otherwise refuses to do anything.
+  * Set "Before=plymouth-quit.service plymouth-quit-wait.service" in
+    ubiquity.service, so that plymouth isn't told to quit while we're busy
+    starting up on its VT (LP: #1527353).
+  * Automatic update of included source packages: apt-setup 1:0.104ubuntu2,
+    clock-setup 0.126ubuntu1, debian-installer-utils 1.113ubuntu1, tzsetup
+    1:0.81ubuntu1.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 31 Dec 2015 00:07:05 +0000
+
+ubiquity (2.21.40) xenial; urgency=medium
+
+  * Automatic update of included source packages: partman-auto
+    131ubuntu1, partman-basicfilesystems 120ubuntu1, partman-crypto
+    86ubuntu1, partman-efi 71ubuntu1, partman-partitioning 110ubuntu1.
+  * debian/control: build ubiquity-frontend-gtk only for the architectures
+    we might actually want to use it on, while being extremely generous:
+    this leads to building on x86, arm*, and ppc*, but not on s390x.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 23 Dec 2015 11:42:48 -0500
+
+ubiquity (2.21.39) xenial; urgency=medium
+
+  * Automatic update of included source packages: partman-efi 62ubuntu3,
+    partman-ext3 84ubuntu2, partman-xfs 57, preseed 1.64ubuntu4, apt-setup
+    1:0.104ubuntu1, flash-kernel 3.0~rc.4ubuntu57, hw-detect 1.114ubuntu1,
+    netcfg 1.135ubuntu1, partman-btrfs 18ubuntu1, preseed 1.68ubuntu1,
+    user-setup 1.63ubuntu1, base-installer 1.158ubuntu1, grub-installer
+    1.128ubuntu1, partman-target 98ubuntu1, yaboot-installer 1.1.36ubuntu1,
+    choose-mirror 2.65ubuntu2.
+  * Add support for disabling Secure Boot in prepare screen.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 21 Dec 2015 16:41:39 -0500
+
+ubiquity (2.21.38) xenial; urgency=medium
+
+  * d-i/sources.list: switch to xenial.
+  * scripts/plugininstall.py: Ensure /etc/mtab is a symlink to
+    /proc/self/mounts. Same fix as in finish-install 2.58.
+    (Closes: #802184, #802187; LP: #1511376)
+  * Automatic update of included source packages: choose-mirror
+    2.65ubuntu1, partman-lvm 111.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Sun, 01 Nov 2015 21:21:28 -0600
+
+ubiquity (2.21.37) wily; urgency=medium
+
+  * Fix the :arch ignoring bits harder, by doing the same change as 2.21.35
+    but in scripts/install.py this time.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 20 Oct 2015 18:23:16 +0100
+
+ubiquity (2.21.36) wily; urgency=medium
+
+  * Automatic update of included source packages: console-setup 1.108ubuntu9,
+    grub-installer 1.78ubuntu30, localechooser 2.65ubuntu3. I just did that
+    yesterday, too.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 20 Oct 2015 16:17:28 +0100
+
+ubiquity (2.21.35) wily; urgency=medium
+
+  * scripts/plugininstall.py: Ignore ':arch' in package names when deciding
+    which packages to keep after installing. We keep track of installed
+    packages without arch, so should remove it when doing this comparison.
+    (LP: #1503297)
+
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 19 Oct 2015 17:31:46 +0100
+
+ubiquity (2.21.34) wily; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: console-setup
+    1.108ubuntu8, localechooser 2.65ubuntu2.
+  * Set a height_request property for the details extender (the thing you can
+    click to get syslog from the ubiquity slideshow window). (LP: #1507330)
+
+  [ Aron Xu ]
+  * d-i/patches/localechooser-post-base-installer.patch: update patch for
+    new languagelist format.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Mon, 19 Oct 2015 17:02:29 +0100
+
+ubiquity (2.21.33) wily; urgency=medium
+
+  * Automatic update of included source packages: tzsetup 1:0.66ubuntu2.
+    (LP: #1462688)
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 01 Oct 2015 15:50:33 -0400
+
+ubiquity (2.21.32) wily; urgency=medium
+
+  * Resolve a spacing issue in the KDE ui.
+    - Move vertial spacer for branding logo from designer file to code
+    - Adjust spacing policies of the lefthand pane to do what we need:
+      + the header layout doesn't expand anymore
+      + the steps layout expands horizontally and verticall and additionally
+        enforces its sizeHint as minimum.
+      + the unused footer layout no longer expands horizontally but sticks to
+        its minimum
+    - Push branding logo to smaller size
+      + The logo is now packed into a layout where it is spaced from left and
+        right to cause an undefined shrinking as per Qt's choice. This
+        effectively reduces the sizes of the logo both in width and height (as
+        height is bound to width). This in turn brings the overall size down
+        enough to not cause size expansion beyond "resonable" measures.
+        (Reasonable being just big enough to be good looking but small enough
+         to not push down on the labels in the steps widget. Latter has an
+         unknown cause, but when the logo is too big it starts pushing on the
+         labels, disregarding the entire sizepolicy of all involved widgets.
+         If the logo is small enough this doesn't happen which either may be
+         because there is a hardcoded height somewhere or the joint minimal
+         size of all steps' pages is heigh enough to allow for this to happen.
+         This overall layout problem has been there for years and only became
+         visible now because we have a somewhat heigh widget below the steps
+         layout. Ultimately this issue is going to get resolved if/when
+         ubiquity gets ported to QML which is substantially more suited to
+         building UIs like this with right scaling.)
+
+ -- Harald Sitter <sitter@kde.org>  Tue, 29 Sep 2015 14:37:29 +0200
+
+ubiquity (2.21.31) wily; urgency=medium
+
+  [ Iain Lane ]
+  * Build-Depend on the new adwaita-icon-theme instead of the old
+    gnome-icon-theme.
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: user-setup
+    1.48ubuntu7.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Wed, 23 Sep 2015 12:19:47 -0400
+
+ubiquity (2.21.30) wily; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * Fix access denied crashes in calling GetDevices() for NM integration: this
+    happened because we didn't specify a DBus interface for the call.
+    (LP: #1495017)
+  * Automatic update of included source packages: grub-installer
+    1.78ubuntu29.
+
+  [ Dan Chapman ]
+  * Multiple autopilot fixes:
+    - Add workaround for 'Write changes to disk' dialog. (LP: #1480430)
+    - Update the use_device_desc string in generated config file use for
+      english install tests.
+    - Fix handling of globalRect mismatches. (LP: #1479064)
+    - Fixup string comparisons to properly match Ubuntu-MATE for the english
+      install tests.
+    - Fix the autopilot test runner for Ubuntu-GNOME and Ubuntu-MATE.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 15 Sep 2015 17:04:57 -0400
+
+ubiquity (2.21.29) wily; urgency=medium
+
+  [ Harald Sitter ]
+  * Refine KDE ui with slight changes to artwork and layout to improve visual
+    integration with the overall desing of Breeze styled applications
+
+  [ Jonathan Riddell ]
+  * Automatic update of included source packages: console-setup
+    1.108ubuntu6.
+
+ -- Harald Sitter <sitter@kde.org>  Wed, 09 Sep 2015 11:00:10 +0200
+
+ubiquity (2.21.28) wily; urgency=medium
+
+  [ Sean Davis ]
+  * bin/ubiquity-dm: Draw the ubiquity desktop with feh under
+    Xfce environments (LP: #1437180)
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: apt-setup
+    1:0.80ubuntu8, base-installer 1.144ubuntu2, flash-kernel
+    3.0~rc.4ubuntu55, hw-detect 1.95ubuntu7, partconf 1.48, partman-base
+    187ubuntu1, partman-basicmethods 60, partman-jfs 46, partman-lvm
+    110, partman-newworld 33, partman-xfs 56, user-setup 1.48ubuntu6.
+  * Update timezone map to add North Korea (Pyongyang time). (LP: #1462688)
+  * Fix instances of PEP8 warning: W503 line break before binary operator.
+  * Ignore the PEP8 error E402 (imports at beginning of file). There are a few
+    instances where we need to set sys.path to where ubiquity files are.
+  * Fix some more style errors from PEP8.
+  * autogen.sh: Use any available version of automake/aclocal.
+
+  [ Luke Yelavich ]
+  * ubiquity/frontend/gtk_ui.py: We do not want to be able to focus labels
+    with Orca at all. It negatively affects the install experience and
+    tab/shift tab flow through the installer pages, and prevents Orca
+    presenting label relationships with other widgets
+
+  [ Max Brustkern ]
+  * Update the automated autopilot installation in the vm: get the updated
+    sources.list picked up by hooks by being in the right location.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Tue, 08 Sep 2015 10:58:17 -0400
+
+ubiquity (2.21.27) wily; urgency=medium
+
+  * Automatic update of included source packages: choose-mirror
+    2.57ubuntu3, partconf 1.47, partman-lvm 109, preseed 1.64ubuntu3,
+    tzsetup 1:0.66ubuntu1, localechooser 2.65ubuntu1.
+  * debian/rules: wipe all environment when running tests, only set
+    LANG to C.UTF-8 for debconf to be able to handle the Brazil
+    timezones' accents.
+  * d-i/sources.list: switch to wily release.
+
+ -- Mathieu Trudel-Lapierre <mathieu-tl@ubuntu.com>  Thu, 04 Jun 2015 10:34:59 -0400
 
 ubiquity (2.21.26) vivid; urgency=medium
 

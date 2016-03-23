@@ -315,7 +315,7 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
             row = Columns(*temp_list[start:end])
             # create a new tuple adding the current row number
             # which we will use as dict key
-            row_list.append(('Row{0}'.format(i+1), row))
+            row_list.append(('Row{0}'.format(i + 1), row))
             # update our table dict
             table_dict.update(row_list)
             # remove the items we just added from the temp list
@@ -332,18 +332,14 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
         Gets the GtkTreeViews corresponding GtkTreeViewAccessible object
         """
         logger.debug('Getting corresponding GtkTreeViewAccessible object')
-        # lets get a root instance
-        root = self.get_root_instance()
-        assert root is not None
         # As the treeview item is in the GAILWindow tree and not our current
         # tree We want to select the treeviewaccessible with the same
         # globalRect as us
-        logger.debug('Selecting GtkTreeViewAccessible with same globalRect')
-        treeviews = root.select_many('GtkTreeViewAccessible',
-                                     globalRect=self.globalRect)
+        logger.debug('Selecting GtkTreeViewAccessible with same globalRect,\
+                     or at least within close range')
         # if the treeviews are nested they could potentially have the
         # same globalRect so lets pick out the one thats visible
-        for treeview in treeviews:
+        for treeview in self._get_all_atktreeviews_within_range():
             if treeview.visible:
                 logger.debug('GtkTreeViewAccessible object found, '
                              'returning object.')
@@ -351,6 +347,40 @@ class GtkTreeView(AutopilotGtkEmulatorBase):
         raise ValueError(
             "No treeview visible with globalRect {0}".format(self.globalRect)
         )
+
+    # So this is a workaround for the ATK treeviews globalrect
+    # being slightly different compared to it's GtkTreeView counterpart.
+    def _get_all_atktreeviews_within_range(self, ):
+        # lets get a root instance
+        root = self.get_root_instance()
+        assert root is not None
+        treeviews = []
+        # This is going to be slow! but what more can we do? we can't put
+        # an in range arg on the select_many call :-(
+        for tree in root.select_many('GtkTreeViewAccessible'):
+            # There will be some tree's that don't have a globalRect property
+            # no idea why but we can just ignore them as we can be sure
+            # this isn't the one we want.
+            if "globalRect" not in tree.get_properties():
+                logger.debug("TreeView doesn't have globalRect property")
+                continue
+            # assume every treeview is in range unless we find out otherwise
+            in_range = True
+            i = 0
+            # Get a list of all ATK treeviews with globalRect within a
+            # 5px range of this GtkTreeView
+            # FIXME: is 5px too much?? It's unlikely more than one tree will
+            # be within this range anyway, as they would be overlaying each
+            # other.
+            # Even if they are only one will be visible (we hope!)
+            for r in self.globalRect:
+                if r not in range(tree.globalRect[i] - 5,
+                                  tree.globalRect[i] + 5):
+                    in_range = False
+                i += 1
+            if in_range:
+                treeviews.append(tree)
+        return treeviews
 
 
 class GtkComboBox(AutopilotGtkEmulatorBase):

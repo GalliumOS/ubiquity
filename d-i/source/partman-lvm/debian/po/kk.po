@@ -23,9 +23,9 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: partman-lvm@packages.debian.org\n"
 "POT-Creation-Date: 2014-09-15 22:01+0000\n"
-"PO-Revision-Date: 2011-09-21 14:41+0600\n"
+"PO-Revision-Date: 2015-04-02 12:00+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
-"Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
+"Language-Team: Kazakh\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -424,10 +424,8 @@ msgstr ""
 #. Description
 #. :sl3:
 #: ../partman-lvm.templates:32001
-#, fuzzy
-#| msgid "Error while deleting volume group"
 msgid "Error while creating volume group"
-msgstr "Томдар тобын жою кезінде қате кетті"
+msgstr "Томдар тобын жасау кезінде қате кетті"
 
 #. Type: error
 #. Description

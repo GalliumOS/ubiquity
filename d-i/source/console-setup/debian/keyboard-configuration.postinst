@@ -98,15 +98,16 @@ boots. If you want to update it now, run 'setupcon' from a virtual console.
 EOF
 	fi
     else
-	OS=`udpkg --print-os || true`
-	if [ "$OS" = hurd ]
-	then
-	    [ ! -f /var/run/hurd-console.pid ] || kill `cat /var/run/hurd-console.pid`
-	else
-	    if type setupcon >/dev/null 2>&1; then
-		setupcon --force --save
-	    fi
-	fi
+	case "`uname`" in
+	    *GNU*)
+		[ ! -f /var/run/hurd-console.pid ] || kill `cat /var/run/hurd-console.pid`
+		;;
+	    *)
+		if type setupcon >/dev/null 2>&1; then
+		    setupcon --force --save
+		fi
+		;;
+	esac
     fi
 fi
 

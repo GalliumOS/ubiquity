@@ -33,7 +33,7 @@ class Partition:
         '#a5cc42',
         '#d87e30',
         '#ffbdbd',
-        ]
+    ]
 
     FreeColor = '#777777'
 
