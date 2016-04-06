@@ -76,8 +76,6 @@ os.environ['UBIQUITY_GLADE'] = UIDIR
 # Define locale path
 LOCALEDIR = "/usr/share/locale"
 
-DIALOG_CHARS = 100
-
 
 def set_root_cursor(cursor=None):
     if cursor is None:
@@ -702,7 +700,6 @@ class Wizard(BaseFrontend):
             dialog = Gtk.MessageDialog(
                 self.live_installer, Gtk.DialogFlags.MODAL,
                 Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE, title)
-            dialog.label.set_max_width_chars(DIALOG_CHARS)
             dialog.run()
             sys.exit(1)
 
@@ -804,15 +801,12 @@ class Wizard(BaseFrontend):
             else:
                 txt = self.finished_label.get_label()
                 txt = txt.replace('${RELEASE}', misc.get_release().name)
-
-            self.finished_label.set_max_width_chars(DIALOG_CHARS)
             self.finished_label.set_label(txt)
             with misc.raised_privileges():
                 with open('/var/run/reboot-required', "w"):
                     pass
             self.finished_dialog.set_keep_above(True)
             self.set_busy_cursor(False)
-
             self.finished_dialog.run()
         elif self.get_reboot():
             self.reboot()
@@ -909,6 +903,7 @@ class Wizard(BaseFrontend):
         import gi
         gi.require_version("Vte", "2.91")
         from gi.repository import Vte, Pango
+        misc.drop_privileges_save()
         self.vte = Vte.Terminal()
         self.install_details_sw.add(self.vte)
         tail_cmd = [
@@ -919,10 +914,10 @@ class Wizard(BaseFrontend):
         fontdesc = Pango.font_description_from_string("Ubuntu Mono 8")
         self.vte.set_font(fontdesc)
         self.vte.show()
+        misc.regain_privileges_save()
         # FIXME shrink the window horizontally instead of locking the window
         # size.
         self.live_installer.set_resizable(False)
-        self.live_installer.set_size_request(500, -1)
 
         def expand(widget):
             if widget.get_property('expanded'):
@@ -1731,7 +1726,6 @@ class Wizard(BaseFrontend):
         dialog = Gtk.MessageDialog(
             self.live_installer, Gtk.DialogFlags.MODAL,
             Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
-        dialog.label.set_max_width_chars(DIALOG_CHARS)
         dialog.set_title(title)
         dialog.run()
         self.set_busy_cursor(saved_busy_cursor)
@@ -1788,7 +1782,6 @@ class Wizard(BaseFrontend):
             buttons.append((text, len(buttons) + 1))
 
         self.ubi_question_dialog.set_title(title)
-        self.question_label.set_max_width_chars(DIALOG_CHARS)
         self.question_label.set_text(msg)
         actions = self.ubi_question_dialog.get_action_area()
         for action in actions.get_children():

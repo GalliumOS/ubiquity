@@ -2150,7 +2150,8 @@ class Page(plugin.Plugin):
                 self.debug('Partman: dropping resize option.')
                 del self.extra_options['resize']
 
-        resize_option = None
+        resize_option = ('resize' in self.extra_options or
+                         'biggest_free' in self.extra_options)
 
         # Irrespective of os_counts
         # We always have the manual partitioner, and it always has the same

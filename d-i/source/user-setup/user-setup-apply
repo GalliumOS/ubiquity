@@ -293,6 +293,7 @@ AutomaticLogin=$USER\n"
     				# Configure LXDM autologin with LXDE session
    				$log $chroot $ROOT sed -i$BACKUP -r \
         				-e "s/^# autologin=dgod/autologin=$USER/" \
+        				-e "s/^# session/session/" \
         				/etc/lxdm/lxdm.conf
 			fi
 
