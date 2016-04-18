@@ -1,2 +1,0 @@
-# ubiquity
-Ubiquity installer
