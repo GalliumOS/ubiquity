@@ -1,14 +1,55 @@
-ubiquity (2.21.57-galliumos1) xenon; urgency=medium
+ubiquity (2.21.63) xenial; urgency=medium
 
-  * Re-apply GalliumOS patches
-    - do not create swap partition
-    - add relatime,discard flags to fstab
-    - do not uncomment session config for LXDM
-    - resize installation progress window
-    - do not allow resizing partitions which will damage ChromeOS
-  * Add debian/galliumos/upstream config
+  * Automatic update of included source packages: user-setup
+    1.63ubuntu4.
 
- -- reynhout <reynhout@galliumos.org>  Mon, 18 Apr 2016 00:50:35 +0000
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 20 Apr 2016 12:11:00 -0400
+
+ubiquity (2.21.62) xenial; urgency=medium
+
+  * Automatic update of included source packages: netcfg 1.135ubuntu4.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 20 Apr 2016 13:22:40 +0100
+
+ubiquity (2.21.61) xenial; urgency=medium
+
+  * Automatic update of included source packages: console-setup
+    1.108ubuntu15.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 19 Apr 2016 21:25:45 -0400
+
+ubiquity (2.21.60) xenial; urgency=medium
+
+  * Automatic update of included source packages: user-setup
+    1.63ubuntu3.
+  * Don't crash in the Kubuntu prepare page if we're booting in EFI. Try to
+    do the right thing in showing password boxes and all the trimmings for
+    setting a Mok password, using the already-translated strings we have.
+    (LP: #1529450)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 19 Apr 2016 13:11:19 -0400
+
+ubiquity (2.21.59) xenial; urgency=medium
+
+  * New wallpaper path for Ubuntu Studio
+
+ -- Kaj Ailomaa <zequence@mousike.me>  Mon, 18 Apr 2016 11:20:13 -0400
+
+ubiquity (2.21.58) xenial; urgency=medium
+
+  [ Martin Pitt
+  * ubiquity.service: Revert commit 6411.2.2 as this does not/can't fix
+    LP #1567194 but introduces a dependency cycle between getty, plymouth, and
+    ubiquity. (LP: #1570901)
+  * Automatic update of included source packages: hw-detect
+    1.117ubuntu2.
+
+  [ Christopher Lee ]
+  * autopilot-test: Double timeout for CI VM speed.
+  * autopilot-tests: Now storing results as subunit.
+  * autopilot-tests: longer timeout to handle CI VMs.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 18 Apr 2016 13:25:44 +0200
 
 ubiquity (2.21.57) xenial; urgency=medium
 

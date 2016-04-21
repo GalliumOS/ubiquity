@@ -3,13 +3,13 @@ base-installer 1.158ubuntu2
 bterm-unifont 1.4
 choose-mirror 2.65ubuntu6
 clock-setup 0.126ubuntu1
-console-setup 1.108ubuntu14
+console-setup 1.108ubuntu15
 debian-installer-utils 1.113ubuntu1
 flash-kernel 3.0~rc.4ubuntu62
 grub-installer 1.128ubuntu5
-hw-detect 1.117ubuntu1
+hw-detect 1.117ubuntu2
 localechooser 2.65ubuntu4
-netcfg 1.135ubuntu3
+netcfg 1.135ubuntu4
 partconf 1.49
 partman-auto 134ubuntu1
 partman-auto-crypto 22ubuntu1
@@ -31,5 +31,5 @@ partman-uboot 5
 partman-xfs 58
 preseed 1.71ubuntu1
 tzsetup 1:0.81ubuntu1
-user-setup 1.63ubuntu2
+user-setup 1.63ubuntu4
 yaboot-installer 1.1.36ubuntu1
