@@ -1,3 +1,16 @@
+ubiquity (2.21.63-galliumos1) xenon; urgency=medium
+
+  * re-apply GalliumOS patches
+
+     - do not create swap partition
+     - add relatime,discard flags to fstab
+     - do not uncomment session config for LXDM
+     - resize installation progress window
+     - do not allow resizing partitions which will damage ChromeOS
+     - add debian/galliumos/upstream
+
+ -- reynhout <reynhout@galliumos.org>  Thu, 21 Apr 2016 00:38:58 +0000
+
 ubiquity (2.21.63) xenial; urgency=medium
 
   * Automatic update of included source packages: user-setup

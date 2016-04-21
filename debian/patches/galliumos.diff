@@ -1,0 +1,157 @@
+--- a/bin/ubiquity-wrapper
++++ b/bin/ubiquity-wrapper
+@@ -11,6 +11,7 @@
+ sys.path.insert(0, '/usr/lib/ubiquity')
+ 
+ from ubiquity import osextras
++from subprocess import call
+ 
+ 
+ def main():
+@@ -34,6 +35,10 @@
+ 
+     if os.getuid() == 0:
+         # no privilege escalation required
++
++        # Turn off all swaps to fix issues with zram
++        call(["swapoff", "--all"])
++
+         inner = ['/usr/lib/ubiquity/bin/ubiquity'] + newargv
+ 
+         # Make sure ibus works
+--- a/d-i/source/partconf/mkfstab.c
++++ b/d-i/source/partconf/mkfstab.c
+@@ -97,7 +97,7 @@
+ 		  ((strcmp(dummy->typ, "ext2") == 0) ||
+ 		   (strcmp(dummy->typ, "ext3") == 0) ||
+ 		   (strcmp(dummy->typ, "ext4") == 0))) {
+-			dummy->options = strdup("errors=remount-ro");
++			dummy->options = strdup("errors=remount-ro,relatime,discard");
+ 		} else {
+ 			dummy->options = strdup("defaults");
+ 		}
+--- a/d-i/source/partman-auto/recipes/atomic
++++ b/d-i/source/partman-auto/recipes/atomic
+@@ -21,8 +21,3 @@
+ 	$default_filesystem{ }
+ 	mountpoint{ / } .
+ 
+-100% 512 200% linux-swap
+-	$lvmok{ }
+-	$reusemethod{ }
+-	method{ swap }
+-	format{ } .
+--- a/d-i/source/partman-basicfilesystems/check.d/check_swap
++++ b/d-i/source/partman-basicfilesystems/check.d/check_swap
+@@ -26,11 +26,11 @@
+ 	done
+ done
+ 
+-if ! $swap; then
+-	db_input critical partman-basicfilesystems/no_swap || true
+-	db_go || true
+-	db_get partman-basicfilesystems/no_swap
+-	if [ "$RET" = true ]; then
+-		exit 1
+-	fi
+-fi
++#if ! $swap; then
++#	db_input critical partman-basicfilesystems/no_swap || true
++#	db_go || true
++#	db_get partman-basicfilesystems/no_swap
++#	if [ "$RET" = true ]; then
++#		exit 1
++#	fi
++#fi
+--- a/d-i/source/user-setup/user-setup-apply
++++ b/d-i/source/user-setup/user-setup-apply
+@@ -293,7 +293,6 @@
+     				# Configure LXDM autologin with LXDE session
+    				$log $chroot $ROOT sed -i$BACKUP -r \
+         				-e "s/^# autologin=dgod/autologin=$USER/" \
+-        				-e "s/^# session/session/" \
+         				/etc/lxdm/lxdm.conf
+ 			fi
+ 
+--- a/scripts/plugininstall.py
++++ b/scripts/plugininstall.py
+@@ -1698,7 +1698,7 @@
+                 status_gz.write(data)
+             status_gz.close()
+             status.close()
+-        except IOError:
++        except:
+             pass
+         try:
+             if self.db.get('oem-config/enable') == 'true':
+--- a/ubiquity/frontend/gtk_ui.py
++++ b/ubiquity/frontend/gtk_ui.py
+@@ -76,6 +76,8 @@
+ # Define locale path
+ LOCALEDIR = "/usr/share/locale"
+ 
++DIALOG_CHARS = 100
++
+ 
+ def set_root_cursor(cursor=None):
+     if cursor is None:
+@@ -700,6 +702,7 @@
+             dialog = Gtk.MessageDialog(
+                 self.live_installer, Gtk.DialogFlags.MODAL,
+                 Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE, title)
++            dialog.label.set_max_width_chars(DIALOG_CHARS)
+             dialog.run()
+             sys.exit(1)
+ 
+@@ -801,12 +804,15 @@
+             else:
+                 txt = self.finished_label.get_label()
+                 txt = txt.replace('${RELEASE}', misc.get_release().name)
++
++            self.finished_label.set_max_width_chars(DIALOG_CHARS)
+             self.finished_label.set_label(txt)
+             with misc.raised_privileges():
+                 with open('/var/run/reboot-required', "w"):
+                     pass
+             self.finished_dialog.set_keep_above(True)
+             self.set_busy_cursor(False)
++
+             self.finished_dialog.run()
+         elif self.get_reboot():
+             self.reboot()
+@@ -916,6 +922,7 @@
+         # FIXME shrink the window horizontally instead of locking the window
+         # size.
+         self.live_installer.set_resizable(False)
++        self.live_installer.set_size_request(500, -1)
+ 
+         def expand(widget):
+             if widget.get_property('expanded'):
+@@ -1724,6 +1731,7 @@
+         dialog = Gtk.MessageDialog(
+             self.live_installer, Gtk.DialogFlags.MODAL,
+             Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
++        dialog.label.set_max_width_chars(DIALOG_CHARS)
+         dialog.set_title(title)
+         dialog.run()
+         self.set_busy_cursor(saved_busy_cursor)
+@@ -1780,6 +1788,7 @@
+             buttons.append((text, len(buttons) + 1))
+ 
+         self.ubi_question_dialog.set_title(title)
++        self.question_label.set_max_width_chars(DIALOG_CHARS)
+         self.question_label.set_text(msg)
+         actions = self.ubi_question_dialog.get_action_area()
+         for action in actions.get_children():
+--- a/ubiquity/plugins/ubi-partman.py
++++ b/ubiquity/plugins/ubi-partman.py
+@@ -2150,8 +2150,7 @@
+                 self.debug('Partman: dropping resize option.')
+                 del self.extra_options['resize']
+ 
+-        resize_option = ('resize' in self.extra_options or
+-                         'biggest_free' in self.extra_options)
++        resize_option = None
+ 
+         # Irrespective of os_counts
+         # We always have the manual partitioner, and it always has the same
