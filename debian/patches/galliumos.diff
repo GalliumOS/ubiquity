@@ -19,17 +19,6 @@
          inner = ['/usr/lib/ubiquity/bin/ubiquity'] + newargv
  
          # Make sure ibus works
---- a/d-i/source/partconf/mkfstab.c
-+++ b/d-i/source/partconf/mkfstab.c
-@@ -97,7 +97,7 @@
- 		  ((strcmp(dummy->typ, "ext2") == 0) ||
- 		   (strcmp(dummy->typ, "ext3") == 0) ||
- 		   (strcmp(dummy->typ, "ext4") == 0))) {
--			dummy->options = strdup("errors=remount-ro");
-+			dummy->options = strdup("errors=remount-ro,relatime,discard");
- 		} else {
- 			dummy->options = strdup("defaults");
- 		}
 --- a/d-i/source/partman-auto/recipes/atomic
 +++ b/d-i/source/partman-auto/recipes/atomic
 @@ -21,8 +21,3 @@
@@ -95,7 +84,7 @@
  
  def set_root_cursor(cursor=None):
      if cursor is None:
-@@ -700,6 +702,7 @@
+@@ -724,6 +726,7 @@
              dialog = Gtk.MessageDialog(
                  self.live_installer, Gtk.DialogFlags.MODAL,
                  Gtk.MessageType.ERROR, Gtk.ButtonsType.CLOSE, title)
@@ -103,7 +92,7 @@
              dialog.run()
              sys.exit(1)
  
-@@ -801,12 +804,15 @@
+@@ -826,12 +829,15 @@
              else:
                  txt = self.finished_label.get_label()
                  txt = txt.replace('${RELEASE}', misc.get_release().name)
@@ -119,7 +108,7 @@
              self.finished_dialog.run()
          elif self.get_reboot():
              self.reboot()
-@@ -916,6 +922,7 @@
+@@ -943,6 +949,7 @@
          # FIXME shrink the window horizontally instead of locking the window
          # size.
          self.live_installer.set_resizable(False)
@@ -127,7 +116,7 @@
  
          def expand(widget):
              if widget.get_property('expanded'):
-@@ -1724,6 +1731,7 @@
+@@ -1751,6 +1758,7 @@
          dialog = Gtk.MessageDialog(
              self.live_installer, Gtk.DialogFlags.MODAL,
              Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, msg)
@@ -135,7 +124,7 @@
          dialog.set_title(title)
          dialog.run()
          self.set_busy_cursor(saved_busy_cursor)
-@@ -1780,6 +1788,7 @@
+@@ -1807,6 +1815,7 @@
              buttons.append((text, len(buttons) + 1))
  
          self.ubi_question_dialog.set_title(title)
@@ -155,3 +144,25 @@
  
          # Irrespective of os_counts
          # We always have the manual partitioner, and it always has the same
+--- a/d-i/source/partman-basicfilesystems/get_mountoptions
++++ b/d-i/source/partman-basicfilesystems/get_mountoptions
+@@ -30,6 +30,14 @@
+ 		options="${options:+$options,}$op"
+ 	fi
+ done
++
++if [ -f /lib/partman/mountoptions/$filesystem_defaults ] ; then
++	optionsfiles="/lib/partman/mountoptions/$filesystem_defaults"
++	for op in $(cat $optionsfiles); do
++		options="${options:+$options,}$op"
++	done
++fi
++
+ if [ -z "$options" ]; then
+ 	options=defaults
+ fi
+--- /dev/null
++++ b/d-i/source/partman-ext3/mountoptions/ext4_defaults
+@@ -0,0 +1,2 @@
++discard
++relatime

@@ -1,3 +1,9 @@
+ubiquity (2.21.63-galliumos2) xenon; urgency=medium
+
+  * Set discard and relatime as default mount options for ext4
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Thu, 28 Apr 2016 00:38:58 +0000
+
 ubiquity (2.21.63-galliumos1) xenon; urgency=medium
 
   * re-apply GalliumOS patches
