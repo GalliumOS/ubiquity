@@ -1,3 +1,9 @@
+ubiquity (2.21.63-galliumos3) xenon; urgency=medium
+
+  * Fixed variable in d-i/source/partman-basicfilesystems/get_mountoptions
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Tue, 10 May 2016 00:38:58 +0000
+
 ubiquity (2.21.63-galliumos2) xenon; urgency=medium
 
   * Set discard and relatime as default mount options for ext4

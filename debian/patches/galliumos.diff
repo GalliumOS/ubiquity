@@ -151,8 +151,8 @@
  	fi
  done
 +
-+if [ -f /lib/partman/mountoptions/$filesystem_defaults ] ; then
-+	optionsfiles="/lib/partman/mountoptions/$filesystem_defaults"
++if [ -f /lib/partman/mountoptions/${filesystem}_defaults ] ; then
++	optionsfiles="/lib/partman/mountoptions/${filesystem}_defaults"
 +	for op in $(cat $optionsfiles); do
 +		options="${options:+$options,}$op"
 +	done
