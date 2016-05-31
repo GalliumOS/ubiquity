@@ -1,3 +1,9 @@
+ubiquity (2.21.63-galliumos4) xenon; urgency=medium
+
+  * disable jfs and xfs
+
+ -- reynhout <reynhout@galliumos.org>  Tue, 31 May 2016 17:03:04 +0000
+
 ubiquity (2.21.63-galliumos3) xenon; urgency=medium
 
   * Fixed variable in d-i/source/partman-basicfilesystems/get_mountoptions

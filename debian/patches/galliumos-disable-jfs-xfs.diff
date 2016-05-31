@@ -1,0 +1,21 @@
+Index: repo/ubiquity/plugins/ubi-partman.py
+===================================================================
+--- repo.orig/ubiquity/plugins/ubi-partman.py
++++ repo/ubiquity/plugins/ubi-partman.py
+@@ -1802,10 +1802,15 @@ class Page(plugin.Plugin):
+         # out the real list of possible uses from partman until after the
+         # partition has been created, so we have to partially hardcode this.
+ 
++        ## disable jfs and xfs
++        fs_black_list = set(['jfs', 'xfs'])
++
+         for method in self.subdirectories('/lib/partman/choose_method'):
+             if method == 'filesystem':
+                 for fs in self.scripts('/lib/partman/valid_filesystems'):
+-                    if fs == 'ntfs':
++                    if fs in fs_black_list:
++                        pass
++                    elif fs == 'ntfs':
+                         if not create and devpart in self.partition_cache:
+                             partition = self.partition_cache[devpart]
+                             if partition.get('detected_filesystem') == 'ntfs':
