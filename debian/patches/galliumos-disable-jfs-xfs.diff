@@ -6,7 +6,7 @@ Index: repo/ubiquity/plugins/ubi-partman.py
          # out the real list of possible uses from partman until after the
          # partition has been created, so we have to partially hardcode this.
  
-+        ## disable jfs and xfs
++        # disable jfs and xfs
 +        fs_black_list = set(['jfs', 'xfs'])
 +
          for method in self.subdirectories('/lib/partman/choose_method'):
