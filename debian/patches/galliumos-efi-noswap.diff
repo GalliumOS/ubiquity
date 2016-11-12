@@ -1,0 +1,14 @@
+diff --git a/d-i/source/partman-auto/recipes-amd64-efi/atomic b/d-i/source/partman-auto/recipes-amd64-efi/atomic
+index 98b1d23..70d3610 100644
+--- a/d-i/source/partman-auto/recipes-amd64-efi/atomic
++++ b/d-i/source/partman-auto/recipes-amd64-efi/atomic
+@@ -21,9 +21,3 @@ partman-auto/text/atomic_scheme ::
+ 	use_filesystem{ }
+ 	$default_filesystem{ }
+ 	mountpoint{ / } .
+-
+-100% 512 200% linux-swap
+-	$lvmok{ }
+-	$reusemethod{ }
+-	method{ swap }
+-	format{ } .
