@@ -1,4 +1,3 @@
 galliumos.diff
 galliumos-disable-jfs-xfs.diff
-galliumos-efi-cp-grubefi.diff
 galliumos-efi-noswap.diff

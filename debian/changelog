@@ -1,11 +1,9 @@
-ubiquity (2.21.63-galliumos4+wip2) xenon; urgency=medium
+ubiquity (2.21.63-galliumos5) xenon; urgency=medium
 
-  * new patch: galliumos-efi-cp-grubefi.diff
-    - copy grub.efi to BOOTX64.efi
   * new patch: galliumos-efi-noswap.diff
     - do not include swap partition in default layout for EFI installs
 
- -- reynhout <reynhout@galliumos.org>  Sat, 12 Nov 2016 20:57:00 +0000
+ -- reynhout <reynhout@galliumos.org>  Sat, 10 Dec 2016 03:02:26 +0000
 
 ubiquity (2.21.63-galliumos4) xenon; urgency=medium
 
