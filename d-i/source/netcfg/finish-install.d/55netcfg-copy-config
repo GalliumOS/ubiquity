@@ -59,6 +59,14 @@ case $RET in
 	mkdir -p /target/$FILE_PATH_NM_CONFIG
 	cp /$FILE_PATH_NM_CONFIG/* /target/$FILE_PATH_NM_CONFIG/
 
+	# Write netplan config file to hand over management to NM
+	cat <<EOF > /target/etc/netplan/01-network-manager-all.yaml
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: NetworkManager
+EOF
+
 	# Rewrite /etc/network/interfaces to contain only loopback
 	netcfg write_loopback
 	;;

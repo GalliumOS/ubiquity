@@ -1,9 +1,23 @@
+<<<<<<< HEAD
 base-installer (1.158ubuntu2.1) xenial; urgency=medium
+=======
+base-installer (1.158ubuntu4) yakkety; urgency=medium
+
+  * Use the generic kernel for the powerpc64 flavor (LP: #1625368)
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Mon, 19 Sep 2016 15:44:51 -0600
+
+base-installer (1.158ubuntu3) yakkety; urgency=medium
+>>>>>>> vendor
 
   * Tolerate omission of leading "deb " in apt-setup/local0/repository
     (based on patch by Lars Kollstedt; LP: #1512347).
 
+<<<<<<< HEAD
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 04 May 2016 09:14:44 -0500
+=======
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 04 May 2016 00:43:55 +0100
+>>>>>>> vendor
 
 base-installer (1.158ubuntu2) xenial; urgency=high
 

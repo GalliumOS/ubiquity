@@ -1,3 +1,33 @@
+hw-detect (1.117ubuntu6) bionic; urgency=medium
+
+  * Drop hw-detect.pre-pkgsel.d/20install-hwpackages, as it installs
+    universe package, which is probably in itself not useful on
+    Ubuntu. LP: #1577833
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 15 Feb 2018 12:27:37 +0000
+
+hw-detect (1.117ubuntu5) bionic; urgency=medium
+
+  * hw-detect.sh: install opal-prd on OpenPOWER machines. LP: #1555904
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 29 Nov 2017 12:55:19 +0000
+
+hw-detect (1.117ubuntu4) zesty; urgency=medium
+
+  * disk-detect.sh: unconditionally modprobe dm-service-time and
+    dm-queue-length multipath path selector modules alongside dm-round-robin.
+    (LP: #1673350)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 27 Mar 2017 21:23:41 -0400
+
+hw-detect (1.117ubuntu3) yakkety; urgency=medium
+
+  * {hw-,disk-,net}detect.sh, check-missing-firmware.sh: use 'modprobe -b'
+    in order to honor module blacklisting from kernel cmdline parameters.
+    (LP: #1602717)
+
+ -- Mauricio Faria de Oliveira <mauricfo@linux.vnet.ibm.com>  Thu, 29 Sep 2016 09:52:10 -0400
+
 hw-detect (1.117ubuntu2) xenial; urgency=medium
 
   * Enable disk-detect/multipath/enable by default on s390x.

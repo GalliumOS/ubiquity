@@ -20,7 +20,6 @@ import time
 from autopilot.input import Pointer, Mouse, Keyboard
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
 from ubiquity_autopilot_tests.tools.compare import expectThat
-from ubiquity_autopilot_tests.emulators import gtkcontrols, gtkaccessible
 import logging
 logger = logging.getLogger(__name__)
 
@@ -77,16 +76,20 @@ class GtkBox(GtkContainers):
             treeview = self.select_single('GtkTreeView')
             treeview.click()
             # for sanity lets ensure we always start at the top of the list
-            logger.debug("Selecting top item of treeview list")
-            self.kbd.press_and_release('Home')
             tree_items = treeview.get_all_items()
+            logger.debug("Selecting top item of treeview list")
+
+            # Workaround LP:1619790
+            # Press Up multiple time to go to the first item instead of Home
+            for _ in tree_items:
+                self.kbd.press_and_release('Up')
             top_item = tree_items[0]
             # If we are at the top
             if top_item.selected:
                 logger.debug("top item {0} selected"
                              .format(top_item.accessible_name))
                 # Now select required Language
-                self.kbd.type(item.accessible_name[0:2])
+                self.kbd.type(item.accessible_name[0:3])
                 item.click()
                 # check selected
                 if item.selected:
@@ -266,32 +269,6 @@ class GtkBox(GtkContainers):
             return True
         else:
             return False
-
-    def encrypt_home_dir(self, encrypt=None):
-        """ Check the login_encrypt box """
-        chk_encrypt = self.select_single(BuilderName='login_encrypt')
-        active = chk_encrypt.active
-
-        if encrypt is None:
-            # Switch checkbox and ensure it switched
-            self.pointing_device.click_object(chk_encrypt)
-            expectThat(chk_encrypt.active).equals(
-                not active,
-                msg='encrypt home checkbox state did not change. Current '
-                'state: {0}'.format(chk_encrypt.active))
-        elif encrypt and not active:
-            self.pointing_device.click_object(chk_encrypt)
-            expectThat(chk_encrypt.active).equals(
-                True,
-                msg='encrypt home checkbox not active and should be.')
-        elif not encrypt and active:
-            self.pointing_device.click_object(chk_encrypt)
-            expectThat(chk_encrypt.active).equals(
-                False,
-                msg='encrypt home checkbox active and should not be.')
-        else:
-            raise ValueError("Invalid value for 'encrypt' parameter: {}"
-                             .format(encrypt))
 
 
 class GtkAlignment(GtkContainers):

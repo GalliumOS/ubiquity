@@ -189,19 +189,6 @@ class MiscTests(unittest.TestCase):
 
     @mock.patch('ubiquity.gsettings.set_list')
     @mock.patch('ubiquity.misc.execute')
-    def test_set_indicator_keymaps_ta(self, mock_execute, mock_set_list):
-        misc.set_indicator_keymaps('ta')
-        self.assertEqual(mock_execute.call_count, 1)
-        self.assertEqual(mock_execute.call_args[0][0], 'setxkbmap')
-        self.assertEqual(mock_set_list.call_count, 1)
-        self.assertEqual(
-            mock_set_list.call_args[0][0], 'org.gnome.libgnomekbd.keyboard')
-        self.assertEqual(mock_set_list.call_args[0][1], 'layouts')
-        self.assertEqual('in\ttam', mock_set_list.call_args[0][2][0])
-        self.assertEqual(len(mock_set_list.call_args[0][2]), 4)
-
-    @mock.patch('ubiquity.gsettings.set_list')
-    @mock.patch('ubiquity.misc.execute')
     def test_set_indicator_keymaps_simplified_chinese(self, mock_execute,
                                                       mock_set_list):
         misc.set_indicator_keymaps('zh_CN')

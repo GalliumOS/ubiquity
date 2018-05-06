@@ -1,3 +1,51 @@
+partman-auto-lvm (59ubuntu3) zesty; urgency=medium
+
+  * lib/auto-lvm.sh: Pass method on to choose_recipe() and decode_recipe()
+    when auto_lvm_prepare() is called. This allows crypto installs to be
+    run as "crypto" method (as they should), rather than "lvm", and thus
+    possibly different partitioning recipes. (LP: #1659448)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 26 Jan 2017 16:32:06 -0500
+
+partman-auto-lvm (59ubuntu2) zesty; urgency=medium
+
+  * Do not ask no_boot question on efi, amd64, i386, ppc64el/prep and
+    s390x in addition to powerpc/prep. LP: #1639801
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 10 Nov 2016 12:34:48 +0000
+
+partman-auto-lvm (59ubuntu1) yakkety; urgency=low
+
+  * Merge from Debian unstable.  Remaining changes: (LP: #1581595)
+    - Accept autopartitioning automatically.
+    - Change fallback VG name to Ubuntu.
+    - Ask how much of the VG should be used for logical volumes, rather than
+      unconditionally using it all.
+    - Set locale to "C" when calling vgs for available free space.
+
+ -- Dave Chiluk <chiluk@ubuntu.com>  Sun, 07 Feb 2016 22:17:30 +0000
+
+partman-auto-lvm (59) unstable; urgency=medium
+
+  [ Colin Watson ]
+  * Use HTTPS for Vcs-* URLs, and link to cgit rather than gitweb.
+
+ -- Christian Perrier <bubulle@debian.org>  Sun, 07 Feb 2016 18:21:59 +0100
+
+partman-auto-lvm (58) unstable; urgency=medium
+
+  [ Updated translations ]
+  * Turkish (tr.po) by Mert Dirik
+
+ -- Christian Perrier <bubulle@debian.org>  Mon, 10 Aug 2015 09:03:19 +0200
+
+partman-auto-lvm (57) unstable; urgency=medium
+
+  [ Updated translations ]
+  * Turkish (tr.po) by Mert Dirik
+
+ -- Christian Perrier <bubulle@debian.org>  Thu, 02 Jul 2015 13:04:54 +0200
+
 partman-auto-lvm (56ubuntu1) vivid; urgency=medium
 
   * Resynchronise with Debian.  Remaining changes:
@@ -1809,3 +1857,4 @@ partman-auto-lvm (1) unstable; urgency=low
     - Lower priority to optional for now.
 
  -- Colin Watson <cjwatson@debian.org>  Mon, 23 May 2005 09:30:34 +0100
+

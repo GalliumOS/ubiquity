@@ -35,7 +35,7 @@ from ubiquity import misc, plugin, validation
 
 
 NAME = 'usersetup'
-AFTER = 'console_setup'
+AFTER = 'timezone'
 WEIGHT = 10
 
 
@@ -186,7 +186,6 @@ class PageGtk(PageBase):
         self.password = builder.get_object('password')
         self.verified_password = builder.get_object('verified_password')
         self.login_auto = builder.get_object('login_auto')
-        self.login_encrypt = builder.get_object('login_encrypt')
         self.login_pass = builder.get_object('login_pass')
         self.username_error_label = builder.get_object('username_error_label')
         self.hostname_error_label = builder.get_object('hostname_error_label')
@@ -262,13 +261,14 @@ class PageGtk(PageBase):
         return self.login_auto.get_active()
 
     def set_encrypt_home(self, value):
-        self.login_encrypt.set_active(value)
+        print('Ecryptfs is deprecated')
 
     def set_force_encrypt_home(self, value):
-        self.login_vbox.set_sensitive(not value)
+        print('Ecryptfs is deprecated')
 
+    # Ecryptfs is deprecated
     def get_encrypt_home(self):
-        return self.login_encrypt.get_active()
+        return False
 
     def username_error(self, msg):
         self.username_ok.hide()
@@ -429,14 +429,6 @@ class PageGtk(PageBase):
         else:
             self.resolver_ok = False
 
-    def on_authentication_toggled(self, w):
-        if w == self.login_auto and w.get_active():
-            self.login_encrypt.set_active(False)
-        elif w == self.login_encrypt and w.get_active():
-            # TODO why is this so slow to activate the login_pass radio button
-            # when checking encrypted home?
-            self.login_pass.set_active(True)
-
 
 class PageKde(PageBase):
     plugin_breadcrumb = 'ubiquity/text/breadcrumb_user'
@@ -445,8 +437,8 @@ class PageKde(PageBase):
         PageBase.__init__(self, *args, **kwargs)
         self.controller = controller
 
-        from PyQt4 import uic
-        from PyQt4.QtGui import QPixmap
+        from PyQt5 import uic
+        from PyQt5.QtGui import QPixmap
 
         self.plugin_widgets = uic.loadUi(
             '/usr/share/ubiquity/qt/stepUserSetup.ui')
@@ -464,7 +456,6 @@ class PageKde(PageBase):
             self.page.username.setEnabled(False)
             self.page.login_pass.hide()
             self.page.login_auto.hide()
-            self.page.login_encrypt.hide()
             self.username_edited = True
             self.hostname_edited = True
 
@@ -549,22 +540,20 @@ class PageKde(PageBase):
         return self.page.login_auto.isChecked()
 
     def on_login_pass_clicked(self, checked):
-        self.page.login_encrypt.setEnabled(checked)
+        print("Ecryptfs is deprecated")
 
     def on_login_auto_clicked(self, checked):
-        self.page.login_encrypt.setChecked(not(checked))
-        self.page.login_encrypt.setEnabled(not(checked))
+        print("Ecryptfs is deprecated")
 
     def set_encrypt_home(self, value):
-        self.page.login_encrypt.setChecked(value)
+        print("Ecryptfs is deprecated")
 
     def set_force_encrypt_home(self, value):
-        self.page.login_encrypt.setDisabled(value)
-        self.page.login_auto.setDisabled(value)
-        self.page.login_pass.setDisabled(value)
+        print("Ecryptfs is deprecated")
 
+    # Ecryptfs is deprecated
     def get_encrypt_home(self):
-        return self.page.login_encrypt.isChecked()
+        return False
 
     def username_error(self, msg):
         self.page.username_error_reason.setText(msg)
@@ -652,13 +641,14 @@ class PageNoninteractive(PageBase):
         return self.auto_login
 
     def set_encrypt_home(self, value):
-        self.encrypt_home = value
+        print('Ecryptfs is deprecated')
 
     def set_force_encrypt_home(self, value):
-        self.set_encrypt_home(value)
+        print('Ecryptfs is deprecated')
 
+    # Ecrypts is deprecated
     def get_encrypt_home(self):
-        return self.encrypt_home
+        return False
 
     def username_error(self, msg):
         """The selected username was bad."""

@@ -1,3 +1,547 @@
+ubiquity (18.04.14-galliumos0) bismuth; urgency=medium
+
+  * Prepare for GalliumOS 3.0
+    - patches from 2.21.63.3-galliumos1
+
+ -- reynhout <reynhout@galliumos.org>  Sun, 06 May 2018 19:58:42 +0000
+
+ubiquity (18.04.14) bionic; urgency=medium
+
+  * Revert the previous upload. It didn't actually *fix* all cases, just
+    papered over them. If the race was lost, the screen reader still didn't
+    work in ubiquity-dm mode.
+  * Move the Gio.Settings code into the constructor of the wizard. This runs
+    with dropped privileges (uid = 0, euid = 999) whereas run() runs as root
+    (uid = 0, euid = 0). When run as 0 / 0, dconf creates its
+    XDG_RUNTIME_DIR/dconf/user database as root. We need to ensure that it
+    runs in a context with dropped privileges. (LP: #1767067)
+
+ -- Iain Lane <iain.lane@canonical.com>  Thu, 26 Apr 2018 15:46:32 +0100
+
+ubiquity (18.04.13) bionic; urgency=medium
+
+  [ Dimitri John Ledkov ]
+  * Remove dconf/user before Try Ubuntu.
+    Just, in case it has the wrong permissions, i.e. root and thus breaks
+    user running gnome session / shell / "Try Ubuntu".
+
+  [ Colin Watson ]
+  * Automatic update of included source packages: flash-kernel 3.90ubuntu3,
+    netcfg 1.142ubuntu7.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Thu, 26 Apr 2018 15:06:50 +0100
+
+ubiquity (18.04.12) bionic; urgency=medium
+
+  [ Didier Roche ]
+  * Request shutdown and reboot without using gnome-session (LP: #1766811)
+    The if gnome_session code path doesn't declare the GNOME
+    session interface it's using, so don't work.
+    Even fixing it, we notice that calls aren't wired in GNOME session code.
+    Fallback thus for now to old code path which is executed at least
+    since xenial (when DBUS address wasn't correct in ubiquity process)
+
+  [ Iain Lane ]
+  * The dbus import is now unused and is triggering a pyflakes error, but
+    we're not sure it isn't initialising some state that's required. At this
+    late stage, just silence the error.
+  * Automatic update of included source packages: flash-kernel
+    3.90ubuntu2.
+
+ -- Didier Roche <didrocks@ubuntu.com>  Wed, 25 Apr 2018 10:33:57 +0100
+
+ubiquity (18.04.11) bionic; urgency=medium
+
+  [ Sebastien Bacher]
+  * Don't deactivate the screen-reader desktop keybinding, that was needed
+    when ubiquity was handling the key press events but now gsd-media-keys is
+    doing that. Listen to the corresponding key to start orca under
+    ubiquity-dm since gnome-session isn't there to do it.
+    (lp: #1741690)
+
+  [ Iain Lane ]
+  * misc.py: Fall back to SUDO_UID if PKEXEC_UID is not set.
+  * ubiquity.desktop.in, misc.py: Pass through the ubuntu user's D-Bus session
+    bus, if set, so that we can communicate with it.
+
+  [ Jean-Baptiste Lallement ]
+  * data/ubiquity.json: The separate greeter universal icon has been removed
+    and the gnome-shell mode updated accordingly.
+
+ -- Iain Lane <iain.lane@canonical.com>  Tue, 24 Apr 2018 16:29:35 +0100
+
+ubiquity (18.04.10) bionic; urgency=medium
+
+  [ Colin Watson ]
+  * Update translations from Launchpad.
+
+  [ Simon Quigley ]
+  * Following the lead of the GTK frontend, remove the encrypted home
+    directory option from the Qt installer since ecryptfs no longer has
+    support from the Ubuntu Security Team. This removes the frontend but keeps
+    the codebase for the option so it can be added back later using another
+    technology (LP: #1761396).
+
+  [ Adam Conrad ]
+  * Automatic update of included source packages: localechooser
+    2.71ubuntu2.
+
+  [ Jean-Baptiste Lallement ]
+  * Do not start gnome-initial-setup for the OEM user (LP: #1765651)
+
+ -- Adam Conrad <adconrad@ubuntu.com>  Mon, 23 Apr 2018 04:59:24 -0600
+
+ubiquity (18.04.9) bionic; urgency=medium
+
+  * Detect the proper name for zram in /proc/swaps (LP: #1763611).
+
+ -- Simon Quigley <tsimonq2@ubuntu.com>  Fri, 20 Apr 2018 16:10:29 -0500
+
+ubiquity (18.04.8) bionic; urgency=medium
+
+  * Automatic update of included source packages: console-setup
+    1.178ubuntu2.
+
+ -- Łukasz 'sil2100' Zemczak <lukasz.zemczak@ubuntu.com>  Thu, 19 Apr 2018 12:33:36 +0200
+
+ubiquity (18.04.7) bionic; urgency=medium
+
+  * The correct service name to conflict with is getty@tty1.service, not
+    getty@getty1.service.  LP: #1763739.
+
+ -- Steve Langasek <steve.langasek@ubuntu.com>  Wed, 18 Apr 2018 18:09:53 -0700
+
+ubiquity (18.04.6) bionic; urgency=medium
+
+  [ Steve Langasek ]
+  * If we are running ubiquity-dm on VT1, we must conflict with
+    getty@getty1.service and not rely on some other display manager to do
+    this for us.
+
+  [ Brian Murray ]
+  * Drop the option to upgrade from an old release using ubiquity as it is
+    crashing and leaves users in a broken state. (LP: #1756862)
+
+  [ litianzhi ]
+  * Fix untranslated "This software is subject to license" (LP: #1762097)
+
+  [ Mathieu Trudel-Lapierre ]
+  * debian/real-po/, po/: Translations import from Launchpad.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 13 Apr 2018 15:56:53 -0400
+
+ubiquity (18.04.5) bionic; urgency=medium
+
+  [ Steve Langasek ]
+  * Don't block plymouth-quit-wait on the ubiquity greeter; we want ttys to
+    be able to start in parallel for debuggability of ubiquity.  Blocking
+    plymouth-quit is sufficient to ensure ordering.
+  * scripts/start-ubiquity-dm: start on vt1 now instead of vt7, consistent
+    with grub, plymouth, and gdm in 18.04.  Tested on Ubuntu Desktop with
+    both "Try" and "Install" options. (LP: #1632151)
+
+  [ Heber Parruci ]
+  * autopilot: Update tests to match new UI for Updates and software page.
+
+  [ Mike Gabriel ]
+  * debian/control: Drop gir1.2-appindicator3-0.1. A11y support
+    is not using AppIndicator anymore (LP: #1760701)
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: partman-crypto
+    86ubuntu2, partman-lvm 123.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 10 Apr 2018 11:17:42 -0400
+
+ubiquity (18.04.4) bionic; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * debian/control: have ubiquity-frontend-gtk Depends: explicitly on
+    sensible-utils, which is used to start a browser when slideshow or
+    release notes links are clicked. (LP: #1724224)
+  * Automatic update of included source packages: netcfg 1.142ubuntu6,
+    partman-efi 71ubuntu2, user-setup 1.63ubuntu5.
+
+  [ Sebastien Bacher ]
+  * gui/gtk/stepPrepare.ui: updated the non-free-software text to not
+    include the mention to the MP3 fluendo codecs since those have
+    been superseeded in the recent gstreamer version.
+  * Rename the "Preparing to install Ubuntu" installer step to "Updates and 
+    other software" according to the design, thanks Matthew for pointing 
+    out the inconsistency
+
+  [ Didier Roche ]
+  * Collect and dump telemetry info as a log file: (LP: #1755456)
+    Those installation telemetry info are for optional upload later on.
+
+  [ Jeremy Bicha ]
+  * Update "Updates and Other Software" page to match the spec (LP: #1758082)
+
+  [ Rik Mills ]
+  * Update KDE/Qt "Updates and Other Software" page in line with GTK changes,
+    with some tweaks appropriate for Kubuntu usage in Bionic
+  * Mark the sddm.conf file for OEM so that it can be removed by oem-config
+    if unchanged.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 29 Mar 2018 13:42:51 -0400
+
+ubiquity (18.04.3) bionic; urgency=medium
+
+  [ Sebastien Bacher ]
+  * Remove the encrypted userdir option from the gtk installer since
+    ecryptfs is going to move to universe. The keep the base code in case 
+    the option is added back later using another technology.
+
+  [ Iain Lane ]
+  * Fix a crash in the KDE frontend - don't refer to a widget that doesn't
+    exist. Properly hide the miminal install label and checkbox. (LP:
+    #1752323)
+  * install_misc: Use the `get_casper' function to properly get the location
+    of the live media path.
+
+ -- Iain Lane <iain.lane@canonical.com>  Wed, 28 Feb 2018 17:03:39 +0000
+
+ubiquity (18.04.2) bionic; urgency=medium
+
+  [ Didier Roche ]
+  * Add a minimal installation mode, which removes most programs from the
+    final installation. The precise list of programs to remove is supplied as
+    part of the image, and is constructed from a file in the seeds.
+
+  [ Iain Lane ]
+  * Automatic update of included source packages: console-setup
+    1.178ubuntu1, hw-detect 1.117ubuntu6, partman-auto 134ubuntu8,
+    partman-basicmethods 66, partman-lvm 122.
+  * Some small tweaks to didrocks' minimal mode
+    - update the path to the removal file
+    - livecd-rootfs supplies us with a manifest-minimal-remove file that has
+      no blank lines and no comments, so no need for us to strip them
+
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 26 Feb 2018 15:16:14 +0000
+
+ubiquity (18.04.1) bionic; urgency=medium
+
+  [ Dimitri John Ledkov ]
+  * Move keyboard selection page earlier
+  * Bump sources to bionic
+  * Add rename as a build-dep, which is used to run update of d-i sources
+  * Automatic update of included source packages: choose-mirror
+    2.78ubuntu3, debian-installer-utils 1.124ubuntu1, flash-kernel
+    3.90ubuntu1, hw-detect 1.117ubuntu5, localechooser 2.71ubuntu1,
+    partman-auto-crypto 25ubuntu1, partman-base 192ubuntu1, partman-
+    basicmethods 65, partman-jfs 52, partman-lvm 121, partman-
+    partitioning 120ubuntu1, partman-xfs 63, preseed 1.71ubuntu7.
+
+  [ Ryan Finnie ]
+  * Use https for geoname-lookup.ubuntu.com
+
+  [ Jean-Baptiste Lallement ]
+  * Drop Flash text from the label to install 3rd party software option.
+
+  [ Łukasz 'sil2100' Zemczak ]
+  * Fix autopkgtests for the new install flow
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Tue, 06 Feb 2018 11:31:21 +0000
+
+ubiquity (17.10.10) artful; urgency=medium
+
+  * tests/test_misc.py: Rip out the test for 'ta' keymap. It's been regularly
+    broken just because gsettings is returning values out of order (and
+    not all of the variants show every time). We already test a few other
+    keymaps, so no need to test all of them.
+  * Automatic update of included source packages: debian-installer-utils
+    1.113ubuntu2, netcfg 1.142ubuntu5.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 13 Oct 2017 10:03:04 -0400
+
+ubiquity (17.10.9) artful; urgency=medium
+
+  [ Sebastien Bacher ]
+  * bin/ubiquity-dm:
+    - start gsd-media-keys so the screenreader can be enabled using
+      the standard keybinding (lp: #1719994)
+  * ubiquity/frontend/gtk_ui.py:
+    - don't require the a11y indicator to be available to play the
+      installer-is-ready sound (lp: #1719992)
+
+  [ Shih-Yuan Lee ]
+  * Ensure the IO encoding for Debconf always to be utf-8. (LP: #1713002)
+
+  [ Mathieu Trudel-Lapierre ]
+  * Update translations from Launchpad.
+  * Really fix debian/real-po/templates.pot to get the mention of Flash
+    out, in time.
+  * Automatic update of included source packages: console-setup
+    1.166ubuntu7.
+  * tests/test_misc.py: Fix 'ta' keymap test again: tam_TAB no longer exists,
+    replace it with checking for tam_unicode.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 11 Oct 2017 12:06:55 -0400
+
+ubiquity (17.10.8) artful; urgency=medium
+
+  [ Bryan Quigley ]
+  * Flash will no longer be installed via the "restricted" checkbox so remove
+    it. (LP: #1709166)
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: partman-auto
+    134ubuntu7, console-setup 1.166ubuntu5, netcfg 1.142ubuntu4.
+
+  [ Jean-Baptiste Lallement ]
+  * bin/oem-config-prepare: Drop privileges to the oem user to display the
+    success dialog under wayland (LP: #1719734)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 27 Sep 2017 11:43:09 -0400
+
+ubiquity (17.10.7) artful; urgency=medium
+
+  [ Jean-Baptiste Lallement ]
+  * Mark the files for oem-config as trusted so they are properly handled by
+    nautilus. (LP: #1712581)
+
+  [ Iain Lane ]
+  * ubi-console-setup.py: Set DPKG_MAINTSCRIPT_{NAME,PACKAGE} variables for
+    our manual running of keyboard-configuration.postinst. This script now
+    runs dpkg-maintscript-helper to remove an old conffile. That code won't
+    fire in ubiquity, but we still need to not error out. (LP: #1715605)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 07 Sep 2017 11:02:30 -0400
+
+ubiquity (17.10.6) artful; urgency=medium
+
+  [ David Mohammed ]
+  * Set XDG_CURRENT_DESKTOP for Budgie, so the wallpaper shows. (LP: #1713662)
+
+  [ Iain Lane ]
+  * debian/rules: Use an absolute path to KeyboardNames.pl so that the rule
+    in console-setup fires.
+  * Automatic update of included source packages: console-setup
+    1.166ubuntu4.
+
+ -- Iain Lane <iain.lane@canonical.com>  Wed, 06 Sep 2017 15:30:47 +0100
+
+ubiquity (17.10.5) artful; urgency=medium
+
+  [ Iain Lane ]
+  * bin/ubiquity-dm: Set XDG_CURRENT_DESKTOP when using gnome-shell, so that
+    we get the proper per-session gsettings overrides used. (LP: #1712289)
+  * data/ubiquity.json: Set the ubuntu gnome-shell theme.
+  * Automatic update of included source packages: console-setup
+    1.166ubuntu2, flash-kernel 3.0~rc.4ubuntu66.
+  * debian/rules: Make KeyboardNames.pl relative.
+
+  [ Jeremy Bicha ]
+  * bin/ubiquity-dm: Don't try to start binaries removed in
+    gnome-settings-daemon 3.25. Thanks fossfreedom for the report.
+
+ -- Iain Lane <iain.lane@canonical.com>  Tue, 05 Sep 2017 17:57:32 +0100
+
+ubiquity (17.10.4) artful; urgency=medium
+
+  [ Iain Lane ]
+  * bin/ubiquity-dm: Rewrap a line to fix pep8 failure
+  * Automatic update of included source packages: console-setup
+    1.142ubuntu7.
+
+  [ Jean-Baptiste Lallement ]
+  * Disable screen blanking for the Ubuntu session. Thanks Heber
+
+ -- Iain Lane <iain.lane@canonical.com>  Mon, 21 Aug 2017 14:26:21 +0100
+
+ubiquity (17.10.3) artful; urgency=medium
+
+  * Update ubiquity-dm for the new gnome-settings-daemon (lp: #1702892)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Thu, 27 Jul 2017 09:50:30 +0200
+
+ubiquity (17.10.2) artful; urgency=medium
+
+  * Depend/build-depend on python3-debconf rather than debconf for the
+    Python module (see https://bugs.debian.org/709198).
+  * Automatic update of included source packages: netcfg 1.142ubuntu3.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 25 Jul 2017 22:25:38 +0100
+
+ubiquity (17.10.1) artful; urgency=medium
+
+  [ Chen-Han Hsiao (Stanley) ]
+  * Fix path to GDM3 custom config.
+
+  [ David Mohammed ]
+  * Add 'budgie-core' as an alternate for the package ubiquity-frontend-gtk
+    Ubuntu Budgie ISO includes GNOME Shell due to the default metacity
+    having a dependency on gnome-session in turn pulls in gnome-shell
+    bin/ubiquity-dm correctly using budgie-wm which is provided by budgie-core
+
+  [ Mathieu Trudel-Lapierre ]
+  * Move sources to artful instead of zesty.
+  * Automatic update of included source packages: choose-mirror
+    2.78ubuntu2, grub-installer 1.128ubuntu8, netcfg 1.142ubuntu2,
+    partman-basicmethods 62, partman-lvm 114, preseed 1.71ubuntu5, tzsetup
+    1:0.94ubuntu1.
+  * Style cleanup to remove bare except: cases, as pointed out by pep8.
+
+  [ Jeremy Soller ]
+  * Add support for WPA2 Enterprise.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 18 Jul 2017 11:27:07 -0400
+
+ubiquity (17.04.9) zesty; urgency=medium
+
+  * tests/test_misc.py: Really fix test for the 'ta' keymap: check for
+    lk/tam_TAB in the list rather than asserting that it needs to be the first
+    element; and allow for the different list size now.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Sun, 09 Apr 2017 21:53:53 -0400
+
+ubiquity (17.04.8) zesty; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: choose-mirror
+    2.78ubuntu1, hw-detect 1.117ubuntu4, netcfg 1.138ubuntu5.
+  * d-i/lists/powerpc: Don't get powerpc anymore. That means debian/control
+    also drops powerpc packages: partman-newworld and yaboot-installer.
+  * Update translations from Launchpad.
+  * tests/test_misc.py: Update lang/xkb keymap selection tests; ta now returns
+    the "lk" code by default (Sri Lanka), apparently.
+
+  [ Jeremy Bicha ]
+  * ubiquity-dm: Fix Ubuntu GNOME missing window decorations (LP: #1675210)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 07 Apr 2017 13:11:27 -0400
+
+ubiquity (17.04.7) zesty; urgency=medium
+
+  [ David Mohammed ]
+  * ubiquity-dm: don't skip settings-daemon; Ubuntu Budgie should use the
+    gnome-settings-daemon included on the livefs. (LP: #1663058)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 10 Feb 2017 11:20:44 -0500
+
+ubiquity (17.04.6) zesty; urgency=medium
+
+  [ Walter Lapchynski ]
+  * Provide an error when insufficient disk space is detected in the Prepare
+    stage of Ubiquity when installing Kubuntu.
+
+  [ David Mohammed ]
+  * Update ubiquity-dm to ensure windows decorations and background is
+    displayed for Ubuntu Budgie (LP: #1659280)
+  * Switch to the ubiquity-panel with a panel color defined by Ubuntu Budgie.
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: choose-mirror
+    2.74ubuntu1.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 06 Feb 2017 10:54:06 -0500
+
+ubiquity (17.04.5) zesty; urgency=medium
+
+  * Automatic update of included source packages: clock-setup
+    0.131ubuntu1, partman-auto-lvm 59ubuntu3. (LP: #1659448)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 30 Jan 2017 22:45:07 -0500
+
+ubiquity (17.04.4) zesty; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * Set extend property for the panel to CAIRO_EXTEND_PAD rather than REPEAT,
+    so HiDPI will look slightly better with a nicer edge to the bottom of the
+    panel, in the right color, rather than possibly repeating the gradient.
+    (LP: #1622686)
+  * Automatic update of included source packages: grub-installer
+    1.128ubuntu7, netcfg 1.138ubuntu4, partman-btrfs 29ubuntu1, partman-
+    partitioning 114ubuntu2.
+
+  [ Max Brustkern ]
+  * Set gail or autopilot to GTK_MODULES if GTK_MODULES is empty, rather
+    than always trying to append. (LP: #1654630)
+
+  [ David Mohammed ]
+  * Update ubiquity-dm to ensure Ubuntu Budgie displays its panel
+    to allow users to use the network-manager applet (LP: #1657447)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 23 Jan 2017 13:02:20 -0500
+
+ubiquity (17.04.3) zesty; urgency=medium
+
+  * Automatic update of included source packages: netcfg 1.138ubuntu3.
+  * kde_ui.py: Fix QMessageBox warning call to use "StandardButtons" ORed list
+    of Retry/Ignore/Cancel buttons rather than each as new arguments, as the
+    latter form is obsolete and breaks the Kubuntu installer. (LP: #1650767)
+  * debian/rules: add ./ to the path for KeyboardNames.pl when we go to build
+    kbdnames.gz; otherwise it looks as though kbdnames-maker won't find our
+    list of keyboard models, layouts and variants. (LP: #1650767)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 09 Jan 2017 16:38:01 -0500
+
+ubiquity (17.04.2) zesty; urgency=medium
+
+  [ David Mohammed ]
+  * Update ubiquity-dm to support Ubuntu Budgie (LP: #1654368)
+
+  [ Colin Watson ]
+  * Automatic update of included source packages: partman-btrfs 26ubuntu1,
+    partman-partitioning 114ubuntu1.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Sat, 07 Jan 2017 14:00:41 +0000
+
+ubiquity (17.04.1) zesty; urgency=medium
+
+  * Update sources to zesty.
+  * Add partman-swapfile d-i component.
+  * Confirm no_swap question.
+  * Make swapfile creation non-iteractive and in the background.
+  * Automatic update of included source packages: choose-mirror
+    2.73ubuntu1, flash-kernel 3.0~rc.4ubuntu65, partman-auto 134ubuntu6,
+    partman-auto-lvm 59ubuntu2, partman-basicfilesystems 127ubuntu2,
+    partman-btrfs 23ubuntu1, preseed 1.71ubuntu4.
+  * Pacify pycodestyle 2.0.
+  * Rip out GTK_MODULES overlay-scrollbar, no longer a gtk module.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 05 Dec 2016 12:39:41 +0000
+
+ubiquity (16.10.13) yakkety; urgency=medium
+
+  [ Blaze ]
+  * Port to PyQT5.
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: preseed 1.71ubuntu3.
+  * Finish porting to PyQt5.
+  * Various small UI tweaks to support GTK 3.20. (LP: #1614848, #1617711)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 06 Oct 2016 19:30:10 -0400
+
+ubiquity (16.10.12) yakkety; urgency=medium
+
+  * Automatic update of included source packages: base-installer
+    1.158ubuntu4, console-setup 1.142ubuntu5, hw-detect 1.117ubuntu3.
+  * data/ubiquity.desktop.in: run ubiquity in sudo rather than depending on
+    pkexec to do the right thing. (LP: #1189875)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 05 Oct 2016 15:04:21 -0400
+
+ubiquity (16.10.11) yakkety; urgency=medium
+
+  [ Simon Steinbeiß ]
+  * Account for larger harddrives in the partition size spinbutton.
+    (LP: #1622258)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 13 Sep 2016 10:07:18 -0400
+
+ubiquity (16.10.10) yakkety; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu64, netcfg 1.138ubuntu2, partman-auto 134ubuntu3.
+  * ubi-prepare.py: default to disabling Secure Boot when third party drivers
+    are being installed, since it's most likely what people will want. This
+    will also avoid people skipping through this important part of the
+    installer without noticing, only to find their systems not all working
+    correctly. (LP: #1606393)
+
 ubiquity (2.21.63.3-galliumos1) xenon; urgency=medium
 
   * Rebase on upstream 2.21.63.3
@@ -7,11 +551,6 @@ ubiquity (2.21.63.3-galliumos1) xenon; urgency=medium
 
 ubiquity (2.21.63.3) xenial; urgency=medium
 
-  * ubi-prepare.py: default to disabling Secure Boot when third party drivers
-    are being installed, since it's most likely what people will want. This
-    will also avoid people skipping through this important part of the
-    installer without noticing, only to find their systems not all working
-    correctly. (LP: #1606393)
   * d-i/sources.list: add xenial-updates to sources.list to pick up any SRUs
     of d-i components that are no longer in flight.
   * Automatic update of included source packages: apt-setup
@@ -82,6 +621,137 @@ ubiquity (2.21.63-galliumos1) xenon; urgency=medium
      - add debian/galliumos/upstream
 
  -- reynhout <reynhout@galliumos.org>  Thu, 21 Apr 2016 00:38:58 +0000
+=======
+
+  [ Jeremy Bicha ]
+  * gtk/ubiquity.ui: Right align Skip button (LP: #1612455)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 09 Sep 2016 10:14:36 -0400
+
+ubiquity (16.10.9) yakkety; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * bin/ubiquity: Remove duplicate setting of LC_ALL introduced in previous
+    upload.
+  * ubiquity-dm: Watch for the xsettings usd plugin to be started before
+    continuing. Do this by watching for the DBus signal via GDBus methods
+    rather than parsing dbus-monitor output.
+
+  [ Iain Lane ]
+  * ubiquity-dm: Drop privileges before performing operations on D-Bus
+  * ubiquity-dm: Fix signal handler's parameters and add timeout.
+
+  [ Max Brustkern ]
+  * tests: Pass custom proxy classes directly instead of locating them by name.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 25 Aug 2016 11:01:29 -0400
+
+ubiquity (16.10.8) yakkety; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: choose-mirror
+    2.69ubuntu1, grub-installer 1.128ubuntu6, netcfg 1.138ubuntu1,
+    partman-partitioning 112ubuntu1.
+  * bin/ubiquity: Work around apt printing pmstatus messages progress percent
+    values following LC_NUMERIC. (LP: #1611010)
+
+  [ Martin Pitt ]
+  * scripts/plugininstall.py: Remove fallback creation of /etc/iftab. This
+    hasn't existed for a long time (pre-udev).
+  * scripts/plugininstall.py: Remove fallback creation of
+    /etc/network/interfaces. The ifupdown package already creates one, it
+    is not necessary to have a (quasi-)empty file, and desktop systems use
+    NetworkManager instead of ifupdown.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 23 Aug 2016 17:11:45 -0400
+
+ubiquity (16.10.7) yakkety; urgency=medium
+
+  * Automatic update of included source packages: flash-kernel
+    3.0~rc.4ubuntu63.
+  * debian/control: Build-Depends on the right version of gtk too.
+  * ubiquity/misc.py: fix regex to match nvme first, otherwise it gets mangled
+    by the rest of the matching. 
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 01 Aug 2016 15:17:03 -0400
+
+ubiquity (16.10.6) yakkety; urgency=medium
+
+  [ Mathieu Trudel-Lapierre ]
+  * Automatic update of included source packages: partman-btrfs
+    21ubuntu2. (LP: #1606295)
+
+  [ Iain Lane ]
+  * debian/control: Depend on gir1.2-gtk-3.0 (>= 3.20).
+  * ubiquity/frontend/gtk_ui.py: Port style to Gtk 3.20.
+  * Silence some pyflakes warnings.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Jul 2016 11:57:46 -0400
+
+ubiquity (16.10.5) yakkety; urgency=medium
+
+  [ Kai-Heng Feng ]
+  * ubiquity-dm: Wait until u-s-d xsettings plugin is activated. (LP: #1560162)
+
+  [ David Jordan ]
+  * ubiquity/misc.py: set correct target device name for nvme drives.
+    (LP: #1600308)
+
+  [ Mathieu Trudel-Lapierre ]
+  * ubi-prepare.py: default to Secure Boot disabled if we install third-party
+    drivers.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Mon, 25 Jul 2016 15:37:04 -0400
+
+ubiquity (16.10.4) yakkety; urgency=high
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Some places doesn't have the location information. (LP: #1584417)
+
+  [ Dimitri John Ledkov ]
+  * Fix substitution variables syntax from $() -> ${} in
+    translations. (LP: #1603926)
+  * Automatic update of included source packages: clock-setup
+    0.128ubuntu1, partman-base 187ubuntu3, partman-btrfs 21ubuntu1.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 18 Jul 2016 12:12:43 +0100
+
+ubiquity (16.10.3) yakkety; urgency=medium
+
+  * If mate-settings-daemon is available, use it in preference to
+    unity-settings-daemon.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 22 Jun 2016 17:23:30 -0400
+
+ubiquity (16.10.2) yakkety; urgency=medium
+
+  * scripts/clock-setup-apply: guard against missing rcS file on the rootfs.
+    (LP: #1587555)
+  * autopilot/ubiquity_autopilot_tests/*: remove unused imports for pyflakes.
+  * tests/pyflakes.exclude: update exclusions to remove autopilot entries
+    just fixed, and add the full module path to the others.
+  * Automatic update of included source packages: apt-setup
+    1:0.104ubuntu5, base-installer 1.158ubuntu3, clock-setup
+    0.126ubuntu2, console-setup 1.142ubuntu4, netcfg 1.135ubuntu6,
+    partconf 1.50, partman-auto-lvm 59ubuntu1, partman-ext3 86ubuntu1,
+    partman-lvm 113.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 09 Jun 2016 10:43:50 -0400
+
+ubiquity (16.10.1) yakkety; urgency=medium
+
+  [ Iain Lane ]
+  * misc.py: Ask for the 'State' property instead of 'state'. Fixes display
+    of wireless page. (LP: #1572793)
+
+  [ Mathieu Trudel-Lapierre ]
+  * Abitrary version number change.
+  * Move sources to yakkety.
+  * Automatic update of included source packages: choose-mirror
+    2.65ubuntu7, console-setup 1.142ubuntu1, preseed 1.71ubuntu2.
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Apr 2016 16:28:50 -0400
+>>>>>>> vendor
 
 ubiquity (2.21.63) xenial; urgency=medium
 

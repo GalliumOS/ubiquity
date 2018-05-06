@@ -138,7 +138,7 @@ auto_lvm_prepare() {
 	target="$target: $(longint2human $size)"
 	free_size=$(convert_to_megabytes $size)
 
-	choose_recipe lvm "$target" "$free_size" || return $?
+	choose_recipe "$method" "$target" "$free_size" || return $?
 
 	auto_init_disks $devs || return $?
 	for dev in $devs; do
@@ -158,7 +158,7 @@ auto_lvm_prepare() {
 	# only works if all the labels match, but that should be the case
 	# since we just initialised them all following the same rules.
 	cd "${devs%% *}"
-	decode_recipe $recipe lvm
+	decode_recipe $recipe "$method" 
 	cd -
 
 	# Make sure the recipe contains lvmok tags
@@ -202,7 +202,7 @@ auto_lvm_prepare() {
 	fi
 
 	case $archdetect in
-	    powerpc/prep)
+	    */efi|amd64/*|i386/*|powerpc/prep|ppc64el/prep|s390x/*)
 		: ;;
 	    *)
 		# TODO: make check more explicit, mountpoint{ / }?

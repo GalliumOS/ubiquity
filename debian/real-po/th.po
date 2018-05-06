@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2012-05-08 01:00+0000\n"
-"Last-Translator: Manop Pornpeanvichanon(มานพ พรเพียรวิชานนท์) <Unknown>\n"
+"POT-Creation-Date: 2018-03-28 08:52-0400\n"
+"PO-Revision-Date: 2018-04-14 07:53+0000\n"
+"Last-Translator: Rockworld <sumoisrock@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
-"Language: th\n"
+"X-Launchpad-Export-Date: 2018-04-22 09:52+0000\n"
+"X-Generator: Launchpad (build 18617)\n"
 
 #. Type: text
 #. Description
@@ -27,13 +27,13 @@ msgstr "กำลังเชื่อมต่อ..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr ""
+msgstr "การเชื่อมต่อล้มเหลว"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:5001
 msgid "Connected."
-msgstr ""
+msgstr "เชื่อมต่อแล้ว"
 
 #. Type: text
 #. Description
@@ -64,10 +64,8 @@ msgid ""
 "for this batch of systems. This name will be saved on the installed system "
 "and can be used to help with bug reports."
 msgstr ""
-"คุณกำลังติดตั้งในโหมดผู้ผลิต "
-"กรุณาใส่ชื่อที่ไม่ซ้ำกับเครื่องอื่นสำหรับระบบในสายการผลิตนี้ "
-"ชื่อนี้จะถูกบันทึกในระบบที่ติดตั้งแล้ว "
-"และสามารถนำไปใช้ในการช่วยเหลือในด้านการรายงานปัญหาต่าง ๆ"
+"คุณกำลังติดตั้งในโหมดผู้ผลิต กรุณาใส่ชื่อที่ไม่ซ้ำกับเครื่องอื่นสำหรับระบบในสายการผลิตนี้ "
+"ชื่อนี้จะถูกบันทึกในระบบที่ติดตั้งแล้ว และสามารถนำไปใช้ในการช่วยเหลือในด้านการรายงานปัญหาต่าง ๆ"
 
 #. Type: text
 #. Description
@@ -89,8 +87,8 @@ msgid ""
 "Or if you're ready, you can install ${RELEASE} alongside (or instead of) "
 "your current operating system.  This shouldn't take too long."
 msgstr ""
-"หรือถ้าคุณพร้อมแล้ว คุณสามารถติดตั้ง ${RELEASE} คู่กับ (หรือแทนที่) "
-"ระบบปฏิบัติการที่คุณใช้อยู่ปัจจุบัน ซึ่งจะใช้เวลาไม่นาน"
+"หรือถ้าคุณพร้อมแล้ว คุณสามารถติดตั้ง ${RELEASE} คู่กับ (หรือแทนที่) ระบบปฏิบัติการที่คุณใช้อยู่ปัจจุบัน "
+"ซึ่งจะใช้เวลาไม่นาน"
 
 #. Type: text
 #. Description
@@ -113,8 +111,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"คุณอาจต้องการอ่าน <a href=\"release-notes\">บันทึกการออกรุ่น</a> หรือ <a "
-"href=\"update\">ปรับปรุงโปรแกรมติดตั้งนี้</a>"
+"คุณอาจต้องการอ่าน <a href=\"release-notes\">บันทึกการออกรุ่น</a> หรือ <a href="
+"\"update\">ปรับปรุงโปรแกรมติดตั้งนี้</a>"
 
 #. Type: text
 #. Description
@@ -201,6 +199,8 @@ msgid ""
 "&lt;small&gt;If more than one person will use this computer, you can set up "
 "multiple accounts after installation.&lt;/small&gt;"
 msgstr ""
+"%lt;small&gt;ถ้ามีผู้ใช้หลายคนจะใช้คอมพิวเตอร์เครื่องนี้ "
+"คุณสามารถตั้งค่าบัญชีผู้ใช้สำหรับแต่ละคนได้หลังจากที่การติดตั้งเสร็จสมบูรณ์&lt;/small&gt;"
 
 #. Type: text
 #. Description
@@ -211,8 +211,7 @@ msgstr "ต้องเริ่มด้วยอักษรตัวเล็
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-msgid ""
-"May only contain lower-case letters, digits, hyphens, and underscores."
+msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr "ให้มีได้แค่ตัวอักษรพิมพ์เล็ก, ตัวเลข, ขีดกลาง, และขีดใต้เท่านั้น"
 
 #. Type: text
@@ -236,6 +235,8 @@ msgid ""
 "&lt;small&gt;Enter the same password twice, so that it can be checked for "
 "typing errors.&lt;/small&gt;"
 msgstr ""
+"&lt;small&gt;ป้อนรหัสผ่านเหมือนกันสองครั้ง เพื่อตรวจสอบความถูกต้องในการสะกด&lt:/"
+"small&gt;"
 
 #. Type: text
 #. Description
@@ -368,7 +369,7 @@ msgstr "แฟ้ม (${SIZE})"
 #. Description
 #: ../ubiquity.templates:54001
 msgid "Where would you like to install Kubuntu?"
-msgstr ""
+msgstr "คุณต้องการติดตั้ง Kubuntu ไว้ที่ใด?"
 
 #. Type: text
 #. Description
@@ -408,9 +409,7 @@ msgstr "การติดตั้งบูตโหลดเดอร์ล้
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr ""
-"ขออภัย ข้อผิดพลาดที่เกิดขึ้น "
-"เกิดจากตำแหน่งที่ระบุไว้ไม่สามารถติดตั้งบูตโหลดเดอร์ได้"
+msgstr "ขออภัย ข้อผิดพลาดที่เกิดขึ้น เกิดจากตำแหน่งที่ระบุไว้ไม่สามารถติดตั้งบูตโหลดเดอร์ได้"
 
 #. Type: text
 #. Description
@@ -492,34 +491,39 @@ msgid ""
 "details will be sent to our bug tracker and a developer will attend to the "
 "problem as soon as possible."
 msgstr ""
+"เราขออภัย; โปรแกรมติดตั้งได้หยุดทำงานแล้ว หลังจากที่คุณปิดหน้าต่างนี้แล้ว "
+"เราจะอนุญาตให้คุณส่งรายงานข้อผิดพลาดโดยใช้เครื่องมือรายงานข้อผิดพลาดในตัว "
+"ซึ่งจะรวบรวมข้อมูลเกี่ยวกับระบบของคุณและกระบวนการติดตั้งของคุณ "
+"รายละเอียดเหล่านี้จะถูกส่งไปที่ผู้ติดตามข้อผิดพลาดของเรา "
+"และนักพัฒนาจะช่วยกันแก้ปัญหาให้เร็วที่สุดเท่าที่จะทำได้"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:76001
 msgid "_High Contrast"
-msgstr ""
+msgstr "_ความเปรียบต่างสูง"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:77001
 msgid "_Screen Reader"
-msgstr ""
+msgstr "_ตัวอ่านหน้าจอ"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:78001
 msgid "_Keyboard Modifiers"
-msgstr ""
+msgstr "ตัว_ปรับแต่งแป้นพิมพ์"
 
 #. Type: text
 #. Description
 #. An indicator menu item.  The underscore goes before an accelerator key.
 #: ../ubiquity.templates:79001
 msgid "_On-screen Keyboard"
-msgstr ""
+msgstr "แป้น_พิมพ์บนหน้าจอ"
 
 #. Type: text
 #. Description
@@ -554,7 +558,7 @@ msgstr "ลบ"
 #. An action, displayed on a button or as a menu item.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001 ../ubiquity.templates:279001
+#: ../ubiquity.templates:84001 ../ubiquity.templates:288001
 msgid "Revert"
 msgstr "กลับคืนค่าเดิม"
 
@@ -613,7 +617,7 @@ msgstr "ใช้ไป"
 #. A column heading in the partitioner.
 #: ../ubiquity.templates:92001
 msgid "System"
-msgstr ""
+msgstr "ระบบ"
 
 #. Type: text
 #. Description
@@ -639,19 +643,19 @@ msgstr "สร้างพาร์ทิชัน"
 #. Description
 #: ../ubiquity.templates:96001
 msgid "Size:"
-msgstr ""
+msgstr "ขนาด:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:97001
 msgid "Beginning of this space"
-msgstr ""
+msgstr "จุดเริ่มต้นของพื้นที่ว่างนี้"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:98001
 msgid "End of this space"
-msgstr ""
+msgstr "จุดสิ้นสุดของพื้นที่ว่างนี้"
 
 #. Type: text
 #. Description
@@ -692,8 +696,7 @@ msgid ""
 "until you restart the computer, any changes you make or documents you save "
 "will not be preserved."
 msgstr ""
-"การติดตั้งเสร็จแล้ว คุณสามารถทดลองใช้งาน ${RELEASE} ต่อไป "
-"แต่เมื่อคุณเริ่มคอมพิวเตอร์ใหม่ "
+"การติดตั้งเสร็จแล้ว คุณสามารถทดลองใช้งาน ${RELEASE} ต่อไป แต่เมื่อคุณเริ่มคอมพิวเตอร์ใหม่ "
 "การเปลี่ยนแปลงหรือเอกสารที่คุณสร้างไว้จะสูญหาย"
 
 #. Type: text
@@ -732,7 +735,7 @@ msgstr "หยุด"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:110001
 msgid "Continue in UEFI mode"
-msgstr ""
+msgstr "ดำเนินการต่อในโหมด UEFI"
 
 #. Type: text
 #. Description
@@ -740,9 +743,7 @@ msgstr ""
 msgid ""
 "Installation is complete. You need to restart the computer in order to use "
 "the new installation."
-msgstr ""
-"การติดตั้งสมบูรณ์ "
-"คุณต้องเริ่มคอมพิวเตอร์ใหม่เพื่อที่จะใช้งานส่วนที่ติดตั้งใหม่"
+msgstr "การติดตั้งสมบูรณ์ คุณต้องเริ่มคอมพิวเตอร์ใหม่เพื่อที่จะใช้งานส่วนที่ติดตั้งใหม่"
 
 #. Type: text
 #. Description
@@ -811,8 +812,7 @@ msgid ""
 "complete on the target partition.  Please run the installer again and select "
 "a larger partition to install into."
 msgstr ""
-"ปัญหานี้เกิดมาจากมีพื้นที่ไม่พอในพาร์ทิชันที่กำหนดไว้ "
-"ทำให้การติดตั้งไม่สำเร็จ "
+"ปัญหานี้เกิดมาจากมีพื้นที่ไม่พอในพาร์ทิชันที่กำหนดไว้ ทำให้การติดตั้งไม่สำเร็จ "
 "กรุณาเริ่มใหม่อีกครั้งและเลือกพาร์ทิชันที่ใหญ่กว่านี้"
 
 #. Type: error
@@ -823,9 +823,8 @@ msgid ""
 "CD/DVD, to burn the CD/DVD at a lower speed, or to clean the CD/DVD drive "
 "lens (cleaning kits are often available from electronics suppliers)."
 msgstr ""
-"ปัญหานี้ส่วนใหญ่เกิดมาจากแผ่นซีดี/ดีวีดีหรือไดรว์เสีย "
-"อาจลองทำความสะอาดแผ่นซีดี/ดีวีดี เขียนแผ่นซีดี/ดีวีดีที่ความเร็วต่ำลง "
-"หรือทำความสะอาดเลนส์ของเครื่องเล่น "
+"ปัญหานี้ส่วนใหญ่เกิดมาจากแผ่นซีดี/ดีวีดีหรือไดรว์เสีย อาจลองทำความสะอาดแผ่นซีดี/ดีวีดี เขียนแผ่นซีดี/"
+"ดีวีดีที่ความเร็วต่ำลง หรือทำความสะอาดเลนส์ของเครื่องเล่น "
 "(ชุดทำความสะอาดเลนส์หาซื้อได้จากร้านขายเครื่องไฟฟ้า)"
 
 #. Type: error
@@ -836,8 +835,7 @@ msgid ""
 "hard disk is old and in need of replacement, or to move the system to a "
 "cooler environment."
 msgstr ""
-"ปัญหานี้ส่วนใหญ่เกิดจากฮาร์ดดิสก์เสีย "
-"กรุณาตรวจสอบว่าฮาร์ดดิสก์เก่าและต้องเปลี่ยนใหม่หรือไม่ "
+"ปัญหานี้ส่วนใหญ่เกิดจากฮาร์ดดิสก์เสีย กรุณาตรวจสอบว่าฮาร์ดดิสก์เก่าและต้องเปลี่ยนใหม่หรือไม่ "
 "หรืออาจต้องย้ายเครื่องคอมพิวเตอร์ไปอยู่ในที่ที่เย็นกว่านี้"
 
 #. Type: error
@@ -856,12 +854,10 @@ msgid ""
 "electronics suppliers), to check whether the hard disk is old and in need of "
 "replacement, or to move the system to a cooler environment."
 msgstr ""
-"ปัญหานี้ส่วนมากเกิดจากแผ่นซีดี/ดีวีดี หรือฮาร์ดดิสก์มีปัญหา "
-"กรุณาตรวจสอบและทำความสะอาดแผ่นซีดี/ดีวีดี เขียนแผ่นซีดีด้วยความเร็วที่ต่ำลง "
-"ทำความสะอาดเลนส์ของเครื่องเล่นซีดี "
+"ปัญหานี้ส่วนมากเกิดจากแผ่นซีดี/ดีวีดี หรือฮาร์ดดิสก์มีปัญหา กรุณาตรวจสอบและทำความสะอาดแผ่นซีดี/"
+"ดีวีดี เขียนแผ่นซีดีด้วยความเร็วที่ต่ำลง ทำความสะอาดเลนส์ของเครื่องเล่นซีดี "
 "(ชุดทำความสะอาดหาซื้อได้จากร้านขายเครื่องไฟฟ้า) "
-"ตรวจสอบว่าฮาร์ดดิสก์เก่าและต้องเปลี่ยนใหม่หรือไม่ "
-"หรือย้ายไปอยู่ในที่ที่เย็นกว่านี้"
+"ตรวจสอบว่าฮาร์ดดิสก์เก่าและต้องเปลี่ยนใหม่หรือไม่ หรือย้ายไปอยู่ในที่ที่เย็นกว่านี้"
 
 #. Type: select
 #. Description
@@ -1028,17 +1024,16 @@ msgstr "แพกเกจต่อไปนี้อยู่ในสถาน
 #: ../ubiquity.templates:146001 ../ubiquity.templates:147001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
-"นี่อาจเป็นเพราะใช้อิมเมจโปรแกรมติดตั้งรุ่นเก่า "
-"หรืออาจเพราะบักในบางแพกเกจที่แสดงอยู่ด้านบน รายละเอียดเพิ่มเติมดูได้ที่ "
-"/var/log/syslog โปรแกรมติดตั้งจะพยายามทำงานต่อไป แต่อาจผิดพลาดหลังจากนี้ "
-"และจะไม่สามารถติดตั้งหรือถอดถอนแพกเกจอื่น "
+"นี่อาจเป็นเพราะใช้อิมเมจโปรแกรมติดตั้งรุ่นเก่า หรืออาจเพราะบักในบางแพกเกจที่แสดงอยู่ด้านบน "
+"รายละเอียดเพิ่มเติมดูได้ที่ /var/log/syslog โปรแกรมติดตั้งจะพยายามทำงานต่อไป "
+"แต่อาจผิดพลาดหลังจากนี้ และจะไม่สามารถติดตั้งหรือถอดถอนแพกเกจอื่น "
 "(อาจรวมถึงตัวโปรแกรมติดตั้งเองด้วย) จากระบบที่ติดตั้งไว้ "
 "ขั้นแรกคุณควรมองหาโปรแกรมติดตั้งรุ่นที่ใหม่กว่า ถ้าไม่สามารถหาได้ "
 "ควรรายงานปัญหานี้กับผู้แจกจ่ายชุดติดตั้งนี้ให้คุณ"
@@ -1070,14 +1065,13 @@ msgid ""
 "installed system."
 msgstr ""
 "เกิดข้อผิดพลาดขณะคัดลอกการตั้งค่าเครือข่าย "
-"การติดตั้งจะดำเนินต่อไปแต่การกำหนดค่าเครือข่ายจะต้องตั้งค่าอีกครั้งในระบบหลัง"
-"การติดตั้ง"
+"การติดตั้งจะดำเนินต่อไปแต่การกำหนดค่าเครือข่ายจะต้องตั้งค่าอีกครั้งในระบบหลังการติดตั้ง"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:149001
 msgid "Error copying bluetooth configuration"
-msgstr ""
+msgstr "เกิดข้อผิดพลาดในการคัดลอกการกำหนดค่าบลูทูธ"
 
 #. Type: error
 #. Description
@@ -1087,12 +1081,14 @@ msgid ""
 "will continue, but the bluetooth configuration will have to be set up again "
 "in the installed system."
 msgstr ""
+"เกิดข้อผิดพลาดขณะคัดลอกการตั้งค่าบลูทูธ การติดตั้งจะยังคงดำเนินการต่อไป "
+"แต่ต้องกำหนดค่าบลูทูธอีกครั้ง เมื่อติดตั้งระบบแล้ว"
 
 #. Type: error
 #. Description
 #: ../ubiquity.templates:150001
 msgid "Error restoring installed applications"
-msgstr "การกู้คืนโปรแกรมที่ติดตั้งแล้วผิดพลาด"
+msgstr "การกู้คืนแอปพลิเคชันที่ติดตั้งแล้วผิดพลาด"
 
 #. Type: error
 #. Description
@@ -1102,15 +1098,14 @@ msgid ""
 "installation will continue, but you may have to manually reinstall some "
 "applications after the computer reboots."
 msgstr ""
-"เกิดข้อผิดพลาดขณะคืนค่าโปรแกรมที่ติดตั้งไว้ก่อนหน้านี้ "
-"การติดตั้งจะดำเนินต่อไป "
-"แต่คุณอาจต้องติดตั้งโปรแกรมประยุกต์บางโปรแกรมหลังเริ่มเครื่องใหม่"
+"เกิดข้อผิดพลาดขณะคืนค่าแอปพลิเคชันที่ติดตั้งไว้ก่อนหน้านี้ การติดตั้งจะดำเนินต่อไป "
+"แต่คุณอาจต้องติดตั้งแอปพลิเคชันบางแอปพลิเคชันหลังเริ่มเครื่องใหม่"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:154001
 msgid "Calculating files to skip copying..."
-msgstr "กำลังคำนวนแฟ้มที่ข้ามการคัดลอก..."
+msgstr "กำลังคำนวณแฟ้มที่ข้ามการคัดลอก..."
 
 #. Type: title
 #. Description
@@ -1138,22 +1133,19 @@ msgid ""
 "because partitions on the following mount points could not be unmounted:"
 msgstr ""
 "โปรแกรมติดตั้งต้องการบันทึกการแก้ไขลงในตารางพาร์ทิชัน "
-"แต่ไม่สามารถทำได้เนื่องจากพาร์ทิชันที่อยู่บนจุดเมานท์ต่อไปนี้ไม่สามารถเลิกเมา"
-"นท์ได้:"
+"แต่ไม่สามารถทำได้เนื่องจากพาร์ทิชันที่อยู่บนจุดเมานท์ต่อไปนี้ไม่สามารถเลิกเมานท์ได้:"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:165001
 msgid "Please close any applications using these mount points."
-msgstr "โปรดปิดโปรแกรมใดๆ ที่กำลังใช้จุดเมานท์เหล่านี้"
+msgstr "โปรดปิดแอปพลิเคชันใด ๆ ที่กำลังใช้จุดเมานท์เหล่านี้"
 
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:165001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
-msgstr ""
-"คุณต้องการให้โปรแกรมติดตั้งลองยกเลิกเมานท์พาร์ทิชั่นเหล่านี้อีกหรือไม่?"
+msgid "Would you like the installer to try to unmount these partitions again?"
+msgstr "คุณต้องการให้โปรแกรมติดตั้งลองยกเลิกเมานท์พาร์ทิชั่นเหล่านี้อีกหรือไม่?"
 
 #. Type: boolean
 #. Description
@@ -1167,9 +1159,7 @@ msgstr "คุณต้องการกลับไปยังตัวจั
 msgid ""
 "Some of the partitions you created are too small.  Please make the following "
 "partitions at least this large:"
-msgstr ""
-"บางพาร์ทิชันที่สร้างไว้มีขนาดเล็กเกินไป "
-"โปรดแก้ไขพาร์ทิชันให้มีขนาดไม่ต่ำกว่า:"
+msgstr "บางพาร์ทิชันที่สร้างไว้มีขนาดเล็กเกินไป โปรดแก้ไขพาร์ทิชันให้มีขนาดไม่ต่ำกว่า:"
 
 #. Type: boolean
 #. Description
@@ -1177,9 +1167,7 @@ msgstr ""
 msgid ""
 "If you do not go back to the partitioner and increase the size of these "
 "partitions, the installation may fail."
-msgstr ""
-"หากคุณไม่กลับไปที่โปรแกรมจัดการพาร์ติชันและเพิ่มขนาดพาร์ติชั่น "
-"การติดตั้งอาจจะล้มเหลว"
+msgstr "หากคุณไม่กลับไปที่โปรแกรมจัดการพาร์ติชันและเพิ่มขนาดพาร์ติชั่น การติดตั้งอาจจะล้มเหลว"
 
 #. Type: text
 #. Description
@@ -1191,7 +1179,7 @@ msgstr "ตั้งค่าระบบ"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001 ../ubiquity.templates:243001
+#: ../ubiquity.templates:174001 ../ubiquity.templates:252001
 msgid "Welcome"
 msgstr "ยินดีต้อนรับ"
 
@@ -1224,8 +1212,8 @@ msgstr "ไร้สาย"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:179001
-msgid "Prepare"
-msgstr "เตรียมการ"
+msgid "Software"
+msgstr "ซอฟต์แวร์"
 
 #. Type: text
 #. Description
@@ -1325,9 +1313,7 @@ msgstr "ซีดี"
 msgid ""
 "Please choose the language to use for the install process. This language "
 "will be the default language for this computer."
-msgstr ""
-"กรุณาเลือกภาษาที่ใช้ในกระบวนการติดตั้ง "
-"โดยภาษานี้จะเป็นภาษาปริยายของเครื่องนี้ด้วย"
+msgstr "กรุณาเลือกภาษาที่ใช้ในกระบวนการติดตั้ง โดยภาษานี้จะเป็นภาษาปริยายของเครื่องนี้ด้วย"
 
 #. Type: text
 #. Description
@@ -1335,8 +1321,7 @@ msgstr ""
 msgid ""
 "Please choose the language used for the configuration process. This language "
 "will be the default language for this computer."
-msgstr ""
-"โปรดเลือกภาษาที่จะใช้ในการตั้งค่าระบบ ภาษาที่เลือกนี้จะเป็นภาษาปริยายของระบบ"
+msgstr "โปรดเลือกภาษาที่จะใช้ในการตั้งค่าระบบ ภาษาที่เลือกนี้จะเป็นภาษาปริยายของระบบ"
 
 #. Type: text
 #. Description
@@ -1364,10 +1349,9 @@ msgstr "โปรแกรมติดตั้งพบข้อผิดพล
 
 #. Type: text
 #. Description
-#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:201001
-msgid "Preparing to install ${RELEASE}"
-msgstr "กำลังเตรียมที่จะติดตั้ง ${RELEASE}"
+msgid "Updates and other software"
+msgstr "การอัปเดตและซอฟต์แวร์อื่น"
 
 #. Type: text
 #. Description
@@ -1377,9 +1361,8 @@ msgid ""
 "party software, download updates, automatically detect your timezone, and "
 "install full support for your language."
 msgstr ""
-"การเชื่อมต่อคอมพิวเตอร์นี้เข้ากับเครือข่าย wi-fi "
-"ทำให้สามารถติดตั้งโปรแกรมจากเจ้าอื่น ๆ, ดาว์โหลดการปรับรุ่น, "
-"และตรวจสอบช่วงเวลาของคุณบนโลก และติดตั้งภาษาต่าง ๆ ได้อย่างเต็มที่"
+"การเชื่อมต่อคอมพิวเตอร์นี้เข้ากับเครือข่าย wi-fi ทำให้สามารถติดตั้งโปรแกรมจากเจ้าอื่น ๆ, "
+"ดาว์โหลดการปรับรุ่น, และตรวจสอบช่วงเวลาของคุณบนโลก และติดตั้งภาษาต่าง ๆ ได้อย่างเต็มที่"
 
 #. Type: text
 #. Description
@@ -1407,204 +1390,253 @@ msgstr "เชื่อมต่อกับเครื่อข่ายนี
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:212001
 msgid "Select drive:"
 msgstr "เลือกไดรว์:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:213001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "จัดสรรพื้นที่ว่างบนไดรว์ด้วยการลากตัวแบ่งข้างล่าง:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:214001
 msgid "The entire disk will be used:"
 msgstr "ดิสก์ทั้งหมดจะถูกใช้:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>%d พาร์ทิชันขนาดเล็กถูกซ่อนไว้ ให้ใช้<a "
-"href=\"\">เครื่องมือแบ่งพาร์ทิชันขั้นสูง</a>เพื่อการควบคุมได้มากขึ้น</small>"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:215001
-msgid ""
-"<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-"partitioning tool</a> for more control</small>"
-msgstr ""
-"<small>1 พาร์ทิชันขนาดเล็กถูกซ่อนอยู่ ให้ใช้<a "
-"href=\"\">เครื่องมือแบ่งพาร์ทิชันขั้นสูง </a>เพื่อการควบคุมได้มากขึ้น</small>"
+"<small>%d พาร์ทิชันขนาดเล็กถูกซ่อนไว้ ให้ใช้<a href=\"\">เครื่องมือแบ่งพาร์ทิชันขั้นสูง</"
+"a>เพื่อการควบคุมได้มากขึ้น</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
-#, no-c-format
 msgid ""
-"%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
-"tool</a> for more control"
+"<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
+"partitioning tool</a> for more control</small>"
 msgstr ""
-"พาร์ทิชัน %d จะถูกลบ, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> "
-"เพื่อควบคุม"
+"<small>1 พาร์ทิชันขนาดเล็กถูกซ่อนอยู่ ให้ใช้<a href=\"\">เครื่องมือแบ่งพาร์ทิชันขั้นสูง </"
+"a>เพื่อการควบคุมได้มากขึ้น</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:217001
+#, no-c-format
 msgid ""
-"1 partition will be deleted, use the <a href=\"\">advanced partitioning "
+"%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
-msgstr ""
-"มี 1 พาร์ทิชันจะถูกลบ, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> "
-"เพื่อควบคุม"
+msgstr "พาร์ทิชัน %d จะถูกลบ, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> เพื่อควบคุม"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
+msgid ""
+"1 partition will be deleted, use the <a href=\"\">advanced partitioning "
+"tool</a> for more control"
+msgstr "มี 1 พาร์ทิชันจะถูกลบ, ใช้ <a href=\"\">เครื่องมือพาร์ทิชันขั้นสูง</a> เพื่อควบคุม"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:219001
 msgid "Split Largest Partition"
 msgstr "แบ่งจากพาร์ทิชันใหญ่ที่สุด"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:221001
 msgid "For best results, please ensure that this computer:"
 msgstr "เพื่อผลลัพธ์ที่ดีกว่า โปรดตรวจสอบความเรียบร้อยของคอมพิวเตอร์นี้:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:222001
 msgid "Sorry"
-msgstr ""
+msgstr "ขออภัย"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #. RELEASE is a variable substituted into this string, the Ubuntu flavor'
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:223001
 msgid "You need at least ${SIZE} disk space to install ${RELEASE}."
-msgstr ""
+msgstr "คุณต้องมีพื้นที่ว่างอย่างน้อย ${SIZE} จึงจะสามารถติดตั้ง ${RELEASE} ได้"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid "This computer has only ${SIZE}."
-msgstr ""
+msgstr "คอมพิวเตอร์นี้มีเพียง ${SIZE}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:225001
 msgid "is plugged in to a power source"
 msgstr "การเชื่อมต่อเข้ากับแหล่งจ่ายพลังงาน"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:226001
 msgid "is connected to the Internet"
 msgstr "การเชื่อมต่อกับอินเทอร์เน็ต"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid ""
 "This software is subject to license terms included with its documentation. "
 "Some is proprietary."
 msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:227001
-msgid ""
-"Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
-"from Fraunhofer IIS and Technicolor SA."
-msgstr ""
+"ซอฟต์แวร์ชุดนี้อยู่ภายใต้ข้อตกลงในสัญญาอนุญาตที่รวมมากับเอกสารคู่มือของซอฟต์แวร์ชุดนี้ "
+"บางส่วนเป็นซอฟต์แวร์กรรมสิทธิ์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
 msgid ""
-"Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
-"other media"
-msgstr ""
+"Install third-party software for graphics and Wi-Fi hardware and additional "
+"media formats"
+msgstr "ติดตั้งซอฟต์แวร์บุคคลที่สามสำหรับฮาร์ดแวร์กราฟิกและ Wi-Fi รวมถึงรูปแบบสื่อเพิ่มเติม"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
 msgid "Download updates while installing ${RELEASE}"
-msgstr ""
+msgstr "ดาวน์โหลดการอัปเดตขณะติดตั้ง ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "This saves time after installation."
-msgstr ""
+msgstr "การกระทำนี้จะช่วยประหยัดเวลาหลังการติดตั้ง"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Not available because there is no Internet connection."
-msgstr ""
+msgstr "ไม่พร้อมใช้งานเนื่องจากไม่ได้เชื่อมต่ออินเทอร์เน็ต"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-msgid ""
-"Installing third-party drivers requires turning off Secure Boot. To do this, "
-"you need to choose a security key now, and enter it when the system restarts."
-msgstr ""
+msgid "What apps would you like to install to start with?"
+msgstr "คุณต้องการเริ่มจากการติดตั้งแอพใด?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:233001
+msgid "Which applications would you like to start with?"
+msgstr "คุณต้องการเริ่มจากแอพพลิเคชั่นใด?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:234001
+msgid "Minimal installation"
+msgstr "การติดตั้งแบบขนาดเล็ก"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:235001
+msgid "Web browser and basic utilities."
+msgstr "เว็บเบราว์เซอร์และโปรแกรมอรรถประโยชน์พื้นฐาน"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
-msgid "Layout:"
-msgstr "ผัง:"
+msgid "Web browser plus basic utilities and applications."
+msgstr "เว็บเบราว์เซอร์ โปรแกรมอรรถประโยชน์พื้นฐาน และแอพพลิเคชั่น"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:237001
-msgid "Variant:"
-msgstr "ตัวแปร:"
+msgid "Normal installation"
+msgstr "การติดตั้งแบบปกติ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:238001
-msgid "Below is an image of your current layout:"
-msgstr "ข้างล่างนี้เป็นภาพของผังปัจจุบัน:"
+msgid "Web browser, utilities, office software, games, and media players."
+msgstr "เว็บเบราว์เซอร์, โปรแกรมอรรถประโยชน์, ซอฟต์แวร์สำนักงาน, เกม, และโปรแกรมเล่นสื่อ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:239001
 msgid ""
-"Select your location, so that the system can use appropriate display "
-"conventions for your country, fetch updates from sites close to you, and set "
-"the clock to the correct local time."
+"Web browser, utilities, office software, KDE PIM suite plus additional "
+"internet applications and media players."
 msgstr ""
-"เลือกตำแหน่งของคุณ นั่นจะทำให้ระบบใช้ข้อมูลต่างๆ ที่เหมาะสมกับประเทศของคุณ "
-"เช่น "
-"ดึงข้อมูลการปรับปรุงจากเว็บที่ใกล้กับคุณและตั้งค่าเวลาให้ตรงกับเวลาท้องถิ่น"
+"เว็บเบราว์เซอร์, โปรแกรมอรรถประโยชน์, ซอฟต์แวร์สำนักงาน, ชุดโปรแกรม KDE PIM "
+"รวมถึงแอพพลิเคชั่นอินเทอร์เน็ตเพิ่มเติมและโปรแกรมเล่นสื่อ"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:240001
+msgid "Other options"
+msgstr "ตัวเลือกอื่น"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:241001
+msgid ""
+"Installing third-party drivers requires turning off Secure Boot. To do this, "
+"you need to choose a security key now, and enter it when the system restarts."
+msgstr ""
+"การติดตั้งไดรเวอร์จากบุคคลที่สามจะต้องปิดโหมด Secure Boot ถ้าคุณต้องการทำเช่นนี้ "
+"คุณต้องเลือกคีย์ความปลอดภัยตอนนี้ และป้อนคีย์ดังกล่าวหลังจากที่เริ่มระบบใหม่แล้ว"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:245001
+msgid "Layout:"
+msgstr "ผัง:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:246001
+msgid "Variant:"
+msgstr "ตัวแปร:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:247001
+msgid "Below is an image of your current layout:"
+msgstr "ข้างล่างนี้เป็นภาพของผังปัจจุบัน:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:248001
+msgid ""
+"Select your location, so that the system can use appropriate display "
+"conventions for your country, fetch updates from sites close to you, and set "
+"the clock to the correct local time."
+msgstr ""
+"เลือกตำแหน่งที่ตั้งของคุณเพื่อให้ระบบสามารถแสดงข้อมูลข่าวสารที่เหมาะสมกับประเทศของคุณ "
+"รวมทั้งดึงข้อมูลอัปเดตจากไซต์ที่อยู่ใกล้คุณ และตั้งค่านาฬิกาให้ถูกต้องตามเวลาท้องถิ่นได้"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:249001
 msgid "Time Zone:"
 msgstr "เขตเวลา:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:241001
+#: ../ubiquity.templates:250001
 msgid "Region:"
 msgstr "ภูมิภาค:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:251001
 msgid "[type here to change]"
 msgstr "[พิมพ์ที่นี่เพื่อเปลี่ยน]"
 
@@ -1612,26 +1644,26 @@ msgstr "[พิมพ์ที่นี่เพื่อเปลี่ยน]"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:254001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "แทนที่ ${OS} ด้วย ${DISTRO}"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:254001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
 msgstr ""
-"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม ${OS} เอกสาร ภาพถ่าย "
-"เพลง และแฟ้มอื่นๆ ของคุณจะถูกลบ"
+"<span foreground=\"darkred\">คำเตือน:</span> โปรแกรม ${OS} เอกสาร ภาพถ่าย เพลง "
+"และแฟ้มอื่นๆ ของคุณจะถูกลบ"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:255001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "ติดตั้ง ${DISTRO} คู่กับ ${OS}"
 
@@ -1643,8 +1675,8 @@ msgstr "ติดตั้ง ${DISTRO} คู่กับ ${OS}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246001 ../ubiquity.templates:247001
-#: ../ubiquity.templates:251001 ../ubiquity.templates:256001
+#: ../ubiquity.templates:255001 ../ubiquity.templates:256001
+#: ../ubiquity.templates:260001 ../ubiquity.templates:265001
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
@@ -1656,38 +1688,36 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:256001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "ติดตั้ง ${DISTRO} ใน ${OS}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:257001
 msgid "Something else"
 msgstr "อื่นๆ"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:257001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
-msgstr ""
-"คุณสามารถสร้างหรือปรับขนาดพาร์ทิชันด้วยตัวเองหรือเลือกพาร์ทิชันสำหรับ "
-"${DISTRO}"
+msgstr "คุณสามารถสร้างหรือปรับขนาดพาร์ทิชันด้วยตัวเองหรือเลือกพาร์ทิชันสำหรับ ${DISTRO}"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:258001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "ลบ ${CURDISTRO} และติดตั้งใหม่"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:258001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1699,7 +1729,7 @@ msgstr ""
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #. VER is a variable substituted into this string, and may be '11.04'
-#: ../ubiquity.templates:250001
+#: ../ubiquity.templates:259001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "ปรับปรุง ${CURDISTRO} เป็น ${VER}"
 
@@ -1707,20 +1737,20 @@ msgstr "ปรับปรุง ${CURDISTRO} เป็น ${VER}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250001 ../ubiquity.templates:254001
+#: ../ubiquity.templates:259001 ../ubiquity.templates:263001
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
 msgstr ""
-"เอกสาร เพลง และแฟ้มส่วนตัวอื่นๆ จะถูกเก็บไว้ "
-"ซอฟต์แวร์ที่ติดตั้งจะถูกเก็บไว้ในที่ที่ใช้ได้ การตั้งค่าทั้งระบบจะถูกล้าง"
+"เอกสาร เพลง และแฟ้มส่วนตัวอื่นๆ จะถูกเก็บไว้ ซอฟต์แวร์ที่ติดตั้งจะถูกเก็บไว้ในที่ที่ใช้ได้ "
+"การตั้งค่าทั้งระบบจะถูกล้าง"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. VER is a variable substituted into this string, and may be '11.04'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:260001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "ติดตั้ง ${DISTRO} ${VER} คู่กับ ${CURDISTRO}"
 
@@ -1730,13 +1760,13 @@ msgstr "ติดตั้ง ${DISTRO} ${VER} คู่กับ ${CURDISTRO}"
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:252001 ../ubiquity.templates:255001
+#: ../ubiquity.templates:261001 ../ubiquity.templates:264001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "ลบดิสก์และติดตั้ง ${DISTRO}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252001
+#: ../ubiquity.templates:261001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1744,7 +1774,7 @@ msgstr "<span foreground=\"darkred\">คำเตือน:</span> ทุกแ�
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:262001
 msgid "Erase everything and reinstall"
 msgstr "ลบทุกอย่างและติดตั้งใหม่"
 
@@ -1752,7 +1782,7 @@ msgstr "ลบทุกอย่างและติดตั้งใหม่
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:262001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1764,13 +1794,13 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:254001
+#: ../ubiquity.templates:263001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "ติดตั้ง ${CURDISTRO} ใหม่"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:255001
+#: ../ubiquity.templates:264001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
@@ -1782,14 +1812,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:256001
+#: ../ubiquity.templates:265001
 msgid "Install ${DISTRO} alongside them"
 msgstr "ติดตั้ง ${DISTRO} ไว้คู่กับมัน"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:257001
+#: ../ubiquity.templates:266001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr "คอมพิวเตอร์นี้มี ${OS} อยู่แล้ว คุณต้องการจะทำอย่างไร?"
 
@@ -1797,7 +1827,7 @@ msgstr "คอมพิวเตอร์นี้มี ${OS} อยู่แ�
 #. Description
 #. OS1 is a variable substituted into this string, and may be 'Windows 7'
 #. OS2 is a variable substituted into this string, and may be 'Mac OS X'
-#: ../ubiquity.templates:258001
+#: ../ubiquity.templates:267001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1805,7 +1835,7 @@ msgstr "คอมพิวเตอร์นี้มี ${OS1} และ ${OS2}
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:259001
+#: ../ubiquity.templates:268001
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
@@ -1813,7 +1843,7 @@ msgstr "คอมพิวเตอร์นี้มีหลายระบบ
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:260001
+#: ../ubiquity.templates:269001
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
@@ -1821,192 +1851,211 @@ msgstr "ไม่พบระบบปฏิบัติการบนเคร
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:261001
+#: ../ubiquity.templates:270001
 msgid "Before:"
 msgstr "ก่อน:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:262001
+#: ../ubiquity.templates:271001
 msgid "After:"
 msgstr "หลัง:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:263001
+#: ../ubiquity.templates:272001
 msgid "Encrypt the new ${RELEASE} installation for security"
-msgstr ""
+msgstr "เข้ารหัสการติดตั้ง ${RELEASE} ใหม่เพื่อความปลอดภัย"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:264001
+#: ../ubiquity.templates:273001
 msgid "You will choose a security key in the next step."
-msgstr ""
+msgstr "คุณจะต้องเลือกคีย์ความปลอดภัยในขั้นถัดไป"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:265001
+#: ../ubiquity.templates:274001
 msgid "Use LVM with the new ${RELEASE} installation"
-msgstr ""
+msgstr "ใช้ LVM กับการติดตั้ง ${RELEASE} ใหม่"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:266001
+#: ../ubiquity.templates:275001
 msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
 msgstr ""
+"นี่จะเป็นการตั้งค่า Logical Volume Management "
+"ซึ่งทำให้การจับสแนปช็อตและการปรับขนาดพาร์ทิชันง่ายขึ้น"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:267001
+#: ../ubiquity.templates:276001
 msgid "Confirm the security key:"
-msgstr ""
+msgstr "ยืนยันคีย์ความปลอดภัยของคุณ:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:268001
+#: ../ubiquity.templates:277001
 msgid "Choose a security key:"
-msgstr ""
+msgstr "เลือกคีย์ความปลอดภัย:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:269001
+#: ../ubiquity.templates:278001
 msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
 msgstr ""
+"การเข้ารหัสดิสก์จะช่วยปกป้องแฟ้มของคุณในกรณีที่คุณทำคอมพิวเตอร์สูญหาย "
+"แต่คุณต้องใส่คีย์ความปลอดภัยในแต่ละครั้งที่เปิดเครื่องคอมพิวเตอร์"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:270001
+#: ../ubiquity.templates:279001
 msgid "Any files outside of ${RELEASE} will not be encrypted."
-msgstr ""
+msgstr "แฟ้มใดๆ ที่อยู่นอก ${RELEASE} จะไม่ถูกเข้ารหัส"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:271001
+#: ../ubiquity.templates:280001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> If you lose this security key, "
 "all data will be lost. If you need to, write down your key and keep it in a "
 "safe place elsewhere."
 msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:272001
-msgid "For more security:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:273001
-msgid "Overwrite empty disk space"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:274001
-msgid "The installation may take much longer."
-msgstr ""
-
-#. Type: text
-#. description
-#: ../ubiquity.templates:275001
-msgid "LVM..."
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:276001
-msgid "Volume groups:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:277001
-msgid "Encryption Options"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:278001
-msgid "Physical volumes:"
-msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:280001
-msgid "Encrypt this partition (LUKS)"
-msgstr ""
+"<span foreground=\"darkred\">คำเตือน:</span> ถ้าคุณทำคีย์ความปลอดภัยสูญหาย "
+"คุณจะสูญเสียข้อมูลทุกอย่าง ถ้าจำเป็น ให้จดคีย์ของคุณไว้ และเก็บรักษาไว้ในที่ที่ปลอดภัย"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:281001
-msgid "MB"
-msgstr ""
+msgid "For more security:"
+msgstr "เพื่อความปลอดภัยที่มากกว่า:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:282001
-msgid ""
-"Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
-"volumes as a single volume."
-msgstr ""
+msgid "Overwrite empty disk space"
+msgstr "เขียนทับพื้นที่ว่างในดิสก์"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:283001
-msgid "Logical Volume Management"
-msgstr ""
+msgid "The installation may take much longer."
+msgstr "กระบวนการติดตั้งอาจใช้เวลานานขึ้นมาก"
 
 #. Type: text
-#. Description
+#. description
 #: ../ubiquity.templates:284001
-msgid "Encryption options..."
-msgstr ""
+msgid "LVM..."
+msgstr "LVM..."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:285001
-msgid "UEFI Secure Boot"
-msgstr ""
+msgid "Volume groups:"
+msgstr "กลุ่มโวลุม:"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:286001
+msgid "Encryption Options"
+msgstr "ตัวเลือกการเข้ารหัส"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:287001
+msgid "Physical volumes:"
+msgstr "โวลุมจริง:"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:289001
+msgid "Encrypt this partition (LUKS)"
+msgstr "เข้ารหัสพาร์ทิชันนี้ (LUKS)"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:290001
+msgid "MB"
+msgstr "MB"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:291001
+msgid ""
+"Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
+"volumes as a single volume."
+msgstr ""
+"การใช้ Logical Volume Management(LVM) ทำให้ ${RELEASE} "
+"ดูแลรักษาหลายโวลุมกายภาพเหมือนโวลุมเดียวกัน"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:292001
+msgid "Logical Volume Management"
+msgstr "Logical Volume Management"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:293001
+msgid "Encryption options..."
+msgstr "ตัวเลือกการเข้ารหัส..."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:294001
+msgid "UEFI Secure Boot"
+msgstr "UEFI Secure Boot"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:295001
 msgid ""
 "You have chosen to enable third-party software as part of your install, "
 "which for this system includes hardware drivers for graphics and/or wi-fi "
 "hardware. Your system also has UEFI Secure Boot enabled. UEFI Secure Boot is "
 "not compatible with the use of these third-party drivers."
 msgstr ""
+"คุณได้เลือกที่จะใช้ซอฟต์แวร์ที่มาจากบุคคลที่สามเป็นส่วนหนึ่งของการติดตั้งของคุณ "
+"ซึ่งอาจรวมฮาร์ดแวร์กราฟิกและ/หรือฮาร์ดแวร์ Wi-Fi ระบบของคุณยังคงมีการเปิดใช้งาน UEFI "
+"Secure Boot แต่ UEFI Secure Boot "
+"ไม่รองรับการใช้งานตัวควบคุมซึ่งเป็นซอฟต์แวร์ที่มาจากบุคคลที่สาม"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286001
+#: ../ubiquity.templates:295001
 msgid ""
 "After installation completes, Ubuntu will assist you in disabling UEFI "
 "Secure Boot. To ensure that this change is being made by you as an "
 "authorized user, and not by an attacker, you must choose a password now and "
 "then use the same password after reboot to confirm the change."
 msgstr ""
+"หลังจากที่การติดตั้งเสร็จสมบูรณ์ Ubuntu จะช่วยคุณในการปิดใช้งาน UEFI Secure Boot "
+"เพื่อให้แน่ใจว่าการเปลี่ยนแปลงนี้ถูกกระทำโดยคุณในฐานะผู้ใช้ที่ผ่านการตรวจสอบความถูกต้องแล้ว "
+"และไม่ได้ถูกกระทำโดยผู้ไม่หวังดี คุณควรเลือกรหัสผ่านตอนนี้ "
+"แล้วใช้รหัสผ่านเดียวกันหลังจากเริ่มระบบของคอมพิวเตอร์ใหม่เพื่อยืนยันการเปลี่ยนแปลง"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286001
+#: ../ubiquity.templates:295001
 msgid ""
 "<span foreground=\"darkred\">Warning</span>: If you choose not to install "
 "these drivers, or if you proceed but do not confirm the password upon "
 "reboot, Ubuntu will still be able to boot on your system but these third-"
 "party drivers will not be available for your hardware."
 msgstr ""
+"<span foreground=\"darkred\">ระวัง</span>: ถ้าคุณเลือกไม่ติดตั้งไดรเวอร์เหล่านี้ "
+"หรือเลือกดำเนินการต่อโดยไม่ยืนยันรหัสผ่านหลังการเริ่มการทำงานใหม่ แต่ระบบ Ubuntu "
+"ของคุณจะยังสามารถทำงานได้ โดยที่ไดรเวอร์จากบุคคลที่สามเหล่านี้จะใช้กับฮาร์ดแวร์ของคุณไม่ได้"
 
 #. Type: password
 #. Description
-#: ../ubiquity.templates:287001
+#: ../ubiquity.templates:296001
 msgid "SecureBoot key for MokPW"
-msgstr ""
+msgstr "คีย์ SecureBoot สำหรับ MokPW"
 
 #. Type: title
 #. Description
@@ -2048,9 +2097,9 @@ msgid ""
 "administrative privileges using 'sudo'. You will then be able to make any "
 "additional modifications you require to the system."
 msgstr ""
-"เมื่อคุณเริ่มระบบใหม่ คุณจะสามารถเข้าระบบได้ด้วยชื่อผู้ใช้ 'oem' "
-"ด้วยรหัสผ่านที่คุณเลือกก่อนหน้านี้ ผู้ใช้นี้มีสิทธิพิเศษ (administrative "
-"privileges) โดยสามารถใช้คำสั่ง 'sudo' ซึ่งจะสามารถบริหารระบบได้"
+"เมื่อคุณเริ่มระบบใหม่ คุณจะสามารถเข้าระบบได้ด้วยชื่อผู้ใช้ 'oem' ด้วยรหัสผ่านที่คุณเลือกก่อนหน้านี้ "
+"ผู้ใช้นี้มีสิทธิพิเศษ (administrative privileges) โดยสามารถใช้คำสั่ง 'sudo' "
+"ซึ่งจะสามารถบริหารระบบได้"
 
 #. Type: text
 #. Description
@@ -2061,26 +2110,10 @@ msgid ""
 "ask the end user various configuration questions the next time it boots."
 msgstr ""
 "เมื่อระบบถูกปรับแต่งตามความพอใจของคุณแล้ว เรียก 'oem-config-prepare' "
-"นี่จะทำให้ระบบลบผู้ใช้ชั่วคราว 'oem' "
-"และถามผู้ใช้เกี่ยวกับการตั้งค่าหลายประการในครั้งต่อไปที่บูต"
+"นี่จะทำให้ระบบลบผู้ใช้ชั่วคราว 'oem' และถามผู้ใช้เกี่ยวกับการตั้งค่าหลายประการในครั้งต่อไปที่บูต"
 
 #. Type: text
 #. Description
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "กำลังถอดถอนแพกเกจ"
-
-#~ msgid "Username"
-#~ msgstr "ชื่อผู้ใช้"
-
-#~ msgid "Your name"
-#~ msgstr "ชื่อของคุณ"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "ดาวน์โหลดส่วนปรับปรุงขณะทำการติดตั้ง"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "ติดตั้งซอฟต์แวร์นี้"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "มีพื้นที่ว่างดิสก์เหลืออยู่ ${SIZE}"

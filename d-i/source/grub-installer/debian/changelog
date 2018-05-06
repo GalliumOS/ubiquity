@@ -1,3 +1,25 @@
+grub-installer (1.128ubuntu8) zesty; urgency=medium
+
+  * Fix a typo in PReP bootdev selection code; we should not skip over a valid
+    mpath device in favor of the underlying block device, since it won't be
+    available for grub-install later. (LP: #1681932)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 11 Apr 2017 16:21:30 -0400
+
+grub-installer (1.128ubuntu7) zesty; urgency=medium
+
+  * grub-installer: deal with NVMe devices (or other devices with a partition
+    separator) being used to back the PReP partition on ppc64el. (LP: #1656048)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 13 Jan 2017 16:19:30 -0500
+
+grub-installer (1.128ubuntu6) yakkety; urgency=medium
+
+  * grub-installer: remove grub/grub-legacy code. We only do variants of grub2.
+    (LP: #1611740)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Thu, 11 Aug 2016 14:07:06 -0400
+
 grub-installer (1.128ubuntu5) xenial; urgency=medium
 
   [ Mauricio Faria de Oliveira ]

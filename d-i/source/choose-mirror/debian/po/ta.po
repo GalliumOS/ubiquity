@@ -26,12 +26,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Debian version to install:"
+msgstr "நிறுவப்படவேண்டிய டிபியன் பதிப்பு:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid ""
+"Debian comes in several flavors. Stable is well-tested and rarely changes. "
+"Unstable is untested and frequently changing. Testing is a middle ground, "
+"that receives many of the new versions from unstable if they are not too "
+"buggy."
+msgstr ""
+"டிபியன் பல வடிவங்களில் வெளிவருகிறது. நிலையான (ஸ்டேபிள்) - நன்றாக சோதிக்கப்பட்டது "
+"மற்றும் அதிகமாக மாற்றப்படாது. நிலையில்லாத (அன்ஸ்டேபிள்) - சோதிக்கப்படாதது மற்றும் "
+"விரைவில் மாறக்கூடியது. சோதிக்கப்படும் (டெஸ்டிங்) - நடுநிலைமை, அதிக தவறுகள் இல்லாத "
+"நிலையில் நிலையில்லாததிலிருந்து புதிய பதிப்பை பெற்றுக்கொள்ளும்."
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Only flavors available on the selected mirror are listed."
+msgstr "தேர்ந்தெடுத்த பிரதிபலிப்பானில் உள்ள உருவாக்கனgகள் மட்டுமே பட்டியலிடப்பட்டன."
+
 #. Type: text
 #. Description
 #. :sl1:
 #: ../choose-mirror-bin.templates-in:5001
-#, fuzzy
-msgid "Checking the Ubuntu archive mirror"
+msgid "Checking the Debian archive mirror"
 msgstr "டிபியன் காப்பக இணைப்பதிப்பை சோதிக்கிறது."
 
 #. Type: text
@@ -53,7 +81,7 @@ msgstr "பின் சென்று வேறு பிரதிபலிப
 #. :sl2:
 #: ../choose-mirror-bin.templates-in:7001
 msgid ""
-"The specified (default) Ubuntu version (${RELEASE}) is not available from "
+"The specified (default) Debian version (${RELEASE}) is not available from "
 "the selected mirror. It is possible to continue and select a different "
 "release for your installation, but normally you should go back and select a "
 "different mirror that does support the correct version."
@@ -75,7 +103,7 @@ msgstr "மோசமான காப்பக பிரதிபலிப்ப�
 #. :sl2:
 #: ../choose-mirror-bin.templates-in:8001
 msgid ""
-"An error has been detected while trying to use the specified Ubuntu archive "
+"An error has been detected while trying to use the specified Debian archive "
 "mirror."
 msgstr ""
 "குறித்த டெபியன் காப்பக பிரதி பலிப்பானை பயன்படுத்த முயற்சி செய்யும் போது ஒரு பிழை "
@@ -89,7 +117,7 @@ msgid ""
 "Possible reasons for the error are: incorrect mirror specified; mirror is "
 "not available (possibly due to an unreliable network connection); mirror is "
 "broken (for example because an invalid Release file was found); mirror does "
-"not support the correct Ubuntu version."
+"not support the correct Debian version."
 msgstr ""
 "பிழைக்கு அனேகமாக காரணங்கள்: சரியான பிரதிபலிப்பான் குறிப்பிடப்படவில்லை; பிரதிபலிப்பான் "
 "கிடைப்பில் இல்லை; (வலை பிரச்சினையாக இருக்கலாம்); பிரதிபலிப்பான் சிதைந்தது- உதாரணமாக "
@@ -125,7 +153,7 @@ msgstr "கட்டுமானம் ஆதரவுடையது அல்�
 #. :sl3:
 #: ../choose-mirror-bin.templates-in:9001
 msgid ""
-"The specified Ubuntu archive mirror does not seem to support your "
+"The specified Debian archive mirror does not seem to support your "
 "architecture. Please try a different mirror."
 msgstr ""
 "தரப்பட்ட டிபியன் காப்பக இணைப்பதிப்பு உங்கள் கட்டுமானத்திற்கு ஆதரவுடையது அல்ல. வேறு "
@@ -164,8 +192,7 @@ msgstr "நிலையில்லாத"
 #. main-menu
 #. :sl1:
 #: ../choose-mirror-bin.templates-in:14001
-#, fuzzy
-msgid "Choose a mirror of the Ubuntu archive"
+msgid "Choose a mirror of the Debian archive"
 msgstr "டிபியன் காப்பக இணைப்பதிப்பை தேர்வு செய்க"
 
 #. Type: select
@@ -174,6 +201,305 @@ msgstr "டிபியன் காப்பக இணைப்பதிப்�
 #: ../choose-mirror-bin.templates.ftp.sel-in:2001
 msgid "enter information manually"
 msgstr "தகவலை தாங்களே உள்ளீடு செய்யவும்"
+
+#. Type: select
+#. Default
+#. Translators, you should put here the ISO 3166 code of a country
+#. which you know hosts at least one Debian HTTP mirror. Please check
+#. that the country really has a Debian HTTP mirror before putting a
+#. random value here
+#.
+#. First check that the country you mention here is listed in
+#. http://svn.debian.org/wsvn/webwml/trunk/webwml/english/mirror/Mirrors.masterlist
+#.
+#. BE CAREFUL to use the TWO LETTER ISO-3166 CODE and not anything else
+#.
+#. You do not need to translate what's between the square brackets
+#. You should even NOT put square brackets in translations:
+#. msgid "US[ Default value for http]"
+#. msgstr "FR"
+#. :sl1:
+#: ../choose-mirror-bin.templates.http-in:2002
+msgid "US[ Default value for http]"
+msgstr "IN"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:2003
+#: ../choose-mirror-bin.templates.ftp.sel-in:2003
+msgid "Debian archive mirror country:"
+msgstr "டிபியன் காப்பக இணைப்பதிப்பு நாடு"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:2003
+#: ../choose-mirror-bin.templates.ftp.sel-in:2003
+msgid ""
+"The goal is to find a mirror of the Debian archive that is close to you on "
+"the network -- be aware that nearby countries, or even your own, may not be "
+"the best choice."
+msgstr ""
+"நோக்கம் என்னவென்றால் உங்களுக்கு வலையில் அருகில் உள்ள டிபியன் காப்பக இணைப்பதிப்பை கண்டு "
+"பிடிக்க வேண்டும். அது பக்கத்து நாடோ, ஏன் உங்கள் நாடாகவோ கூட இல்லாமல் இருக்கலாம்."
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:3001
+#: ../choose-mirror-bin.templates.ftp.sel-in:3001
+msgid "Debian archive mirror:"
+msgstr "டிபியன் ஆவணக் காப்பகத்தின் இணைய பதிப்பு:"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:3001
+#: ../choose-mirror-bin.templates.ftp.sel-in:3001
+msgid ""
+"Please select a Debian archive mirror. You should use a mirror in your "
+"country or region if you do not know which mirror has the best Internet "
+"connection to you."
+msgstr ""
+"டிபியன் இணைபதிப்பை தேர்வுசெய்யவும். எந்த இணைபதிப்பு சிறந்த சேவையை வழங்கும் என்று அறியாத "
+"பட்சத்தில் உங்கள் நாடு அல்லது பகுதியில் உள்ள இணைபதிப்பை தேர்வு செய்யவும்."
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:3001
+#: ../choose-mirror-bin.templates.ftp.sel-in:3001
+msgid "Usually, ftp.<your country code>.debian.org is a good choice."
+msgstr "பெரும்பாலும் ftp.<தங்கள் நாட்டு குறியீடு>.debian.org சிறந்த தேர்வாக அமையும்."
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:4001
+#: ../choose-mirror-bin.templates.ftp.base-in:2001
+msgid "Debian archive mirror hostname:"
+msgstr "டிபியன் இணைபதிப்பின் கணிணிபெயர்:"
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:4001
+#: ../choose-mirror-bin.templates.ftp.base-in:2001
+msgid ""
+"Please enter the hostname of the mirror from which Debian will be downloaded."
+msgstr "டிபியன் தரவிறக்கப் படவேண்டிய இணைப்பதிப்பின் புரவலனின் பெயரை உள்ளிடவும்"
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:4001
+#: ../choose-mirror-bin.templates.ftp.base-in:2001
+msgid ""
+"An alternate port can be specified using the standard [hostname]:[port] "
+"format."
+msgstr "வழக்கமான [hostname]:[port] பாணியில் மாற்று முணையம் ஒன்றை குறிப்பிடலாம்."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid "Debian archive mirror directory:"
+msgstr "டிபியன் ஆவணக் காப்பகத்தின் அடைவு:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid ""
+"Please enter the directory in which the mirror of the Debian archive is "
+"located."
+msgstr "டிபியன் ஆவணக் காப்பகத்தின் இணைய பதிப்பு உள்ள அடைவை உள்ளிடு செய்யவும்."
+
+#. Type: string
+#. Description
+#. :sl1:
+#: ../choose-mirror-bin.templates.http-in:6001
+msgid "HTTP proxy information (blank for none):"
+msgstr "ஹெச்டிடிபி பதிலாள் தகவல் (எதுவும் இல்லைக்கு வெற்று ):"
+
+#. Type: string
+#. Description
+#. :sl1:
+#: ../choose-mirror-bin.templates.http-in:6001
+msgid ""
+"If you need to use a HTTP proxy to access the outside world, enter the proxy "
+"information here. Otherwise, leave this blank."
+msgstr ""
+"ஹெச்டிடிபி பதிலாள் உங்கள் வெளியுலக இணைப்பிற்கு வேண்டி இருந்தால் பதிலாள் தகவலை இங்கு "
+"உள்ளிடுக. எதுவும் இல்லை எனில் வெற்றாக விடவும்."
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:6001
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid ""
+"The proxy information should be given in the standard form of \"http://"
+"[[user][:pass]@]host[:port]/\"."
+msgstr ""
+"பதிலாள் தகவல் வழக்கமான \"http://[[user][:pass]@]host[:port]/\" பாணியில் தரப் பட "
+"வேண்டும்."
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid "FTP proxy information (blank for none):"
+msgstr "(எப்ஃடிபி) FTP பதிலாள் தகவல் (எதுவும் இல்லைக்கு வெற்று ):"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid ""
+"If you need to use a FTP proxy to access the outside world, enter the proxy "
+"information here. Otherwise, leave this blank."
+msgstr ""
+"(எப்ஃடிபி) FTP பதிலாள் உங்கள் வெளியுலக இணைப்பிற்கு வேண்டி இருந்தால் பதிலாள் தகவலை இங்கு "
+"உள்ளிடுக. எதுவும் இல்லை எனில் வெற்றாக விடவும்."
+
+#. Type: select
+#. Default
+#. Translators, you should put here the ISO 3166 code of a country
+#. which you know hosts at least one Debian FTP mirror. Please check
+#. that the country really has a Debian FTP mirror before putting a
+#. random value here
+#.
+#. First check that the country you mention here is listed in
+#. http://svn.debian.org/wsvn/webwml/trunk/webwml/english/mirror/Mirrors.masterlist
+#.
+#. BE CAREFUL to use the TWO LETTER ISO-3166 CODE and not anything else
+#.
+#. You do not need to translate what's between the square brackets
+#. You should even NOT put square brackets in translations:
+#. msgid "US[ Default value for ftp]"
+#. msgstr "FR"
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.sel-in:2002
+msgid "US[ Default value for ftp]"
+msgstr "IN"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid "Protocol for file downloads:"
+msgstr "கோப்புகளை பதிவிறக்கம் செய்வதற்கான நெறிமுறை:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid ""
+"Please select the protocol to be used for downloading files. If unsure, "
+"select \"http\"; it is less prone to problems involving firewalls."
+msgstr ""
+"கோப்புகளை பதிவிறக்கம் செய்வதற்கான நெறிமுறையை தேர்ந்தெடுக்கவும். நிச்சயமில்லை எனில் \"http"
+"\"; ஐ தேர்ந்தெடுக்கவும். அது தீச்சுவர்கள் பிரச்சினைகள் குறைவாக இருக்க ஏதுவானது."
+
+#. Type: text
+#. Description
+#. :sl1:
+#: ../choose-mirror-bin.templates-in:5001
+#, fuzzy
+msgid "Checking the Ubuntu archive mirror"
+msgstr "டிபியன் காப்பக இணைப்பதிப்பை சோதிக்கிறது."
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:7001
+msgid ""
+"The specified (default) Ubuntu version (${RELEASE}) is not available from "
+"the selected mirror. It is possible to continue and select a different "
+"release for your installation, but normally you should go back and select a "
+"different mirror that does support the correct version."
+msgstr ""
+"குறிப்பிட்ட (முன்னிருப்பு) டெபியன் பதிப்பு (${RELEASE}) தேர்ந்தெடுத்த பிரதி பலிப்பானில் "
+"இல்லை. உங்கள் நிறுவலுக்கு வேறு பதிப்பை தேர்ந்தெடுத்து தொடர முடியும். ஆனால் நீங்கள் பின் "
+"சென்று உங்கள் தேர்வுக்கு பொருத்தமான பதிப்பு உள்ள வேறுபிரதிபலிப்பானை தேடித் தேர்ந்தெடுக்க "
+"வேண்டும். "
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"An error has been detected while trying to use the specified Ubuntu archive "
+"mirror."
+msgstr ""
+"குறித்த டெபியன் காப்பக பிரதி பலிப்பானை பயன்படுத்த முயற்சி செய்யும் போது ஒரு பிழை "
+"நேர்ந்தது."
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"Possible reasons for the error are: incorrect mirror specified; mirror is "
+"not available (possibly due to an unreliable network connection); mirror is "
+"broken (for example because an invalid Release file was found); mirror does "
+"not support the correct Ubuntu version."
+msgstr ""
+"பிழைக்கு அனேகமாக காரணங்கள்: சரியான பிரதிபலிப்பான் குறிப்பிடப்படவில்லை; பிரதிபலிப்பான் "
+"கிடைப்பில் இல்லை; (வலை பிரச்சினையாக இருக்கலாம்); பிரதிபலிப்பான் சிதைந்தது- உதாரணமாக "
+"செல்லுபடியாகாத பதிப்புக்கோப்பு காணப்பட்டது; பிரதிபலிப்பான் சரியான டெபியன் பதிப்பை "
+"ஆதரிக்கவில்லை."
+
+#. Type: error
+#. Description
+#. :sl3:
+#: ../choose-mirror-bin.templates-in:9001
+msgid ""
+"The specified Ubuntu archive mirror does not seem to support your "
+"architecture. Please try a different mirror."
+msgstr ""
+"தரப்பட்ட டிபியன் காப்பக இணைப்பதிப்பு உங்கள் கட்டுமானத்திற்கு ஆதரவுடையது அல்ல. வேறு "
+"இணைப்பதிப்பை முயற்சி செய்யுங்கள்."
+
+#. Type: text
+#. Description
+#. main-menu
+#. :sl1:
+#: ../choose-mirror-bin.templates-in:14001
+#, fuzzy
+msgid "Choose a mirror of the Ubuntu archive"
+msgstr "டிபியன் காப்பக இணைப்பதிப்பை தேர்வு செய்க"
 
 #. Type: select
 #. Default
@@ -291,19 +617,6 @@ msgstr "டிபியன் தரவிறக்கப் படவேண்�
 
 #. Type: string
 #. Description
-#. :sl1:
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.http-in:4001
-#: ../choose-mirror-bin.templates.ftp.base-in:2001
-msgid ""
-"An alternate port can be specified using the standard [hostname]:[port] "
-"format."
-msgstr "வழக்கமான [hostname]:[port] பாணியில் மாற்று முணையம் ஒன்றை குறிப்பிடலாம்."
-
-#. Type: string
-#. Description
 #. :sl2:
 #: ../choose-mirror-bin.templates.http-in:5001
 #: ../choose-mirror-bin.templates.ftp.base-in:3001
@@ -321,57 +634,6 @@ msgid ""
 "Please enter the directory in which the mirror of the Ubuntu archive is "
 "located."
 msgstr "டிபியன் ஆவணக் காப்பகத்தின் இணைய பதிப்பு உள்ள அடைவை உள்ளிடு செய்யவும்."
-
-#. Type: string
-#. Description
-#. :sl1:
-#: ../choose-mirror-bin.templates.http-in:6001
-msgid "HTTP proxy information (blank for none):"
-msgstr "ஹெச்டிடிபி பதிலாள் தகவல் (எதுவும் இல்லைக்கு வெற்று ):"
-
-#. Type: string
-#. Description
-#. :sl1:
-#: ../choose-mirror-bin.templates.http-in:6001
-msgid ""
-"If you need to use a HTTP proxy to access the outside world, enter the proxy "
-"information here. Otherwise, leave this blank."
-msgstr ""
-"ஹெச்டிடிபி பதிலாள் உங்கள் வெளியுலக இணைப்பிற்கு வேண்டி இருந்தால் பதிலாள் தகவலை இங்கு "
-"உள்ளிடுக. எதுவும் இல்லை எனில் வெற்றாக விடவும்."
-
-#. Type: string
-#. Description
-#. :sl1:
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.http-in:6001
-#: ../choose-mirror-bin.templates.ftp.base-in:4001
-msgid ""
-"The proxy information should be given in the standard form of \"http://"
-"[[user][:pass]@]host[:port]/\"."
-msgstr ""
-"பதிலாள் தகவல் வழக்கமான \"http://[[user][:pass]@]host[:port]/\" பாணியில் தரப் பட "
-"வேண்டும்."
-
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.ftp.base-in:4001
-msgid "FTP proxy information (blank for none):"
-msgstr "(எப்ஃடிபி) FTP பதிலாள் தகவல் (எதுவும் இல்லைக்கு வெற்று ):"
-
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.ftp.base-in:4001
-msgid ""
-"If you need to use a FTP proxy to access the outside world, enter the proxy "
-"information here. Otherwise, leave this blank."
-msgstr ""
-"(எப்ஃடிபி) FTP பதிலாள் உங்கள் வெளியுலக இணைப்பிற்கு வேண்டி இருந்தால் பதிலாள் தகவலை இங்கு "
-"உள்ளிடுக. எதுவும் இல்லை எனில் வெற்றாக விடவும்."
 
 #. Type: select
 #. Default
@@ -393,21 +655,3 @@ msgstr ""
 #: ../choose-mirror-bin.templates.ftp.sel-in:2002
 msgid "GB[ Default value for ftp]"
 msgstr "IN"
-
-#. Type: select
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.both-in:2001
-msgid "Protocol for file downloads:"
-msgstr "கோப்புகளை பதிவிறக்கம் செய்வதற்கான நெறிமுறை:"
-
-#. Type: select
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.both-in:2001
-msgid ""
-"Please select the protocol to be used for downloading files. If unsure, "
-"select \"http\"; it is less prone to problems involving firewalls."
-msgstr ""
-"கோப்புகளை பதிவிறக்கம் செய்வதற்கான நெறிமுறையை தேர்ந்தெடுக்கவும். நிச்சயமில்லை எனில் \"http"
-"\"; ஐ தேர்ந்தெடுக்கவும். அது தீச்சுவர்கள் பிரச்சினைகள் குறைவாக இருக்க ஏதுவானது."

@@ -22,12 +22,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: n>1\n"
 
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Debian version to install:"
+msgstr "የሚተከለው የደቢያን ዝርያ"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid ""
+"Debian comes in several flavors. Stable is well-tested and rarely changes. "
+"Unstable is untested and frequently changing. Testing is a middle ground, "
+"that receives many of the new versions from unstable if they are not too "
+"buggy."
+msgstr ""
+"ደቢያን በተለያየ ዝርያ ይመጣል። Stable (የተገራ) የሚባለው በደምብ የተሞከረና አምብዛም የማይቀያየር፤ Unstable "
+"(ያልተገራ) ያልተሞከረና ብዙ ለውጦች የሚደረጉበት፤ Testing (ተሞካሪ) በመሃከል ላይ ያለና ብዙ አዲስ ተውሳክ "
+"የሌለባቸው ዝርያዎችን ከያልተገራ የሚቀበል በመባል ይታወቃሉ "
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Only flavors available on the selected mirror are listed."
+msgstr "የተመረጠው መስተዋት ናሙናዎች ብቻ አሉ"
+
 #. Type: text
 #. Description
 #. :sl1:
 #: ../choose-mirror-bin.templates-in:5001
-msgid "Checking the Ubuntu archive mirror"
-msgstr "የዑቡንቱ ማኅደር መስተዋቶችን በመፈተሽ ላይ"
+msgid "Checking the Debian archive mirror"
+msgstr "የደቢያን ማኅደር መስተዋቶችን በመፈተሽ ላይ"
 
 #. Type: text
 #. Description
@@ -48,7 +76,7 @@ msgstr "ይመለሱና ሌላ መስተዋት ይሞክሩ"
 #. :sl2:
 #: ../choose-mirror-bin.templates-in:7001
 msgid ""
-"The specified (default) Ubuntu version (${RELEASE}) is not available from "
+"The specified (default) Debian version (${RELEASE}) is not available from "
 "the selected mirror. It is possible to continue and select a different "
 "release for your installation, but normally you should go back and select a "
 "different mirror that does support the correct version."
@@ -68,7 +96,7 @@ msgstr "የተሳሳተ የማኅደር-መስተዋት"
 #. :sl2:
 #: ../choose-mirror-bin.templates-in:8001
 msgid ""
-"An error has been detected while trying to use the specified Ubuntu archive "
+"An error has been detected while trying to use the specified Debian archive "
 "mirror."
 msgstr "የተጠቀሰውን የደቢያን መስተዋት ለመጠቀም ችግር ተከስቷል፡፡"
 
@@ -80,7 +108,7 @@ msgid ""
 "Possible reasons for the error are: incorrect mirror specified; mirror is "
 "not available (possibly due to an unreliable network connection); mirror is "
 "broken (for example because an invalid Release file was found); mirror does "
-"not support the correct Ubuntu version."
+"not support the correct Debian version."
 msgstr ""
 "ለስህተቱ ንክንያት የሚሆኑት፤ ትክክል ያልሆነ መስተዋት መስጠት፣ መስተዋቱ በስራ ላይ አለመሆን (ምናልባትም የመረብ "
 "ግንኙነት ላይኖረው ይችላል)፣ መስተዋቱ ተሰብሮ ይሆናል (ትክክል ያልሆነ የመልቀቂያ ፋይል ሲገኝ)፣ መስተውቱ ትክክለኛውን "
@@ -114,9 +142,9 @@ msgstr "መዋቅር አልተደገፈም"
 #. :sl3:
 #: ../choose-mirror-bin.templates-in:9001
 msgid ""
-"The specified Ubuntu archive mirror does not seem to support your "
+"The specified Debian archive mirror does not seem to support your "
 "architecture. Please try a different mirror."
-msgstr "የተሰጠው የዑቡንቱ ማኅደር መስተዋት ውስጥ ለርስዎ አስሊ የሚሆን ስልት የለም። እባክዎ ሌላ ይሞክሩ።"
+msgstr "የተሰጠው የደቢያን ማኅደር መስተዋት ውስጥ ለርስዎ አስሊ የሚሆን ስልት የለም። እባክዎ ሌላ ይሞክሩ።"
 
 #. Type: text
 #. Description
@@ -151,8 +179,8 @@ msgstr "ያልተደላደለ"
 #. main-menu
 #. :sl1:
 #: ../choose-mirror-bin.templates-in:14001
-msgid "Choose a mirror of the Ubuntu archive"
-msgstr "የዑቡንቱ ማኅደር-መስተዋት ምረጥ"
+msgid "Choose a mirror of the Debian archive"
+msgstr "የደቢያን ማኅደር-መስተዋት ምረጥ"
 
 #. Type: select
 #. Choices
@@ -160,6 +188,296 @@ msgstr "የዑቡንቱ ማኅደር-መስተዋት ምረጥ"
 #: ../choose-mirror-bin.templates.ftp.sel-in:2001
 msgid "enter information manually"
 msgstr "መረጃን በእጅ አስገባ"
+
+#. Type: select
+#. Default
+#. Translators, you should put here the ISO 3166 code of a country
+#. which you know hosts at least one Debian HTTP mirror. Please check
+#. that the country really has a Debian HTTP mirror before putting a
+#. random value here
+#.
+#. First check that the country you mention here is listed in
+#. http://svn.debian.org/wsvn/webwml/trunk/webwml/english/mirror/Mirrors.masterlist
+#.
+#. BE CAREFUL to use the TWO LETTER ISO-3166 CODE and not anything else
+#.
+#. You do not need to translate what's between the square brackets
+#. You should even NOT put square brackets in translations:
+#. msgid "US[ Default value for http]"
+#. msgstr "FR"
+#. :sl1:
+#: ../choose-mirror-bin.templates.http-in:2002
+msgid "US[ Default value for http]"
+msgstr "US"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:2003
+#: ../choose-mirror-bin.templates.ftp.sel-in:2003
+msgid "Debian archive mirror country:"
+msgstr "የደቢያን ማኅደር-መስተዋት አገር"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:2003
+#: ../choose-mirror-bin.templates.ftp.sel-in:2003
+msgid ""
+"The goal is to find a mirror of the Debian archive that is close to you on "
+"the network -- be aware that nearby countries, or even your own, may not be "
+"the best choice."
+msgstr ""
+"አላማው ለርስዎ አውታር የሚቀርበው መስተዋት ማኅደርን ለማግኘት ነው። ብዙ ጊዜ በቅርብ የሚገኝ ወይም ራስዎ አገር ውስጥ "
+"ያለ ማኅደር ጥሩ ምርጫ ሲሆን አንዳንድ ጊዜ ይህ ላይሆን ይችላል።"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:3001
+#: ../choose-mirror-bin.templates.ftp.sel-in:3001
+msgid "Debian archive mirror:"
+msgstr "የደቢያን ማኅደር-መስተዋት"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:3001
+#: ../choose-mirror-bin.templates.ftp.sel-in:3001
+msgid ""
+"Please select a Debian archive mirror. You should use a mirror in your "
+"country or region if you do not know which mirror has the best Internet "
+"connection to you."
+msgstr ""
+"እባክዎ የደቢያን መስተዋት ማኅደርን ይምረጡ፡፡ የትኛው መስተዋት የተሻለ ኢንተርኔት ግንኙነት እንዳለው ካላወቁ ባሉበት "
+"አገር ወይም ባካባቢዎ ያለውን መስተዋት ይምረጡ ፡፡ል"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:3001
+#: ../choose-mirror-bin.templates.ftp.sel-in:3001
+msgid "Usually, ftp.<your country code>.debian.org is a good choice."
+msgstr "ftp.<your country code>.debian.org ጥሩ ምርጫ ሊሆን ይችላል."
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:4001
+#: ../choose-mirror-bin.templates.ftp.base-in:2001
+msgid "Debian archive mirror hostname:"
+msgstr "የደቢያን ማኅደር-መስተዋት አገልጋይ ስም፦"
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:4001
+#: ../choose-mirror-bin.templates.ftp.base-in:2001
+msgid ""
+"Please enter the hostname of the mirror from which Debian will be downloaded."
+msgstr "እባክዎ ደቢያን የሚመጣበትን የመስተዋት ተጠሪ ስም ይጻፉ።"
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:4001
+#: ../choose-mirror-bin.templates.ftp.base-in:2001
+msgid ""
+"An alternate port can be specified using the standard [hostname]:[port] "
+"format."
+msgstr "የተለመደውን የ [hostname]:[port] ፎርማት በመጠቀም ተለዋጭ በር መስጠት ይቻላል"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid "Debian archive mirror directory:"
+msgstr "የደቢያን ማኅደር-መስተዋት ዶሴ፦"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid ""
+"Please enter the directory in which the mirror of the Debian archive is "
+"located."
+msgstr "እባክዎ የደቢያን መስተዋት የተቀመጠበትን ዶሴ ያስገቡ"
+
+#. Type: string
+#. Description
+#. :sl1:
+#: ../choose-mirror-bin.templates.http-in:6001
+msgid "HTTP proxy information (blank for none):"
+msgstr "የHTTP proxy መረጃ (ከሌለ ባዶ ይተዉት)፦"
+
+#. Type: string
+#. Description
+#. :sl1:
+#: ../choose-mirror-bin.templates.http-in:6001
+msgid ""
+"If you need to use a HTTP proxy to access the outside world, enter the proxy "
+"information here. Otherwise, leave this blank."
+msgstr ""
+"ከውጪው ዓለ ጋር ለመገናኘት HTTP ምስለኔ የሚጠቀሙ ከሆነ የምስለኔውን መረጃ እዚህ ያስገቡ፡፡ ያለዚያ ይህንን ባዶ "
+"ይትዉት፡፡"
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:6001
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid ""
+"The proxy information should be given in the standard form of \"http://"
+"[[user][:pass]@]host[:port]/\"."
+msgstr ""
+"የምስለኔ መረጃ መሰጠት በተለመደው  \"http://[[user][:pass]@]host[:port]/\" አይነት መሆን "
+"ይኖርበታል፡፡"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid "FTP proxy information (blank for none):"
+msgstr "የFTP proxy መረጃ (ከሌለ ባዶ ይተዉት)፦"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid ""
+"If you need to use a FTP proxy to access the outside world, enter the proxy "
+"information here. Otherwise, leave this blank."
+msgstr ""
+"ከውጪው ዓለ ጋር ለመገናኘት የFTP ምስለኔ የሚጠቀሙ ከሆነ የምስለኔውን መረጃ እዚህ ያስገቡ፡፡ ያለዚያ ይህንን ባዶ "
+"ይትዉት፡፡"
+
+#. Type: select
+#. Default
+#. Translators, you should put here the ISO 3166 code of a country
+#. which you know hosts at least one Debian FTP mirror. Please check
+#. that the country really has a Debian FTP mirror before putting a
+#. random value here
+#.
+#. First check that the country you mention here is listed in
+#. http://svn.debian.org/wsvn/webwml/trunk/webwml/english/mirror/Mirrors.masterlist
+#.
+#. BE CAREFUL to use the TWO LETTER ISO-3166 CODE and not anything else
+#.
+#. You do not need to translate what's between the square brackets
+#. You should even NOT put square brackets in translations:
+#. msgid "US[ Default value for ftp]"
+#. msgstr "FR"
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.sel-in:2002
+msgid "US[ Default value for ftp]"
+msgstr "US"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid "Protocol for file downloads:"
+msgstr "ፋይልን የማምጣት ፕሮቶኮል፦"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid ""
+"Please select the protocol to be used for downloading files. If unsure, "
+"select \"http\"; it is less prone to problems involving firewalls."
+msgstr ""
+"እባክዎ ፋይልን ለማምጣት የመጠቀሚያ ወግን ይሰይሙ። እርግጠኛ ካልሆኑ \"http\"; ይምረጡ። በሳትግምብ ምክንያት "
+"ለሚመጥ ችግሮን እምብዛም አይበላሽም።"
+
+#. Type: text
+#. Description
+#. :sl1:
+#: ../choose-mirror-bin.templates-in:5001
+msgid "Checking the Ubuntu archive mirror"
+msgstr "የዑቡንቱ ማኅደር መስተዋቶችን በመፈተሽ ላይ"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:7001
+msgid ""
+"The specified (default) Ubuntu version (${RELEASE}) is not available from "
+"the selected mirror. It is possible to continue and select a different "
+"release for your installation, but normally you should go back and select a "
+"different mirror that does support the correct version."
+msgstr ""
+"የተጠቀሰው (ቀዳሚ) የደቢያን ዝርያ (${RELEASE}) በተመረጠው መስተዋት ላይ አልተገኘም። ሌላ ዝርያ በመምረጥ "
+"መቀጠል ይቻላል። ግን ወደ ኋላ በመሄድ ትክክለኛውን ዝርያ የያዘ መስተዋት ቢመርጡ ይሻላል።"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"An error has been detected while trying to use the specified Ubuntu archive "
+"mirror."
+msgstr "የተጠቀሰውን የደቢያን መስተዋት ለመጠቀም ችግር ተከስቷል፡፡"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"Possible reasons for the error are: incorrect mirror specified; mirror is "
+"not available (possibly due to an unreliable network connection); mirror is "
+"broken (for example because an invalid Release file was found); mirror does "
+"not support the correct Ubuntu version."
+msgstr ""
+"ለስህተቱ ንክንያት የሚሆኑት፤ ትክክል ያልሆነ መስተዋት መስጠት፣ መስተዋቱ በስራ ላይ አለመሆን (ምናልባትም የመረብ "
+"ግንኙነት ላይኖረው ይችላል)፣ መስተዋቱ ተሰብሮ ይሆናል (ትክክል ያልሆነ የመልቀቂያ ፋይል ሲገኝ)፣ መስተውቱ ትክክለኛውን "
+"የደቢያን ዝርያ አልያዘ ይሆናል"
+
+#. Type: error
+#. Description
+#. :sl3:
+#: ../choose-mirror-bin.templates-in:9001
+msgid ""
+"The specified Ubuntu archive mirror does not seem to support your "
+"architecture. Please try a different mirror."
+msgstr "የተሰጠው የዑቡንቱ ማኅደር መስተዋት ውስጥ ለርስዎ አስሊ የሚሆን ስልት የለም። እባክዎ ሌላ ይሞክሩ።"
+
+#. Type: text
+#. Description
+#. main-menu
+#. :sl1:
+#: ../choose-mirror-bin.templates-in:14001
+msgid "Choose a mirror of the Ubuntu archive"
+msgstr "የዑቡንቱ ማኅደር-መስተዋት ምረጥ"
 
 #. Type: select
 #. Default
@@ -274,19 +592,6 @@ msgstr "እባክዎ ደቢያን የሚመጣበትን የመስተዋት ተ�
 
 #. Type: string
 #. Description
-#. :sl1:
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.http-in:4001
-#: ../choose-mirror-bin.templates.ftp.base-in:2001
-msgid ""
-"An alternate port can be specified using the standard [hostname]:[port] "
-"format."
-msgstr "የተለመደውን የ [hostname]:[port] ፎርማት በመጠቀም ተለዋጭ በር መስጠት ይቻላል"
-
-#. Type: string
-#. Description
 #. :sl2:
 #: ../choose-mirror-bin.templates.http-in:5001
 #: ../choose-mirror-bin.templates.ftp.base-in:3001
@@ -302,57 +607,6 @@ msgid ""
 "Please enter the directory in which the mirror of the Ubuntu archive is "
 "located."
 msgstr "እባክዎ የዑቡንቱ መስተዋት የተቀመጠበትን ዶሴ ያስገቡ"
-
-#. Type: string
-#. Description
-#. :sl1:
-#: ../choose-mirror-bin.templates.http-in:6001
-msgid "HTTP proxy information (blank for none):"
-msgstr "የHTTP proxy መረጃ (ከሌለ ባዶ ይተዉት)፦"
-
-#. Type: string
-#. Description
-#. :sl1:
-#: ../choose-mirror-bin.templates.http-in:6001
-msgid ""
-"If you need to use a HTTP proxy to access the outside world, enter the proxy "
-"information here. Otherwise, leave this blank."
-msgstr ""
-"ከውጪው ዓለ ጋር ለመገናኘት HTTP ምስለኔ የሚጠቀሙ ከሆነ የምስለኔውን መረጃ እዚህ ያስገቡ፡፡ ያለዚያ ይህንን ባዶ "
-"ይትዉት፡፡"
-
-#. Type: string
-#. Description
-#. :sl1:
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.http-in:6001
-#: ../choose-mirror-bin.templates.ftp.base-in:4001
-msgid ""
-"The proxy information should be given in the standard form of \"http://"
-"[[user][:pass]@]host[:port]/\"."
-msgstr ""
-"የምስለኔ መረጃ መሰጠት በተለመደው  \"http://[[user][:pass]@]host[:port]/\" አይነት መሆን "
-"ይኖርበታል፡፡"
-
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.ftp.base-in:4001
-msgid "FTP proxy information (blank for none):"
-msgstr "የFTP proxy መረጃ (ከሌለ ባዶ ይተዉት)፦"
-
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.ftp.base-in:4001
-msgid ""
-"If you need to use a FTP proxy to access the outside world, enter the proxy "
-"information here. Otherwise, leave this blank."
-msgstr ""
-"ከውጪው ዓለ ጋር ለመገናኘት የFTP ምስለኔ የሚጠቀሙ ከሆነ የምስለኔውን መረጃ እዚህ ያስገቡ፡፡ ያለዚያ ይህንን ባዶ "
-"ይትዉት፡፡"
 
 #. Type: select
 #. Default
@@ -374,21 +628,3 @@ msgstr ""
 #: ../choose-mirror-bin.templates.ftp.sel-in:2002
 msgid "GB[ Default value for ftp]"
 msgstr "GB"
-
-#. Type: select
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.both-in:2001
-msgid "Protocol for file downloads:"
-msgstr "ፋይልን የማምጣት ፕሮቶኮል፦"
-
-#. Type: select
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.both-in:2001
-msgid ""
-"Please select the protocol to be used for downloading files. If unsure, "
-"select \"http\"; it is less prone to problems involving firewalls."
-msgstr ""
-"እባክዎ ፋይልን ለማምጣት የመጠቀሚያ ወግን ይሰይሙ። እርግጠኛ ካልሆኑ \"http\"; ይምረጡ። በሳትግምብ ምክንያት "
-"ለሚመጥ ችግሮን እምብዛም አይበላሽም።"

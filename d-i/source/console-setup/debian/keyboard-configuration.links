@@ -1,2 +1,0 @@
-/lib/systemd/system/console-setup.service /lib/systemd/system/sysinit.target.wants/console-setup.service
-/lib/systemd/system/keyboard-setup.service /lib/systemd/system/sysinit.target.wants/keyboard-setup.service

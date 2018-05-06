@@ -1,3 +1,57 @@
+partman-auto (134ubuntu8) bionic; urgency=medium
+
+  * Introduce partman-auto/cap-ram, to allow capping RAM size as used for
+    swap partition calculations. This allows us to effectively cap the
+    swap partitions size to maximum of 2*CAP. Default is set to 1024, thus
+    capping swap partitions to 2GB maximum. LP: #1351267
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 23 Feb 2018 13:53:15 +0000
+
+partman-auto (134ubuntu7) artful; urgency=medium
+
+  * Bump minimum and maximum sizes for /boot partitions on default, x86, and 
+    EFI platforms to a minimum of 512Mb and maximum of 768Mb. (LP: #1716999)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Wed, 13 Sep 2017 11:35:21 -0700
+
+partman-auto (134ubuntu6) zesty; urgency=medium
+
+  * Ignore swap partitions in default installation types, thus use
+    swapfile for non-lvm installations.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 30 Nov 2016 16:03:19 +0000
+
+partman-auto (134ubuntu5) zesty; urgency=medium
+
+  * Mark /boot partition to be ignored for lvm auto-partitioning for
+    ppc64el. LP: #1639801
+  * Switch /boot partition from ext2 to ext4, to match all over
+    configurations. This is only relevant for full disk encryption
+    installations.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Fri, 18 Nov 2016 16:41:48 +0000
+
+partman-auto (134ubuntu4) zesty; urgency=medium
+
+  * Mark /boot partition to be ignored for lvm auto-partitioning in the
+    default and efi recipes. LP: #1639801
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 10 Nov 2016 12:39:33 +0000
+
+partman-auto (134ubuntu3) yakkety; urgency=medium
+
+  * lib/auto-shared.sh: take 2; list Software RAID devices on NVMe disks.
+    Really make the changes this time. (LP: #1615650)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 06 Sep 2016 13:34:50 -0400
+
+partman-auto (134ubuntu2) yakkety; urgency=medium
+
+  * lib/auto-shared.sh: list Software RAID devices on NVMe disks. Thanks to
+    Mauricio Faria De Oliveira for the patch. (LP: #1615650)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Tue, 06 Sep 2016 13:20:11 -0400
+
 partman-auto (134ubuntu1) xenial; urgency=medium
 
   * Resynchronise with Debian.  Remaining changes:

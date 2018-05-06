@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 deb-src http://archive.ubuntu.com/ubuntu xenial main
 deb-src http://archive.ubuntu.com/ubuntu xenial-proposed main
 deb-src http://archive.ubuntu.com/ubuntu xenial-updates main
+=======
+deb-src http://archive.ubuntu.com/ubuntu bionic main
+deb-src http://archive.ubuntu.com/ubuntu bionic-proposed main
+>>>>>>> vendor

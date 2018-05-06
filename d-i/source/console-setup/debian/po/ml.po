@@ -23,15 +23,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Debian Installer Level 1\n"
 "Report-Msgid-Bugs-To: console-setup@packages.debian.org\n"
-"POT-Creation-Date: 2014-07-14 18:35-0700\n"
-"PO-Revision-Date: 2013-09-30 12:04+0530\n"
+"POT-Creation-Date: 2016-02-29 19:44+0300\n"
+"PO-Revision-Date: 2018-01-04 06:20+0000\n"
 "Last-Translator: Anish Sheela <aneesh.nl@gmail.com>\n"
 "Language-Team: Swatantra Malayalam Computing <discuss@lists.smc.org.in>\n"
 "Language: ml\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. Type: text
 #. Description
@@ -934,12 +934,12 @@ msgstr "ബ്രസീലിയന്‍"
 msgid "British English"
 msgstr "ബ്രിട്ടീഷ് ഇംഗ്ലീഷ്"
 
-# console-keymaps-acorn, Bulgarian
+# console-keymaps-acorn, Bulgarian (phonetic layout)
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
-msgid "Bulgarian"
-msgstr "ബള്‍ഗേറിയന്‍"
+msgid "Bulgarian (BDS layout)"
+msgstr "ബള്‍ഗേറിയന്‍ (BDS ലേയൌട്ട്)"
 
 # console-keymaps-acorn, Bulgarian (phonetic layout)
 #. Type: select
@@ -947,6 +947,12 @@ msgstr "ബള്‍ഗേറിയന്‍"
 #: ../keyboard-configuration.templates:16001
 msgid "Bulgarian (phonetic layout)"
 msgstr "ബള്‍ഗേറിയന്‍ (phonetic layout)"
+
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
+msgid "Burmese"
+msgstr "ബര്‍മീസ്"
 
 # console-keymaps-acorn, Canadian
 #. Type: select
@@ -1100,7 +1106,7 @@ msgstr "ഹങ്കേറിയന്‍"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Icelandic"
-msgstr "ഐസ്‌ലാന്‍ഡിക് "
+msgstr "ഐസ്‌ലാന്‍ഡിക്"
 
 #. Type: select
 #. Choices
@@ -1144,7 +1150,7 @@ msgstr "ഖമര്‍"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Kirghiz"
-msgstr "കിര്‍ഗിസ്സ് "
+msgstr "കിര്‍ഗിസ്സ്"
 
 #. Type: select
 #. Choices
@@ -1221,13 +1227,19 @@ msgstr "വടക്കന്‍ സാമി"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Norwegian"
-msgstr "നോര്‍വീജിയന്‍ "
+msgstr "നോര്‍വീജിയന്‍"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Persian"
 msgstr "പേര്‍ശ്യന്‍"
+
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
+msgid "Philippines"
+msgstr "ഫിലിപ്പീന്‍സ്"
 
 # console-keymaps-acorn, Polish
 #. Type: select
@@ -1393,8 +1405,9 @@ msgstr "ഉപയോഗിയ്ക്കേണ്ട കീമാപ്:"
 #. Type: boolean
 #. Description
 #: ../keyboard-configuration.templates:22001
+#, fuzzy
 msgid "Detect keyboard layout?"
-msgstr ""
+msgstr "കീബോര്‍ഡ് വിന്യാസം:"
 
 #. Type: boolean
 #. Description
@@ -1408,14 +1421,16 @@ msgstr ""
 #. Type: detect-keyboard
 #. Description
 #: ../keyboard-configuration.templates:23001
+#, fuzzy
 msgid "Detecting your keyboard layout"
-msgstr ""
+msgstr "ഒരു കീബോര്‍ഡ് വിന്യാസത്തിന്റെ സഹജവില"
 
 #. Type: note
 #. Description
 #: ../keyboard-configuration.templates:24001
+#, fuzzy
 msgid "Keyboard layout detection complete"
-msgstr ""
+msgstr "കീബോര്‍ഡ് വിന്യാസം:"
 
 #. Type: note
 #. Description
@@ -1425,4 +1440,3 @@ msgid ""
 "\"${LAYOUT}\". If this is not correct, you can go back and select your "
 "layout from the full list instead."
 msgstr ""
-

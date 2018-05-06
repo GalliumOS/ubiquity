@@ -371,8 +371,6 @@ EndSection
         # Give ubiquity a UID and GID that it can drop privileges to.
         os.environ['PKEXEC_UID'] = str(self.uid)
         os.environ['GVFS_DISABLE_FUSE'] = '1'
-        # Overlay scrollbars are now a gtk module
-        os.environ['GTK_MODULES'] = 'overlay-scrollbar'
 
         log('pam_open_session')
         self.pam_open_session()
@@ -494,13 +492,34 @@ EndSection
                             ('org.mate.background', 'picture-filename',
                              "''"))
 
-                if osextras.find_on_path('gnome-shell'):
+                if (osextras.find_on_path('gnome-shell') or
+                        osextras.find_on_path('budgie-wm')):
                     gsettings_keys.append(
                         ('org.gnome.settings-daemon.plugins.background',
                          'active', 'false'))
                     gsettings_keys.remove(
                         ('org.gnome.desktop.wm.preferences', 'num-workspaces',
                          '1'))
+                    os.environ['XDG_SESSION_TYPE'] = 'x11'
+
+                if (osextras.find_on_path('gnome-shell')):
+                    # set this environment variable since we have
+                    # session-specific GSettings overrides for Ubuntu/Shell,
+                    # like the theme.
+                    os.environ['XDG_CURRENT_DESKTOP'] = 'ubuntu:GNOME'
+                    if (osextras.find_on_path(
+                            'dbus-update-activation-environment')):
+                        subprocess.Popen(
+                            ['dbus-update-activation-environment',
+                             '--verbose', '--systemd', 'XDG_CURRENT_DESKTOP'],
+                            stdin=null, stdout=logfile, stderr=logfile,
+                            preexec_fn=self.drop_privileges)
+
+                if (osextras.find_on_path('budgie-wm')):
+                    gsettings_keys.append(
+                        ('org.gnome.desktop.interface', 'icon-theme',
+                         "'ubuntu-mono-dark'"))
+                    os.environ['XDG_CURRENT_DESKTOP'] = 'Budgie'
 
                 for gs_schema, gs_key, gs_value in gsettings_keys:
                     subprocess.call(
@@ -508,11 +527,22 @@ EndSection
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges)
 
-                usd = '/usr/lib/unity-settings-daemon/unity-settings-daemon'
-                gsd = '/usr/lib/gnome-settings-daemon/gnome-settings-daemon'
                 msd = '/usr/bin/mate-settings-daemon'
+                usd = '/usr/lib/unity-settings-daemon/unity-settings-daemon'
+                gsd = ['/usr/lib/gnome-settings-daemon/gsd-a11y-keyboard',
+                       '/usr/lib/gnome-settings-daemon/gsd-a11y-settings',
+                       '/usr/lib/gnome-settings-daemon/gsd-clipboard',
+                       '/usr/lib/gnome-settings-daemon/gsd-media-keys',
+                       '/usr/lib/gnome-settings-daemon/gsd-power',
+                       '/usr/lib/gnome-settings-daemon/gsd-xsettings']
 
-                if osextras.find_on_path(usd):
+                if osextras.find_on_path(msd):
+                    extras.append(subprocess.Popen(
+                        [msd], stdin=null, stdout=logfile, stderr=logfile,
+                        preexec_fn=self.drop_privileges))
+
+                elif (osextras.find_on_path(usd)):
+                    # Wait until xsettings plugin is activated
                     xsettings = SignalWatcher(self, usd,
                                               "org.gnome.SettingsDaemon",
                                               "/org/gnome/SettingsDaemon",
@@ -523,15 +553,13 @@ EndSection
                     # At this point we're sure the usd xsettings plugin is
                     # available, we can continue setting up the session.
 
-                elif osextras.find_on_path(gsd):
-                    extras.append(subprocess.Popen(
-                        [gsd], stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges))
-
-                elif osextras.find_on_path(msd):
-                    extras.append(subprocess.Popen(
-                        [msd], stdin=null, stdout=logfile, stderr=logfile,
-                        preexec_fn=self.drop_privileges))
+                elif os.path.isdir("/usr/lib/gnome-settings-daemon"):
+                    for gsdbinary in gsd:
+                        if osextras.find_on_path(gsdbinary):
+                            extras.append(subprocess.Popen(
+                                [gsdbinary],
+                                stdin=null, stdout=logfile, stderr=logfile,
+                                preexec_fn=self.drop_privileges))
 
                 elif background_image and osextras.find_on_path('feh'):
                     subprocess.call(
@@ -548,10 +576,15 @@ EndSection
                         [launcher, '--launch-immediately'],
                         stdin=null, stdout=logfile, stderr=logfile,
                         preexec_fn=self.drop_privileges))
-                    os.environ['GTK_MODULES'] += os.pathsep + 'gail'
+                    try:
+                        os.environ['GTK_MODULES'] += os.pathsep + 'gail'
+                    except KeyError:
+                        os.environ['GTK_MODULES'] = 'gail'
 
             if osextras.find_on_path('gnome-shell'):
                 wm_cmd = ['gnome-shell', '--sm-disable', '--mode=ubiquity']
+            elif osextras.find_on_path('budgie-wm'):
+                wm_cmd = ['budgie-wm', '--sm-disable']
             elif osextras.find_on_path('marco'):
                 wm_cmd = ['marco', '--sm-disable']
             elif osextras.find_on_path('metacity'):
@@ -570,8 +603,9 @@ EndSection
             else:
                 raise MissingProgramError(
                     'No window manager found (tried '
-                    'marco, metacity, xfwm4, matchbox-window-manager, '
-                    'openbox-lubuntu, openbox, compiz)')
+                    'gnome-shell, budgie-wm, marco, metacity, xfwm4, '
+                    'matchbox-window-manager, openbox-lubuntu, '
+                    'openbox, compiz)')
 
             wm = subprocess.Popen(
                 wm_cmd, stdin=null, stdout=logfile, stderr=logfile,
@@ -850,6 +884,7 @@ def main():
         log('Failed with an exception:')
         log(traceback.format_exc())
         return 1
+
 
 if __name__ == '__main__':
     sys.exit(main())
