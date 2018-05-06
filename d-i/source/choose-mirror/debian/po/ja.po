@@ -35,12 +35,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Debian version to install:"
+msgstr "インストールする Debian バージョン:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid ""
+"Debian comes in several flavors. Stable is well-tested and rarely changes. "
+"Unstable is untested and frequently changing. Testing is a middle ground, "
+"that receives many of the new versions from unstable if they are not too "
+"buggy."
+msgstr ""
+"Debian にはいくつかのフレーバーがあります。安定版は十分にテストされ、変更され"
+"ることは滅多にありません。不安定版はテストされておらず、頻繁に更新されます。"
+"テスト版はその中間で、不安定版からバグのひどすぎない新しいバージョンの多くを"
+"取得します。"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:3001
+msgid "Only flavors available on the selected mirror are listed."
+msgstr "選択されたミラーで利用可能なフレーバーのみがリストされます。"
+
 #. Type: text
 #. Description
 #. :sl1:
 #: ../choose-mirror-bin.templates-in:5001
-msgid "Checking the Ubuntu archive mirror"
-msgstr "Ubuntu アーカイブミラーを確認しています"
+msgid "Checking the Debian archive mirror"
+msgstr "Debian アーカイブミラーを確認しています"
 
 #. Type: text
 #. Description
@@ -61,12 +90,12 @@ msgstr "戻って別のミラーを試しますか?"
 #. :sl2:
 #: ../choose-mirror-bin.templates-in:7001
 msgid ""
-"The specified (default) Ubuntu version (${RELEASE}) is not available from "
+"The specified (default) Debian version (${RELEASE}) is not available from "
 "the selected mirror. It is possible to continue and select a different "
 "release for your installation, but normally you should go back and select a "
 "different mirror that does support the correct version."
 msgstr ""
-"指定された (デフォルトの) Ubuntu バージョン (${RELEASE}) は選択されたミラーで"
+"指定された (デフォルトの) Debian バージョン (${RELEASE}) は選択されたミラーで"
 "は利用できません。継続して、インストールのために別のリリースを選ぶことは可能"
 "ですが、通常は戻って正しいバージョンをサポートしている別のミラーを選ぶべきで"
 "す。"
@@ -83,10 +112,10 @@ msgstr "正しくないアーカイブミラーです"
 #. :sl2:
 #: ../choose-mirror-bin.templates-in:8001
 msgid ""
-"An error has been detected while trying to use the specified Ubuntu archive "
+"An error has been detected while trying to use the specified Debian archive "
 "mirror."
 msgstr ""
-"指定された Ubuntu アーカイブミラー使用の試行中にエラーが検出されました。"
+"指定された Debian アーカイブミラー使用の試行中にエラーが検出されました。"
 
 #. Type: error
 #. Description
@@ -96,11 +125,11 @@ msgid ""
 "Possible reasons for the error are: incorrect mirror specified; mirror is "
 "not available (possibly due to an unreliable network connection); mirror is "
 "broken (for example because an invalid Release file was found); mirror does "
-"not support the correct Ubuntu version."
+"not support the correct Debian version."
 msgstr ""
 "このエラーの考えられる原因は、不正なミラー指定、ミラーが利用できない状態 (お"
 "そらく不安定なネットワーク接続によるもの)、ミラーが壊れている (たとえば無効"
-"な Release ファイルが発見された)、ミラーが正しい Ubuntu バージョンをサポート"
+"な Release ファイルが発見された)、ミラーが正しい Debian バージョンをサポート"
 "していない、といったものです。"
 
 #. Type: error
@@ -132,10 +161,10 @@ msgstr "アーキテクチャがサポートされていません"
 #. :sl3:
 #: ../choose-mirror-bin.templates-in:9001
 msgid ""
-"The specified Ubuntu archive mirror does not seem to support your "
+"The specified Debian archive mirror does not seem to support your "
 "architecture. Please try a different mirror."
 msgstr ""
-"指定された Ubuntu アーカイブミラーはあなたのアーキテクチャをサポートしていな"
+"指定された Debian アーカイブミラーはあなたのアーキテクチャをサポートしていな"
 "いようです。別のミラーを試してみてください。"
 
 #. Type: text
@@ -171,8 +200,8 @@ msgstr "不安定版"
 #. main-menu
 #. :sl1:
 #: ../choose-mirror-bin.templates-in:14001
-msgid "Choose a mirror of the Ubuntu archive"
-msgstr "Ubuntu アーカイブのミラーを選択"
+msgid "Choose a mirror of the Debian archive"
+msgstr "Debian アーカイブのミラーを選択"
 
 #. Type: select
 #. Choices
@@ -180,6 +209,305 @@ msgstr "Ubuntu アーカイブのミラーを選択"
 #: ../choose-mirror-bin.templates.ftp.sel-in:2001
 msgid "enter information manually"
 msgstr "情報を手動で入力"
+
+#. Type: select
+#. Default
+#. Translators, you should put here the ISO 3166 code of a country
+#. which you know hosts at least one Debian HTTP mirror. Please check
+#. that the country really has a Debian HTTP mirror before putting a
+#. random value here
+#.
+#. First check that the country you mention here is listed in
+#. http://svn.debian.org/wsvn/webwml/trunk/webwml/english/mirror/Mirrors.masterlist
+#.
+#. BE CAREFUL to use the TWO LETTER ISO-3166 CODE and not anything else
+#.
+#. You do not need to translate what's between the square brackets
+#. You should even NOT put square brackets in translations:
+#. msgid "US[ Default value for http]"
+#. msgstr "FR"
+#. :sl1:
+#: ../choose-mirror-bin.templates.http-in:2002
+msgid "US[ Default value for http]"
+msgstr "JP"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:2003
+#: ../choose-mirror-bin.templates.ftp.sel-in:2003
+msgid "Debian archive mirror country:"
+msgstr "Debian アーカイブミラーの国:"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:2003
+#: ../choose-mirror-bin.templates.ftp.sel-in:2003
+msgid ""
+"The goal is to find a mirror of the Debian archive that is close to you on "
+"the network -- be aware that nearby countries, or even your own, may not be "
+"the best choice."
+msgstr ""
+"ネットワーク上あなたに最も近い Debian アーカイブミラーを見つけることが最終目"
+"標です。近隣国はもちろん自国でさえ最適の選択とは限らないことに注意しましょ"
+"う。"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:3001
+#: ../choose-mirror-bin.templates.ftp.sel-in:3001
+msgid "Debian archive mirror:"
+msgstr "Debian アーカイブミラー:"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:3001
+#: ../choose-mirror-bin.templates.ftp.sel-in:3001
+msgid ""
+"Please select a Debian archive mirror. You should use a mirror in your "
+"country or region if you do not know which mirror has the best Internet "
+"connection to you."
+msgstr ""
+"Debian アーカイブミラーを選んでください。最適なインターネット接続となるミラー"
+"がわからなければ、あなたの国または地域にあるミラーを利用するのがよいでしょ"
+"う。"
+
+#. Type: select
+#. Description
+#. :sl1:
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:3001
+#: ../choose-mirror-bin.templates.ftp.sel-in:3001
+msgid "Usually, ftp.<your country code>.debian.org is a good choice."
+msgstr "通常、ftp.<あなたの国コード>.debian.org が良い選択です。"
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:4001
+#: ../choose-mirror-bin.templates.ftp.base-in:2001
+msgid "Debian archive mirror hostname:"
+msgstr "Debian アーカイブミラーホスト名:"
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:4001
+#: ../choose-mirror-bin.templates.ftp.base-in:2001
+msgid ""
+"Please enter the hostname of the mirror from which Debian will be downloaded."
+msgstr "Debian をダウンロードするミラーホスト名を入力してください。"
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:4001
+#: ../choose-mirror-bin.templates.ftp.base-in:2001
+msgid ""
+"An alternate port can be specified using the standard [hostname]:[port] "
+"format."
+msgstr "標準の [hostname]:[port] 形式を使って別のポートも指定できます。"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid "Debian archive mirror directory:"
+msgstr "Debian アーカイブミラーディレクトリ:"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:5001
+#: ../choose-mirror-bin.templates.ftp.base-in:3001
+msgid ""
+"Please enter the directory in which the mirror of the Debian archive is "
+"located."
+msgstr "Debian アーカイブミラーの置かれているディレクトリを入力してください。"
+
+#. Type: string
+#. Description
+#. :sl1:
+#: ../choose-mirror-bin.templates.http-in:6001
+msgid "HTTP proxy information (blank for none):"
+msgstr "HTTP プロキシの情報 (なければ空):"
+
+#. Type: string
+#. Description
+#. :sl1:
+#: ../choose-mirror-bin.templates.http-in:6001
+msgid ""
+"If you need to use a HTTP proxy to access the outside world, enter the proxy "
+"information here. Otherwise, leave this blank."
+msgstr ""
+"外の世界にアクセスするのに HTTP プロキシを使う必要があるなら、プロキシ情報を"
+"ここに入力します。そうでないなら空のままにしておきます。"
+
+#. Type: string
+#. Description
+#. :sl1:
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.http-in:6001
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid ""
+"The proxy information should be given in the standard form of \"http://"
+"[[user][:pass]@]host[:port]/\"."
+msgstr ""
+"プロキシ情報は、\"http://[[user][:pass]@]host[:port]/\" の標準形式で指定して"
+"ください。"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid "FTP proxy information (blank for none):"
+msgstr "FTP プロキシの情報 (なければ空):"
+
+#. Type: string
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.base-in:4001
+msgid ""
+"If you need to use a FTP proxy to access the outside world, enter the proxy "
+"information here. Otherwise, leave this blank."
+msgstr ""
+"外の世界にアクセスするのに FTP プロキシを使う必要があるなら、プロキシ情報をこ"
+"こに入力します。そうでないなら空のままにしておきます。"
+
+#. Type: select
+#. Default
+#. Translators, you should put here the ISO 3166 code of a country
+#. which you know hosts at least one Debian FTP mirror. Please check
+#. that the country really has a Debian FTP mirror before putting a
+#. random value here
+#.
+#. First check that the country you mention here is listed in
+#. http://svn.debian.org/wsvn/webwml/trunk/webwml/english/mirror/Mirrors.masterlist
+#.
+#. BE CAREFUL to use the TWO LETTER ISO-3166 CODE and not anything else
+#.
+#. You do not need to translate what's between the square brackets
+#. You should even NOT put square brackets in translations:
+#. msgid "US[ Default value for ftp]"
+#. msgstr "FR"
+#. :sl2:
+#: ../choose-mirror-bin.templates.ftp.sel-in:2002
+msgid "US[ Default value for ftp]"
+msgstr "JP"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid "Protocol for file downloads:"
+msgstr "ファイルをダウンロードするプロトコル:"
+
+#. Type: select
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates.both-in:2001
+msgid ""
+"Please select the protocol to be used for downloading files. If unsure, "
+"select \"http\"; it is less prone to problems involving firewalls."
+msgstr ""
+"ファイルをダウンロードするのに使うプロトコルを選択してください。よくわからな"
+"いのであれば、\"http\" を選んでください。これは、ファイアウォールを伴ったとき"
+"に問題が比較的少ないものです。"
+
+#. Type: text
+#. Description
+#. :sl1:
+#: ../choose-mirror-bin.templates-in:5001
+msgid "Checking the Ubuntu archive mirror"
+msgstr "Ubuntu アーカイブミラーを確認しています"
+
+#. Type: boolean
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:7001
+msgid ""
+"The specified (default) Ubuntu version (${RELEASE}) is not available from "
+"the selected mirror. It is possible to continue and select a different "
+"release for your installation, but normally you should go back and select a "
+"different mirror that does support the correct version."
+msgstr ""
+"指定された (デフォルトの) Ubuntu バージョン (${RELEASE}) は選択されたミラーで"
+"は利用できません。継続して、インストールのために別のリリースを選ぶことは可能"
+"ですが、通常は戻って正しいバージョンをサポートしている別のミラーを選ぶべきで"
+"す。"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"An error has been detected while trying to use the specified Ubuntu archive "
+"mirror."
+msgstr ""
+"指定された Ubuntu アーカイブミラー使用の試行中にエラーが検出されました。"
+
+#. Type: error
+#. Description
+#. :sl2:
+#: ../choose-mirror-bin.templates-in:8001
+msgid ""
+"Possible reasons for the error are: incorrect mirror specified; mirror is "
+"not available (possibly due to an unreliable network connection); mirror is "
+"broken (for example because an invalid Release file was found); mirror does "
+"not support the correct Ubuntu version."
+msgstr ""
+"このエラーの考えられる原因は、不正なミラー指定、ミラーが利用できない状態 (お"
+"そらく不安定なネットワーク接続によるもの)、ミラーが壊れている (たとえば無効"
+"な Release ファイルが発見された)、ミラーが正しい Ubuntu バージョンをサポート"
+"していない、といったものです。"
+
+#. Type: error
+#. Description
+#. :sl3:
+#: ../choose-mirror-bin.templates-in:9001
+msgid ""
+"The specified Ubuntu archive mirror does not seem to support your "
+"architecture. Please try a different mirror."
+msgstr ""
+"指定された Ubuntu アーカイブミラーはあなたのアーキテクチャをサポートしていな"
+"いようです。別のミラーを試してみてください。"
+
+#. Type: text
+#. Description
+#. main-menu
+#. :sl1:
+#: ../choose-mirror-bin.templates-in:14001
+msgid "Choose a mirror of the Ubuntu archive"
+msgstr "Ubuntu アーカイブのミラーを選択"
 
 #. Type: select
 #. Default
@@ -294,19 +622,6 @@ msgstr "Ubuntu をダウンロードするミラーホスト名を入力して�
 
 #. Type: string
 #. Description
-#. :sl1:
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.http-in:4001
-#: ../choose-mirror-bin.templates.ftp.base-in:2001
-msgid ""
-"An alternate port can be specified using the standard [hostname]:[port] "
-"format."
-msgstr "標準の [hostname]:[port] 形式を使って別のポートも指定できます。"
-
-#. Type: string
-#. Description
 #. :sl2:
 #: ../choose-mirror-bin.templates.http-in:5001
 #: ../choose-mirror-bin.templates.ftp.base-in:3001
@@ -322,57 +637,6 @@ msgid ""
 "Please enter the directory in which the mirror of the Ubuntu archive is "
 "located."
 msgstr "Ubuntu アーカイブミラーの置かれているディレクトリを入力してください。"
-
-#. Type: string
-#. Description
-#. :sl1:
-#: ../choose-mirror-bin.templates.http-in:6001
-msgid "HTTP proxy information (blank for none):"
-msgstr "HTTP プロキシの情報 (なければ空):"
-
-#. Type: string
-#. Description
-#. :sl1:
-#: ../choose-mirror-bin.templates.http-in:6001
-msgid ""
-"If you need to use a HTTP proxy to access the outside world, enter the proxy "
-"information here. Otherwise, leave this blank."
-msgstr ""
-"外の世界にアクセスするのに HTTP プロキシを使う必要があるなら、プロキシ情報を"
-"ここに入力します。そうでないなら空のままにしておきます。"
-
-#. Type: string
-#. Description
-#. :sl1:
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.http-in:6001
-#: ../choose-mirror-bin.templates.ftp.base-in:4001
-msgid ""
-"The proxy information should be given in the standard form of \"http://"
-"[[user][:pass]@]host[:port]/\"."
-msgstr ""
-"プロキシ情報は、\"http://[[user][:pass]@]host[:port]/\" の標準形式で指定して"
-"ください。"
-
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.ftp.base-in:4001
-msgid "FTP proxy information (blank for none):"
-msgstr "FTP プロキシの情報 (なければ空):"
-
-#. Type: string
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.ftp.base-in:4001
-msgid ""
-"If you need to use a FTP proxy to access the outside world, enter the proxy "
-"information here. Otherwise, leave this blank."
-msgstr ""
-"外の世界にアクセスするのに FTP プロキシを使う必要があるなら、プロキシ情報をこ"
-"こに入力します。そうでないなら空のままにしておきます。"
 
 #. Type: select
 #. Default
@@ -394,22 +658,3 @@ msgstr ""
 #: ../choose-mirror-bin.templates.ftp.sel-in:2002
 msgid "GB[ Default value for ftp]"
 msgstr "JP"
-
-#. Type: select
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.both-in:2001
-msgid "Protocol for file downloads:"
-msgstr "ファイルをダウンロードするプロトコル:"
-
-#. Type: select
-#. Description
-#. :sl2:
-#: ../choose-mirror-bin.templates.both-in:2001
-msgid ""
-"Please select the protocol to be used for downloading files. If unsure, "
-"select \"http\"; it is less prone to problems involving firewalls."
-msgstr ""
-"ファイルをダウンロードするのに使うプロトコルを選択してください。よくわからな"
-"いのであれば、\"http\" を選んでください。これは、ファイアウォールを伴ったとき"
-"に問題が比較的少ないものです。"

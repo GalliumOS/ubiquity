@@ -93,7 +93,6 @@ class TestFrontend(unittest.TestCase):
                 # We have some checkbuttons without labels.
                 button = button and widget.get_label()
                 # Stock buttons.
-                button = button and not widget.get_use_stock()
                 window = isinstance(widget, Gtk.Window)
                 if not (label or button or window):
                     return
@@ -103,6 +102,10 @@ class TestFrontend(unittest.TestCase):
             translate_widget.side_effect = side_effect
             ui.translate_widgets()
             whitelist = [
+                # GTK-provided buttons with generic labels.
+                'cancelbutton2', 'okbutton2', 'okbutton3',
+                'partition_dialog_okbutton', 'cancelbutton3',
+                'grub_fail_okbutton',
                 # These are calculated and set as the partitioning options are
                 # being calculated.
                 'reuse_partition_desc', 'reuse_partition',
@@ -132,7 +135,7 @@ class TestFrontend(unittest.TestCase):
                 'label_global_error',
                 'warning_password_label', 'label1', 'secureboot_label',
                 # secure boot
-                'disable_secureboot', 'prepare_foss_disclaimer_license',
+                'disable_secureboot', 'prepare_foss_disclaimer',
                 'label_free_space', 'label_required_space',
                 'label_download_updates',
             ]

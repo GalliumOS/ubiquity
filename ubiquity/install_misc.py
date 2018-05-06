@@ -44,6 +44,11 @@ import debconf
 from ubiquity import misc, osextras
 from ubiquity.casper import get_casper
 
+minimal_install_rlist_path = os.path.join(
+    '/cdrom',
+    get_casper('LIVE_MEDIA_PATH', 'casper').lstrip('/'),
+    'filesystem.manifest-minimal-remove')
+
 
 def debconf_disconnect():
     """Disconnect from debconf. This is only to be used as a subprocess
@@ -364,7 +369,7 @@ class DebconfInstallProgress(InstallProgress):
                         os._exit(0)
             except (KeyboardInterrupt, SystemExit):
                 pass  # we're going to exit anyway
-            except:
+            except Exception:
                 for line in traceback.format_exc().split('\n'):
                     syslog.syslog(syslog.LOG_WARNING, line)
             os._exit(0)
@@ -489,7 +494,7 @@ def is_secure_boot():
         if len(secureboot) > 0:
             return (int(secureboot) == 1)
         return False
-    except:
+    except Exception:
         return False
 
 
@@ -1101,6 +1106,15 @@ class InstallBase:
             to_install = [
                 pkg for pkg in to_install
                 if get_cache_pkg(cache, pkg).is_installed]
+
+        # filter out langpacks matching unwanted application names
+        # in manual install
+        if self.db.get('ubiquity/minimal_install') == 'true':
+            if os.path.exists(minimal_install_rlist_path):
+                rm = set()
+                with open(minimal_install_rlist_path) as m_file:
+                    rm = {line.strip().split(':')[0] for line in m_file}
+                to_install = list(set(to_install) - rm)
 
         del cache
         record_installed(to_install)

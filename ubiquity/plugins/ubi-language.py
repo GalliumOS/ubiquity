@@ -35,7 +35,7 @@ WEIGHT = 10
 try:
     import lsb_release
     _ver = lsb_release.get_distro_information()['RELEASE']
-except:
+except Exception:
     _ver = '12.04'
 _wget_url = 'http://changelogs.ubuntu.com/ubiquity/%s-update-available' % _ver
 
@@ -106,7 +106,7 @@ class PageGtk(PageBase):
                 self.release_notes_found = True
             except (KeyboardInterrupt, SystemExit):
                 raise
-            except:
+            except Exception:
                 pass
         self.install_ubuntu = builder.get_object('install_ubuntu')
         self.try_ubuntu = builder.get_object('try_ubuntu')
@@ -394,8 +394,9 @@ class PageKde(PageBase):
             self.only = False
 
         try:
-            from PyQt4 import uic
-            from PyQt4.QtGui import QWidget, QPixmap, QIcon
+            from PyQt5 import uic
+            from PyQt5.QtGui import QPixmap, QIcon
+            from PyQt5.QtWidgets import QWidget
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepLanguage.ui')
             self.combobox = self.page.language_combobox
             # Tell layout that all items are of uniform sizes
@@ -435,7 +436,7 @@ class PageKde(PageBase):
                 self.release_notes_found = True
             except (KeyboardInterrupt, SystemExit):
                 raise
-            except:
+            except Exception:
                 pass
 
             if self.release_notes_url:
@@ -495,8 +496,8 @@ class PageKde(PageBase):
             self.updating_installer = False
 
     def openURL(self, url):
-        from PyQt4.QtGui import QDesktopServices
-        from PyQt4.QtCore import QUrl
+        from PyQt5.QtGui import QDesktopServices
+        from PyQt5.QtCore import QUrl
         import shutil
         import os
 
@@ -565,21 +566,19 @@ class PageKde(PageBase):
         self.widgetHidden = []
 
     def plugin_set_online_state(self, state):
-        from PyQt4.QtCore import QTimer, SIGNAL
+        from PyQt5.QtCore import QTimer
         if self.page.release_notes_label:
             if state:
                 self.page.release_notes_label.show()
                 QTimer.singleShot(300, self.check_returncode)
                 self.timer = QTimer(self.page)
-                self.timer.connect(
-                    self.timer, SIGNAL("timeout()"), self.check_returncode)
+                self.timer.timeout.connect(self.check_returncode)
                 self.timer.start(300)
             else:
                 self.page.release_notes_label.hide()
 
     def check_returncode(self, *args):
         import subprocess
-        from PyQt4.QtCore import SIGNAL
         if self.wget_retcode is not None or self.wget_proc is None:
             self.wget_proc = subprocess.Popen(
                 ['wget', '-q', _wget_url, '--timeout=15', '--tries=1',
@@ -593,8 +592,7 @@ class PageKde(PageBase):
             else:
                 self.update_installer = False
             self.update_release_notes_label()
-            self.timer.disconnect(
-                self.timer, SIGNAL("timeout()"), self.check_returncode)
+            self.timer.timeout.disconnect(self.check_returncode)
 
     def update_release_notes_label(self):
         lang = self.selected_language()

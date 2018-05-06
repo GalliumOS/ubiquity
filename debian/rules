@@ -72,11 +72,11 @@ clean: check
 	$(MAKE) -C d-i check
 
 d-i/source/console-setup/Keyboard/KeyboardNames.pl:
-	$(MAKE) -C d-i/source/console-setup/Keyboard KeyboardNames.pl \
+	$(MAKE) -C d-i/source/console-setup/Keyboard $(CURDIR)/d-i/source/console-setup/Keyboard/KeyboardNames.pl
 		xkbdir=/usr/share/X11/xkb
 
 debian/kbdnames.gz: d-i/source/console-setup/Keyboard/KeyboardNames.pl
-	d-i/source/console-setup/Keyboard/kbdnames-maker $< | gzip -9c > $@
+	d-i/source/console-setup/Keyboard/kbdnames-maker ./$< | gzip -9c > $@
 
 install: install-stamp
 
@@ -159,6 +159,8 @@ endif
 		debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer
 	patch debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer \
 		< d-i/patches/localechooser-post-base-installer.patch
+	patch debian/ubiquity/lib/partman/finish.d/25create_swapfile \
+		< d-i/patches/partman-swapfile-background.patch
 	chmod +x debian/ubiquity/usr/lib/ubiquity/localechooser/post-base-installer
 	sed 's/\\\$${!TAB}/ /g' \
 		debian/ubiquity/usr/lib/ubiquity/localechooser/localechooser \

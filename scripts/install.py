@@ -246,6 +246,14 @@ class Install(install_misc.InstallBase):
         else:
             difference = set()
 
+        # Add minimal installation package list if selected
+        if self.db.get('ubiquity/minimal_install') == 'true':
+            if os.path.exists(install_misc.minimal_install_rlist_path):
+                pkgs = set()
+                with open(install_misc.minimal_install_rlist_path) as m_file:
+                    pkgs = {line.strip().split(':')[0] for line in m_file}
+                difference |= pkgs
+
         cache = Cache()
 
         use_restricted = True
@@ -626,7 +634,7 @@ class Install(install_misc.InstallBase):
                         devbase = sysloop
                     dev = '/dev/%s' % devbase
                     break
-            except:
+            except Exception:
                 continue
 
         if dev == '':
@@ -744,6 +752,7 @@ class Install(install_misc.InstallBase):
                                   os.path.join(home, homedir))
                     install_misc.record_installed(['ecryptfs-utils'])
                     break
+
 
 if __name__ == '__main__':
     os.environ['DPKG_UNTRANSLATED_MESSAGES'] = '1'

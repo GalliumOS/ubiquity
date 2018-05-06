@@ -15,15 +15,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: se\n"
 "Report-Msgid-Bugs-To: console-setup@packages.debian.org\n"
-"POT-Creation-Date: 2014-07-14 18:35-0700\n"
-"PO-Revision-Date: 2010-12-31 02:09+0100\n"
-"Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
+"POT-Creation-Date: 2016-02-29 19:44+0300\n"
+"PO-Revision-Date: 2018-01-22 15:14+0000\n"
+"Last-Translator: Trond Trosterud <trond.trosterud@gmail.com>\n"
 "Language-Team: Northern Sami <i18n-sme@lister.ping.uio.no>\n"
 "Language: se\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n == 2) ? 1 : 2);\n"
 
 #. Type: text
 #. Description
@@ -840,50 +840,49 @@ msgstr ""
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Albanian"
-msgstr ""
+msgstr "albanialaš"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Arabic"
-msgstr ""
+msgstr "arabialaš"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Asturian"
-msgstr ""
+msgstr "asturialaš"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Belarusian"
-msgstr ""
+msgstr "vilgesruoššalaš"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Bengali"
-msgstr ""
+msgstr "bengalalaš"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Belgian"
-msgstr ""
+msgstr "belgialaš"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
-#, fuzzy
 msgid "Bosnian"
-msgstr "Nuorta-Indiana"
+msgstr "bosnialaš"
 
 #. Type: select
 #. Choices
@@ -900,13 +899,19 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
-msgid "Bulgarian"
+msgid "Bulgarian (BDS layout)"
 msgstr ""
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Bulgarian (phonetic layout)"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
+msgid "Burmese"
 msgstr ""
 
 #. Type: select
@@ -1183,6 +1188,12 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
+msgid "Philippines"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
 msgid "Polish"
 msgstr ""
 
@@ -1335,8 +1346,9 @@ msgstr "Nammabálvváid čujuhusat:"
 #. Type: boolean
 #. Description
 #: ../keyboard-configuration.templates:22001
+#, fuzzy
 msgid "Detect keyboard layout?"
-msgstr ""
+msgstr "Vállje boallobeavdehápmi"
 
 #. Type: boolean
 #. Description
@@ -1350,14 +1362,16 @@ msgstr ""
 #. Type: detect-keyboard
 #. Description
 #: ../keyboard-configuration.templates:23001
+#, fuzzy
 msgid "Detecting your keyboard layout"
-msgstr ""
+msgstr "Vállje boallobeavdehápmi"
 
 #. Type: note
 #. Description
 #: ../keyboard-configuration.templates:24001
+#, fuzzy
 msgid "Keyboard layout detection complete"
-msgstr ""
+msgstr "Vállje boallobeavdehápmi"
 
 #. Type: note
 #. Description

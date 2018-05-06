@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: console-setup@packages.debian.org\n"
-"POT-Creation-Date: 2014-07-14 18:35-0700\n"
+"POT-Creation-Date: 2016-02-29 19:44+0300\n"
 "PO-Revision-Date: 2010-11-14 18:12+0100\n"
 "Last-Translator: Janos Guljas <janos@janos.in.rs>\n"
 "Language-Team: Serbian/Latin\n"
@@ -268,9 +268,6 @@ msgstr "Veličina fonta:"
 #. :sl3:
 #: ../console-setup.templates:7001
 #, fuzzy
-#| msgid ""
-#| "Please select the size of the font for the Linux console. For reference, "
-#| "the font used when the computer boots has size 16."
 msgid ""
 "Please select the size of the font for the console. For reference, the font "
 "used when the computer boots has size 8x16."
@@ -283,9 +280,6 @@ msgstr ""
 #. :sl3:
 #: ../console-setup.templates:8001
 #, fuzzy
-#| msgid ""
-#| "Please select the size of the font for the Linux console. For reference, "
-#| "the font used when the computer boots has size 16."
 msgid ""
 "Please select the size of the font for the console.  For reference, the font "
 "used when the computer boots has size 8x16.  Some font sizes require the kbd "
@@ -467,9 +461,9 @@ msgid ""
 "\"${XKBOPTIONS}\".  It is based on the currently defined language/region and "
 "the settings in /etc/X11/xorg.conf."
 msgstr ""
-"Podrazumevana vrednost za opcije rasporeda tastature je "
-"XKBOPTIONS=„${XKBOPTIONS}“.  Bazirana je na trenutno definisanim jeziku/"
-"regionu i podešavanjima u /etc/X11/xorg.conf."
+"Podrazumevana vrednost za opcije rasporeda tastature je XKBOPTIONS="
+"„${XKBOPTIONS}“.  Bazirana je na trenutno definisanim jeziku/regionu i "
+"podešavanjima u /etc/X11/xorg.conf."
 
 #. Type: boolean
 #. Description
@@ -878,7 +872,6 @@ msgstr ""
 #. Choices
 #: ../keyboard-configuration.templates:16001
 #, fuzzy
-#| msgid ". Arabic"
 msgid "Arabic"
 msgstr ". arapski"
 
@@ -933,13 +926,19 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
-msgid "Bulgarian"
+msgid "Bulgarian (BDS layout)"
 msgstr ""
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Bulgarian (phonetic layout)"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
+msgid "Burmese"
 msgstr ""
 
 #. Type: select
@@ -1018,7 +1017,6 @@ msgstr ""
 #. Choices
 #: ../keyboard-configuration.templates:16001
 #, fuzzy
-#| msgid ". Ethiopic"
 msgid "Ethiopian"
 msgstr ". etiopski"
 
@@ -1038,7 +1036,6 @@ msgstr ""
 #. Choices
 #: ../keyboard-configuration.templates:16001
 #, fuzzy
-#| msgid "# Georgian"
 msgid "Georgian"
 msgstr "# gruzijski"
 
@@ -1156,7 +1153,6 @@ msgstr ""
 #. Choices
 #: ../keyboard-configuration.templates:16001
 #, fuzzy
-#| msgid "# Lao"
 msgid "Lao"
 msgstr "# lao"
 
@@ -1213,6 +1209,12 @@ msgstr "# gruzijski"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Persian"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
+msgid "Philippines"
 msgstr ""
 
 #. Type: select
@@ -1358,7 +1360,6 @@ msgstr ""
 #. Choices
 #: ../keyboard-configuration.templates:16001
 #, fuzzy
-#| msgid ". Latin - Vietnamese"
 msgid "Vietnamese"
 msgstr ". Latin - vijetnamski"
 
@@ -1407,3 +1408,25 @@ msgid ""
 "layout from the full list instead."
 msgstr ""
 
+#~ msgid ""
+#~ "Please select the size of the font for the Linux console. Simple integers "
+#~ "corresponding to fonts can be used with all console drivers. The number "
+#~ "then represents the font height (number of scan lines). Alternatively, "
+#~ "the font may be represented as HEIGHTxWIDTH; however, such font "
+#~ "specifications require the kbd console package (not console-tools) plus "
+#~ "framebuffer (and the RadeonFB kernel driver for framebuffer does not "
+#~ "support them either)."
+#~ msgstr ""
+#~ "Izaberite veličinu fonta za konzolu. Celi brojevi se mogu koristiti sa "
+#~ "svim drajverima za konzolu. Broj predstavlja visinu fonta. Moguće je font "
+#~ "predstaviti kao VISINAxŠIRINA; međtim, takva specifikacija zahteva „kbd“ "
+#~ "paket (ne „console-tools“) i frejmbaer (i „RadeonFB“ kernel drajver jer "
+#~ "frejmbafer ne podržava ni njih)."
+
+#~ msgid ""
+#~ "Font heights can be useful for figuring out the real size of the symbols "
+#~ "on the console. For reference, the font used when the computer boots has "
+#~ "size 16."
+#~ msgstr ""
+#~ "Visina fonta može biti korisna za određivanje stvarne veličine simbola u "
+#~ "konzoli. Na primer, font pri butovanju je veličine 16."

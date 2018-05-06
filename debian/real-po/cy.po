@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2016-03-27 13:33+0000\n"
-"Last-Translator: Rockworld <sumoisrock@gmail.com>\n"
+"POT-Creation-Date: 2018-03-28 08:52-0400\n"
+"PO-Revision-Date: 2018-04-05 14:24+0000\n"
+"Last-Translator: Rhoslyn Prys <rprys@yahoo.com>\n"
 "Language-Team: Welsh <>\n"
+"Language: cy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
-"Language: cy\n"
+"X-Launchpad-Export-Date: 2018-04-22 09:52+0000\n"
+"X-Generator: Launchpad (build 18617)\n"
 
 #. Type: text
 #. Description
@@ -27,7 +27,7 @@ msgstr "Wrthi'n cysylltu..."
 #. Description
 #: ../ubiquity.templates:4001
 msgid "Connection failed."
-msgstr "Methwyd cysylltu."
+msgstr "Methodd y cysylltiad."
 
 #. Type: text
 #. Description
@@ -78,7 +78,7 @@ msgid ""
 "You can try ${RELEASE} without making any changes to your computer, directly "
 "from this ${MEDIUM}."
 msgstr ""
-"Gallwch roi cynniag ar ${RELEASE} heb wneud unrhyw newidiadau i'ch "
+"Gallwch roi cynnig ar ${RELEASE} heb wneud unrhyw newidiadau i'ch "
 "cyfrifiadur, yn uniongyrchol o'r ${MEDIUM} hwn."
 
 #. Type: text
@@ -90,7 +90,7 @@ msgid ""
 "your current operating system.  This shouldn't take too long."
 msgstr ""
 "Os ydych yn barod, gallwch osod ${RELEASE} ochr yn ochr â (neu yn lle) eich "
-"system weithredu gyfredol. Ni ddylai hwn gymryd rhy hir."
+"system weithredu gyfredol. Fydd hyn ddim yn cymryd yn rhy hir."
 
 #. Type: text
 #. Description
@@ -104,7 +104,7 @@ msgstr "Rhoi cynnig ar ${RELEASE}"
 #. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:12001
 msgid "Install ${RELEASE}"
-msgstr "Arsefydlu ${RELEASE}"
+msgstr "Gosod  ${RELEASE}"
 
 #. Type: text
 #. Description
@@ -214,8 +214,7 @@ msgstr "Rhaid iddo ddechrau â llythyren fach."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-msgid ""
-"May only contain lower-case letters, digits, hyphens, and underscores."
+msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr ""
 "Rhaid iddo gynnwys lythrennau bach, digidau, cysylltnodau, a thansgorau yn "
 "unig."
@@ -226,13 +225,13 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:30001 ../ubiquity.templates:67001
 msgid "Skip"
-msgstr "Neidio"
+msgstr "Hepgor"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:31001
 msgid "Choose a password:"
-msgstr "Dewiswch cyfrinair"
+msgstr "Dewiswch gyfrinair"
 
 #. Type: text
 #. Description
@@ -284,8 +283,7 @@ msgstr "Rhaid iddo fod rhwng 1 a 63 nod o hyd."
 #. Description
 #: ../ubiquity.templates:39001
 msgid "May only contain letters, digits, hyphens, and dots."
-msgstr ""
-"Rhaid iddo gynnwys llythrennau, digidau, cysylltnodau a dotiau'n unig."
+msgstr "Rhaid iddo gynnwys llythrennau, digidau, cysylltnodau a dotiau'n unig."
 
 #. Type: text
 #. Description
@@ -569,7 +567,7 @@ msgstr "Dileu"
 #. An action, displayed on a button or as a menu item.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001 ../ubiquity.templates:279001
+#: ../ubiquity.templates:84001 ../ubiquity.templates:288001
 msgid "Revert"
 msgstr "Dychwelyd"
 
@@ -747,7 +745,7 @@ msgstr "Stopio"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:110001
 msgid "Continue in UEFI mode"
-msgstr ""
+msgstr "Parhau yn y modd UEFI"
 
 #. Type: text
 #. Description
@@ -880,8 +878,7 @@ msgstr ""
 #. Description
 #: ../ubiquity.templates:122001
 msgid "The following file did not match its source copy on the CD/DVD:"
-msgstr ""
-"Nid oedd y ffeil canlynol yn cyfateb i'w ffynhonell copio ar y CD/DVD:"
+msgstr "Nid oedd y ffeil canlynol yn cyfateb i'w ffynhonell copio ar y CD/DVD:"
 
 #. Type: text
 #. Description
@@ -1042,12 +1039,12 @@ msgstr "Mae'r pecynnau canlynol mewn cyflwr torriedig"
 #: ../ubiquity.templates:146001 ../ubiquity.templates:147001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Gall hwn wedi cael ei achosi gan ddefnyddio delwedd gosod hen, neu efallai "
 "oherwydd nam mewn rhai o'r pecynnau wedi'u rhestri uchod. Mi allwch "
@@ -1165,10 +1162,8 @@ msgstr "Caewch unrhyw raglenni sy'n defnyddio'r pwyntiau mowntio hyn."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:165001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
-msgstr ""
-"Ydych chi'n eisiau i'r gosodwr ceisio dadfowntio'r rhaniadau yma eto?"
+msgid "Would you like the installer to try to unmount these partitions again?"
+msgstr "Ydych chi'n eisiau i'r gosodwr ceisio dadfowntio'r rhaniadau yma eto?"
 
 #. Type: boolean
 #. Description
@@ -1206,7 +1201,7 @@ msgstr "Ffurfweddiad System"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001 ../ubiquity.templates:243001
+#: ../ubiquity.templates:174001 ../ubiquity.templates:252001
 msgid "Welcome"
 msgstr "Croeso"
 
@@ -1239,8 +1234,8 @@ msgstr "Diwifr"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:179001
-msgid "Prepare"
-msgstr "Paratoi"
+msgid "Software"
+msgstr "Meddalwedd"
 
 #. Type: text
 #. Description
@@ -1380,10 +1375,9 @@ msgstr "Bu gwall anadferadwy wrth osod a bydd y gosodydd yn ailgychwyn nawr."
 
 #. Type: text
 #. Description
-#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:201001
-msgid "Preparing to install ${RELEASE}"
-msgstr "Wrthi'n paratoi i osod ${RELEASE}"
+msgid "Updates and other software"
+msgstr "Diweddariadau a meddalwedd eraill"
 
 #. Type: text
 #. Description
@@ -1423,25 +1417,25 @@ msgstr "Cysylltu i'r rhwydwaith hwn"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:212001
 msgid "Select drive:"
 msgstr "Dewis gyriant:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:213001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "Dyrannwch wagle'r gyriant drwy lusgo'r rhannwr isod:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:214001
 msgid "The entire disk will be used:"
 msgstr "Defnyddir yr holl ddisg:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
@@ -1452,7 +1446,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:215001
+#: ../ubiquity.templates:216001
 msgid ""
 "<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
@@ -1462,40 +1456,40 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:216001
+#: ../ubiquity.templates:217001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
 msgstr ""
-"Caiff %d o raniadau eu dileu, defnyddiwch yr <a href=\"\">offer rhanu "
-"uwch</a> am fwy o reolaeth"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:217001
-msgid ""
-"1 partition will be deleted, use the <a href=\"\">advanced partitioning "
-"tool</a> for more control"
-msgstr ""
-"Caiff 1 rhaniad ei ddileu, defnyddiwch yr  <a href=\"\">offer rhannu "
-"uwch</a>  am fwy o reolaeth"
+"Caiff %d o raniadau eu dileu, defnyddiwch yr <a href=\"\">offer rhanu uwch</"
+"a> am fwy o reolaeth"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:218001
+msgid ""
+"1 partition will be deleted, use the <a href=\"\">advanced partitioning "
+"tool</a> for more control"
+msgstr ""
+"Caiff 1 rhaniad ei ddileu, defnyddiwch yr  <a href=\"\">offer rhannu uwch</"
+"a>  am fwy o reolaeth"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:219001
 msgid "Split Largest Partition"
 msgstr "Hollti'r Rhaniad Mwyaf"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:221001
 msgid "For best results, please ensure that this computer:"
 msgstr "Ar gyfer y canlyniadau gorau, gwnewch yn siŵr bod y cyfrifiadur hwn:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:222001
 msgid "Sorry"
 msgstr "Ymddiheuriad"
 
@@ -1503,102 +1497,158 @@ msgstr "Ymddiheuriad"
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #. RELEASE is a variable substituted into this string, the Ubuntu flavor'
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:223001
 msgid "You need at least ${SIZE} disk space to install ${RELEASE}."
-msgstr ""
+msgstr "Mae angen o leiaf ${SIZE} o le ar ddisg i osod ${RELEASE}."
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid "This computer has only ${SIZE}."
-msgstr ""
+msgstr "Dim ond ${SIZE} sydd gan y cyfrifiadur hwn."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:225001
 msgid "is plugged in to a power source"
 msgstr "wedi ei gysylltu i ffynhonnell bŵer"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:226001
 msgid "is connected to the Internet"
 msgstr "wedi ei gysylltu i'r we"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid ""
 "This software is subject to license terms included with its documentation. "
 "Some is proprietary."
 msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:227001
-msgid ""
-"Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
-"from Fraunhofer IIS and Technicolor SA."
-msgstr ""
-"Mae'r ategyn MP3 Fluendo yn cynnwys technoleg dadgodio sain MPEG Layer-3 "
-"drwyddedig gan Fraunhofer IIS a Technicolor SA."
+"Mae'r feddalwedd hwn yn destun amodau trwyddedu sydd ynghlwm yn y "
+"ddogfennaeth. Mae peth yn fasnachol."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
 msgid ""
-"Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
-"other media"
+"Install third-party software for graphics and Wi-Fi hardware and additional "
+"media formats"
 msgstr ""
+"Gosod meddalwedd trydydd parti ar gyfer caledwedd graffigau a diwifr a "
+"fformatau cyfryngau eraill"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
 msgid "Download updates while installing ${RELEASE}"
-msgstr ""
+msgstr "Llwytho diweddariadau tra'n gosod ${RELEASE}"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "This saves time after installation."
-msgstr ""
+msgstr "Mae hyn yn arbed amser amser ar ôl y gosod"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Not available because there is no Internet connection."
-msgstr ""
+msgstr "Nid yw ar gael gan nad oes cysylltiad â'r rhyngrwyd."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-msgid ""
-"Installing third-party drivers requires turning off Secure Boot. To do this, "
-"you need to choose a security key now, and enter it when the system restarts."
-msgstr ""
+msgid "What apps would you like to install to start with?"
+msgstr "Pa apiau hoffech chi eu gosod yn gyntaf?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:233001
+msgid "Which applications would you like to start with?"
+msgstr "Pa raglenni hoffech chi gychwyn gyda nhw?"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:234001
+msgid "Minimal installation"
+msgstr "Gosodiad lleiaf"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:235001
+msgid "Web browser and basic utilities."
+msgstr "Porwyr gwe a gwasanaethau sylfaenol."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
+msgid "Web browser plus basic utilities and applications."
+msgstr "Porwr gwe a gwaanaethu sylfaenol ac apiau."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:237001
+msgid "Normal installation"
+msgstr "Gosodiad arferol"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:238001
+msgid "Web browser, utilities, office software, games, and media players."
+msgstr ""
+"Porwr gwe, gwasanaethau, meddalwedd swyddfa, gemau a chwaraewyr cyfrwng."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:239001
+msgid ""
+"Web browser, utilities, office software, KDE PIM suite plus additional "
+"internet applications and media players."
+msgstr ""
+"Porwr gwe, gwasanaethau, meddalwedd swyddfa, casgliad PIM KDE, apiau gwe "
+"ychwanegol a chwaraewyr cyfrwng."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:240001
+msgid "Other options"
+msgstr "Dewisiadau eraill"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:241001
+msgid ""
+"Installing third-party drivers requires turning off Secure Boot. To do this, "
+"you need to choose a security key now, and enter it when the system restarts."
+msgstr ""
+"Mae gosod gyrwyr trydydd parti'n golygu diffodd Secure Boot. I wneud hyn, "
+"bydd angen i chi ddewis allwedd ddiogel nawr a'i gyflwyno wrth i'r system "
+"ailgychwyn."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:245001
 msgid "Layout:"
 msgstr "Cynllun:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:246001
 msgid "Variant:"
 msgstr "Amrywiad:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:247001
 msgid "Below is an image of your current layout:"
 msgstr "Isod mae llun o'ch cynllun cyfredol:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:239001
+#: ../ubiquity.templates:248001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1610,19 +1660,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240001
+#: ../ubiquity.templates:249001
 msgid "Time Zone:"
 msgstr "Cylchfa Amser:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:241001
+#: ../ubiquity.templates:250001
 msgid "Region:"
 msgstr "Rhanbarth:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:251001
 msgid "[type here to change]"
 msgstr "[teipiwch yma i newid]"
 
@@ -1630,14 +1680,14 @@ msgstr "[teipiwch yma i newid]"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:254001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "Amnewid ${OS} am ${DISTRO}"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:254001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
@@ -1649,7 +1699,7 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:255001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "Gosod ${DISTRO} och yn ochr â ${OS}"
 
@@ -1661,8 +1711,8 @@ msgstr "Gosod ${DISTRO} och yn ochr â ${OS}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246001 ../ubiquity.templates:247001
-#: ../ubiquity.templates:251001 ../ubiquity.templates:256001
+#: ../ubiquity.templates:255001 ../ubiquity.templates:256001
+#: ../ubiquity.templates:260001 ../ubiquity.templates:265001
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
@@ -1675,20 +1725,20 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:256001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "Gosod ${DISTRO} tu fewn ${OS}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:257001
 msgid "Something else"
 msgstr "Rhywbeth arall"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:257001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
@@ -1699,14 +1749,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:258001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "Dileu ${CURDISTRO} ac ailosod"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:258001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1719,7 +1769,7 @@ msgstr ""
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #. VER is a variable substituted into this string, and may be '11.04'
-#: ../ubiquity.templates:250001
+#: ../ubiquity.templates:259001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "Uwchraddio ${CURDISTRO} i ${VER}"
 
@@ -1727,7 +1777,7 @@ msgstr "Uwchraddio ${CURDISTRO} i ${VER}"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250001 ../ubiquity.templates:254001
+#: ../ubiquity.templates:259001 ../ubiquity.templates:263001
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
@@ -1741,7 +1791,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. VER is a variable substituted into this string, and may be '11.04'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:260001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "Gosod ${DISTRO} ${VER} ochr yn ochr â ${CURDISTRO}"
 
@@ -1751,13 +1801,13 @@ msgstr "Gosod ${DISTRO} ${VER} ochr yn ochr â ${CURDISTRO}"
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:252001 ../ubiquity.templates:255001
+#: ../ubiquity.templates:261001 ../ubiquity.templates:264001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "Dileu'r ddisg a gosod ${DISTRO}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252001
+#: ../ubiquity.templates:261001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1767,7 +1817,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:262001
 msgid "Erase everything and reinstall"
 msgstr "Dileu popeth ac ailosod"
 
@@ -1775,7 +1825,7 @@ msgstr "Dileu popeth ac ailosod"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:262001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1788,13 +1838,13 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:254001
+#: ../ubiquity.templates:263001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "Ailosod ${CURDISTRO}"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:255001
+#: ../ubiquity.templates:264001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
@@ -1807,14 +1857,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:256001
+#: ../ubiquity.templates:265001
 msgid "Install ${DISTRO} alongside them"
 msgstr "Gosod ${DISTRO} ochr yn ochr â nhw"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:257001
+#: ../ubiquity.templates:266001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr ""
 "Mae ${OS} ar y cyfrifiadur hwn ar hyn o bryd. Beth hoffech chi ei wneud?"
@@ -1823,7 +1873,7 @@ msgstr ""
 #. Description
 #. OS1 is a variable substituted into this string, and may be 'Windows 7'
 #. OS2 is a variable substituted into this string, and may be 'Mac OS X'
-#: ../ubiquity.templates:258001
+#: ../ubiquity.templates:267001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1833,7 +1883,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:259001
+#: ../ubiquity.templates:268001
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
@@ -1843,7 +1893,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:260001
+#: ../ubiquity.templates:269001
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
@@ -1853,37 +1903,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:261001
+#: ../ubiquity.templates:270001
 msgid "Before:"
 msgstr "Cyn:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:262001
+#: ../ubiquity.templates:271001
 msgid "After:"
 msgstr "Ar ôl:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:263001
+#: ../ubiquity.templates:272001
 msgid "Encrypt the new ${RELEASE} installation for security"
 msgstr "Amgryptio'r gosodiad ${RELEASE} newydd ar gyfer diogelwch"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:264001
+#: ../ubiquity.templates:273001
 msgid "You will choose a security key in the next step."
 msgstr "Byddwch yn dewis allwedd diogelwch yn y cam nesaf."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:265001
+#: ../ubiquity.templates:274001
 msgid "Use LVM with the new ${RELEASE} installation"
 msgstr "Defnyddio LVM gyda'r gosodiad ${RELEASE} newydd"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:266001
+#: ../ubiquity.templates:275001
 msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
@@ -1893,19 +1943,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:267001
+#: ../ubiquity.templates:276001
 msgid "Confirm the security key:"
 msgstr "Cadarnhewch yr allwedd diogelwch:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:268001
+#: ../ubiquity.templates:277001
 msgid "Choose a security key:"
 msgstr "Dewiswch allwedd diogelwch:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:269001
+#: ../ubiquity.templates:278001
 msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
@@ -1916,13 +1966,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:270001
+#: ../ubiquity.templates:279001
 msgid "Any files outside of ${RELEASE} will not be encrypted."
 msgstr "Ni chaiff unrhyw ffeiliau tu fas i ${RELEASE} eu amgryptio."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:271001
+#: ../ubiquity.templates:280001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> If you lose this security key, "
 "all data will be lost. If you need to, write down your key and keep it in a "
@@ -1934,61 +1984,61 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:272001
+#: ../ubiquity.templates:281001
 msgid "For more security:"
 msgstr "Am fwy o ddiogelwch:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:273001
+#: ../ubiquity.templates:282001
 msgid "Overwrite empty disk space"
 msgstr "Trosysgrifo'r lle disg gwag"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:274001
+#: ../ubiquity.templates:283001
 msgid "The installation may take much longer."
 msgstr "Gall y gosod gymryd llawer mwy o amser."
 
 #. Type: text
 #. description
-#: ../ubiquity.templates:275001
+#: ../ubiquity.templates:284001
 msgid "LVM..."
 msgstr "LVM..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:276001
+#: ../ubiquity.templates:285001
 msgid "Volume groups:"
 msgstr "Grwpiau cyfeintiau:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:277001
+#: ../ubiquity.templates:286001
 msgid "Encryption Options"
 msgstr "Dewisiadau Amgryptio"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:278001
+#: ../ubiquity.templates:287001
 msgid "Physical volumes:"
 msgstr "Cyfeintiau Corfforol:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:280001
+#: ../ubiquity.templates:289001
 msgid "Encrypt this partition (LUKS)"
 msgstr "Amgryptio'r rhaniad hwn (LUKS)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:281001
+#: ../ubiquity.templates:290001
 msgid "MB"
 msgstr "MB"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:282001
+#: ../ubiquity.templates:291001
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
@@ -1998,57 +2048,70 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:283001
+#: ../ubiquity.templates:292001
 msgid "Logical Volume Management"
 msgstr "Logical Volume Management"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:284001
+#: ../ubiquity.templates:293001
 msgid "Encryption options..."
 msgstr "Dewisiadau amgryptio..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:285001
+#: ../ubiquity.templates:294001
 msgid "UEFI Secure Boot"
-msgstr ""
+msgstr "UEFI Secure Boot"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286001
+#: ../ubiquity.templates:295001
 msgid ""
 "You have chosen to enable third-party software as part of your install, "
 "which for this system includes hardware drivers for graphics and/or wi-fi "
 "hardware. Your system also has UEFI Secure Boot enabled. UEFI Secure Boot is "
 "not compatible with the use of these third-party drivers."
 msgstr ""
+"Rydych wedi dewis galluogi meddalwedd trydydd parti fel rhan o'ch gosod, "
+"sydd ar gyfer y system yma'n cynnwys gyrwyr caledwedd ar gyfer caledwedd "
+"graffigau a/neu diwifr. Hefyd mae eich system wedi ei osod gyda Secure Boot "
+"wedi ei alluogi. Nid yw Secure Boot yn gydnaws á'r defnydd o'r gyrwyr "
+"trydydd parti hyn."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286001
+#: ../ubiquity.templates:295001
 msgid ""
 "After installation completes, Ubuntu will assist you in disabling UEFI "
 "Secure Boot. To ensure that this change is being made by you as an "
 "authorized user, and not by an attacker, you must choose a password now and "
 "then use the same password after reboot to confirm the change."
 msgstr ""
+"Ar ól i'r gosod gwblhau, bydd Ubuntu yn eich cynorthwyo i analluogi UEFI "
+"Secure Boot. I sicrhau fod y newid hwn yn cael ei wneud gan ddefnyddiwr "
+"awdurdodedig, ac nid ymosodwr, rhaid i chi ddefnyddio cyfrinair nawr a "
+"defnyddio'r un cyfrinair ar ôl ailgychwyn er mwyn cadarnhau'r newid."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286001
+#: ../ubiquity.templates:295001
 msgid ""
 "<span foreground=\"darkred\">Warning</span>: If you choose not to install "
 "these drivers, or if you proceed but do not confirm the password upon "
 "reboot, Ubuntu will still be able to boot on your system but these third-"
 "party drivers will not be available for your hardware."
 msgstr ""
+"<span foreground=\"darkred\">Rhybudd</span>: Os fyddwch yn penderfynu peidio "
+"gosod y gyrwyr yma neu os ydych am barhau heb gadarnhau'r cyfrinair wrth "
+"ailgychwyn, bydd Ubuntu dal yn gallu cychwyn eich system ond ni fydd y "
+"gyrwyr trydydd parti hyn ar gael ar gyfer eich caledwedd."
 
 #. Type: password
 #. Description
-#: ../ubiquity.templates:287001
+#: ../ubiquity.templates:296001
 msgid "SecureBoot key for MokPW"
-msgstr ""
+msgstr "Allwedd SecureBoot ar gyfer MokPW"
 
 #. Type: title
 #. Description
@@ -2112,35 +2175,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Dileu pecynnau"
-
-#~ msgid "Your name"
-#~ msgstr "Eich enw"
-
-#~ msgid "Username"
-#~ msgstr "Enw Cyfrif"
-
-#~ msgid "Retype password"
-#~ msgstr "Aildeipiwch y cyfrinair"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Cyfrinair o leiaf 8 nod"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "ag o leiaf ${SIZE} o le ar gael"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "Mae ${RELEASE} yn defnyddio meddalwedd allanol i chwarae Flash, MP3 a "
-#~ "chyfryngau eraill, ac i weithio gyda chaledwedd graffeg a di-wifr. Gall peth "
-#~ "o'r meddalwedd fod yn briodoldeb. Mae'r meddalwedd yn amodol ar y telerau "
-#~ "trwydded a gynhwysir yn ei ddogfennaeth."
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Gosod y meddalwedd allanol hwn"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Lawrlwytho diweddariadau wrth osod"

@@ -13,25 +13,22 @@
 # Sinuri ni Roel Cantada noong Peb-Mar 2005.
 # This file is maintained by Eric Pareja <eric.pareja@gmail.com>
 # Inaalagaan ang talaksang ito ni Eric Pareja <eric.pareja@gmail.com>
-#
 # ituloy angsulong mga kapatid http://www.upm.edu.ph/~xenos
-#
-#
 # Translations from iso-codes:
 #   Eric Pareja <xenos@upm.edu.ph> 2005,2006
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: console-setup@packages.debian.org\n"
-"POT-Creation-Date: 2014-07-14 18:35-0700\n"
-"PO-Revision-Date: 2010-07-09 22:53+0800\n"
+"POT-Creation-Date: 2016-02-29 19:44+0300\n"
+"PO-Revision-Date: 2017-12-02 22:53+0000\n"
 "Last-Translator: Eric Pareja <eric.pareja@gmail.com>\n"
 "Language-Team: Tagalog <debian-tl@banwa.upm.edu.ph>\n"
 "Language: tl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Type: text
 #. Description
@@ -857,21 +854,20 @@ msgstr "Ingles ng Amerikano"
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
-#, fuzzy
 msgid "Albanian"
-msgstr "Romanian"
+msgstr "Albanyan"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Arabic"
-msgstr ""
+msgstr "Arabo"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Asturian"
-msgstr ""
+msgstr "Asturiano"
 
 #. Type: select
 #. Choices
@@ -883,27 +879,26 @@ msgstr "Bangladesh"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Belarusian"
-msgstr "Belarusian"
+msgstr "Belaruso"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Bengali"
-msgstr ""
+msgstr "Bengali"
 
 # console-keymaps-acorn, Belgian
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Belgian"
-msgstr "Belgian"
+msgstr "Belhika"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
-#, fuzzy
 msgid "Bosnian"
-msgstr "Estonian"
+msgstr "Bosniya"
 
 # console-keymaps-acorn, Brazilian
 #. Type: select
@@ -919,12 +914,12 @@ msgstr "Brazilian"
 msgid "British English"
 msgstr "Ingles ng Britanya"
 
-# console-keymaps-acorn, Bulgarian
+# console-keymaps-acorn, Bulgarian (phonetic layout)
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
-msgid "Bulgarian"
-msgstr "Bulgarian"
+msgid "Bulgarian (BDS layout)"
+msgstr "Bulgarian (layout na BDS)"
 
 # console-keymaps-acorn, Bulgarian (phonetic layout)
 #. Type: select
@@ -932,6 +927,12 @@ msgstr "Bulgarian"
 #: ../keyboard-configuration.templates:16001
 msgid "Bulgarian (phonetic layout)"
 msgstr "Bulgarian (phonetic layout)"
+
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
+msgid "Burmese"
+msgstr ""
 
 # console-keymaps-acorn, Canadian
 #. Type: select
@@ -1220,6 +1221,12 @@ msgstr "Norwegian"
 msgid "Persian"
 msgstr "Belarusian"
 
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
+msgid "Philippines"
+msgstr ""
+
 # console-keymaps-acorn, Polish
 #. Type: select
 #. Choices
@@ -1386,8 +1393,9 @@ msgstr "Anyo ng tiklado na gamitin:"
 #. Type: boolean
 #. Description
 #: ../keyboard-configuration.templates:22001
+#, fuzzy
 msgid "Detect keyboard layout?"
-msgstr ""
+msgstr "Pumili ng tamang pagkakalatag ng tiklado"
 
 #. Type: boolean
 #. Description
@@ -1401,14 +1409,16 @@ msgstr ""
 #. Type: detect-keyboard
 #. Description
 #: ../keyboard-configuration.templates:23001
+#, fuzzy
 msgid "Detecting your keyboard layout"
-msgstr ""
+msgstr "Pumili ng tamang pagkakalatag ng tiklado"
 
 #. Type: note
 #. Description
 #: ../keyboard-configuration.templates:24001
+#, fuzzy
 msgid "Keyboard layout detection complete"
-msgstr ""
+msgstr "Pumili ng tamang pagkakalatag ng tiklado"
 
 #. Type: note
 #. Description
@@ -1418,5 +1428,3 @@ msgid ""
 "\"${LAYOUT}\". If this is not correct, you can go back and select your "
 "layout from the full list instead."
 msgstr ""
-
-# console-keymaps-acorn, Brazilian

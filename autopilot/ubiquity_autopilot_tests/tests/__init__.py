@@ -33,9 +33,22 @@ from autopilot.input import (
     Keyboard,
     Pointer
 )
-from ubiquity_autopilot_tests.emulators import gtktoplevel
-from ubiquity_autopilot_tests.emulators.gtktoplevel import GtkWindow
 from ubiquity_autopilot_tests.emulators import AutopilotGtkEmulatorBase
+from ubiquity_autopilot_tests.emulators.gtkcontainers import (
+    GtkAlignment,
+    GtkBox,
+)
+from ubiquity_autopilot_tests.emulators.gtkcontrols import (
+    GtkButton,
+    GtkCheckButton,
+    GtkLabel,
+    GtkProgressBar,
+    GtkTreeView,
+    GtkRadioButton,
+)
+from ubiquity_autopilot_tests.emulators.gtktoplevel import (
+    GtkWindow,
+)
 from ubiquity_autopilot_tests.testcase import UbiquityTestCase
 from ubiquity_autopilot_tests.configs import english_label_conf
 from ubiquity_autopilot_tests.configs.partconfig import (
@@ -94,7 +107,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
     @property
     def main_window(self, ):
-        return self.app.select_single('GtkWindow', name='live_installer')
+        return self.app.select_single(GtkWindow, name='live_installer')
 
     def go_to_next_page(self, wait=False):
         """ Goes to the next page of Ubiquity installer
@@ -109,7 +122,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         """
         logger.debug('go_to_next_page(wait={0})'.format(wait))
-        nxt_button = self.main_window.select_single('GtkButton', name='next')
+        nxt_button = self.main_window.select_single(GtkButton, name='next')
         nxt_button.click()
 
         if wait:
@@ -128,7 +141,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                   "for ubi_question_dialog")
             print("If the test failed here it is most likely a timing issue")
             # This maybe overkill but better to be safe
-            time.sleep(20)
+            time.sleep(40)
             self.kbd.press_and_release('Right')
             self.kbd.press_and_release('Enter')
             print("Workaround ended continuing with wait for next step")
@@ -144,7 +157,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                             Eventually(Equals(True), timeout=1200))
 
         page_title = self.main_window.select_single(
-            'GtkLabel', name='page_title')
+            GtkLabel, name='page_title')
         self.assertThat(page_title.label,
                         Eventually(NotEquals(self.current_page_title),
                                    timeout=240))
@@ -157,7 +170,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             checks.
 
         """
-        nxt_button = self.main_window.select_single('GtkButton', name='next')
+        nxt_button = self.main_window.select_single(GtkButton, name='next')
         nxt_button.click()
 
     def welcome_page_tests(self, lang=None):
@@ -178,8 +191,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         # selecting an install language
         logger.debug("Selecting stepLanguage page object")
         welcome_page = self.main_window.select_single(
-            'GtkBox', name='stepLanguage')
-        treeview = welcome_page.select_single('GtkTreeView')
+            GtkBox, name='stepLanguage')
+        treeview = welcome_page.select_single(GtkTreeView)
         # lets get all items
         treeview_items = treeview.get_all_items()
         # first lets check all the items are non-empty unicode strings
@@ -218,6 +231,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._check_navigation_buttons()
 
     def preparing_page_tests(self, updates=False, thirdParty=False,
+                             minimal_installation=False,
                              networkConnection=True, sufficientSpace=True,
                              powerSource=False):
         """ Runs the tests for the 'Preparing to install' page
@@ -226,6 +240,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         :param thirdParty: Boolean, if True selects install third-party
                                     software
+        :param minimal_installation: Boolean, if True selects minimal
+                                       installation option
 
         :param networkConnection: Boolean if True checks the network state box
                                     is visible and objects are correct, If
@@ -250,10 +266,11 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("run_preparing_page_tests()")
         logger.debug("selecting stepPrepare page")
         preparing_page = self.main_window.select_single(
-            'GtkAlignment', BuilderName='stepPrepare')
+            GtkAlignment, BuilderName='stepPrepare')
 
         objList = [
-            'prepare_foss_disclaimer_license',
+            'prepare_foss_disclaimer',
+            'prepare_minimal_install',
             'prepare_download_updates',
             'prepare_nonfree_software'
         ]
@@ -262,14 +279,20 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         if updates:
             logger.debug("Selecting install updates")
             update_checkbutton = preparing_page.select_single(
-                'GtkCheckButton', BuilderName='prepare_download_updates')
+                GtkCheckButton, BuilderName='prepare_download_updates')
             self.pointing_device.click_object(update_checkbutton)
 
         if thirdParty:
             logger.debug("Selecting install thirdparty software")
             thrdprty_checkbutton = preparing_page.select_single(
-                'GtkCheckButton', BuilderName='prepare_nonfree_software')
+                GtkCheckButton, BuilderName='prepare_nonfree_software')
             self.pointing_device.click_object(thrdprty_checkbutton)
+
+        if minimal_installation:
+            logger.debug("Selecting install Minimal installation")
+            minimal_installation_checkbutton = preparing_page.select_single(
+                GtkRadioButton, BuilderName='prepare_minimal_install')
+            self.pointing_device.click_object(minimal_installation_checkbutton)
 
         self._check_page_titles()
         self._check_navigation_buttons()
@@ -362,7 +385,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self.check_visible_object_with_label(config.visible_options)
         self.check_hidden_object_with_label(config.hidden_options)
         install_type_page = self.main_window.select_single(
-            'GtkAlignment', BuilderName='stepPartAsk')
+            GtkAlignment, BuilderName='stepPartAsk')
         if option_name:
             obj = install_type_page.select_single(BuilderName=option_name)
             self.pointing_device.click_object(obj)
@@ -385,7 +408,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
                      .format(crypto_password))
         logger.debug('Selecting stepPartCrypto page object')
         crypto_page = self.main_window.select_single(
-            'GtkAlignment', BuilderName='stepPartCrypto')
+            GtkAlignment, BuilderName='stepPartCrypto')
 
         items = ['verified_crypto_label', 'crypto_label', 'crypto_description',
                  'crypto_warning', 'crypto_extra_label', 'crypto_extra_time',
@@ -414,8 +437,8 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("run_custom_partition_page_tests()")
         logger.debug("Selecting the stepPartAdvanced page object")
         custom_page = self.main_window.select_single(
-            'GtkAlignment', BuilderName='stepPartAdvanced')
-        treeview = custom_page.select_single('GtkTreeView')
+            GtkAlignment, BuilderName='stepPartAdvanced')
+        treeview = custom_page.select_single(GtkTreeView)
         self.expectThat(treeview.visible, Equals(True),
                         "[Page:'{0}'] Partition tree view was not visible")
         obj_list = ['partition_button_new', 'partition_button_delete',
@@ -463,7 +486,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             partition_dialog.set_file_system_type(elem['FileSystemType'])
             partition_dialog.set_mount_point(elem['MountPoint'])
             ok_button = partition_dialog.select_single(
-                'GtkButton', BuilderName='partition_dialog_okbutton')
+                GtkButton, BuilderName='partition_dialog_okbutton')
             self.pointing_device.click_object(ok_button)
             self.assertThat(partition_dialog.visible,
                             Eventually(Equals(False)),
@@ -488,7 +511,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         logger.debug("Selecting stepLocation page object")
         location_page = self.main_window.select_single(
-            'GtkBox', BuilderName='stepLocation')
+            GtkBox, BuilderName='stepLocation')
         location_map = location_page.select_single('CcTimezoneMap')
         self.assertThat(location_map.visible, Equals(True),
                         "Expected location map to be visible but it wasn't")
@@ -509,15 +532,15 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
     def keyboard_layout_page_tests(self, ):
         self._update_current_step('stepKeyboardConf')
         self._check_navigation_buttons(continue_button=True, back_button=True,
-                                       quit_button=False, skip_button=False)
+                                       quit_button=True, skip_button=False)
         self._update_page_titles()
         logger.debug("run_keyboard_layout_page_tests()")
 
         logger.debug("Selecting the stepKeyboardCOnf page object")
         keyboard_page = self.main_window.select_single(
-            'GtkAlignment',
+            GtkAlignment,
             BuilderName='stepKeyboardConf')
-        treeviews = keyboard_page.select_many('GtkTreeView')
+        treeviews = keyboard_page.select_many(GtkTreeView)
         # lets check all the keyboard tree items for the selected language
         # TODO: we should probably test at some point try changing the keyboard
         #       layout to a different language/locale/layout and see if
@@ -562,17 +585,15 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         # TODO: Test detecting keyboard layout
         self._check_page_titles()
         self._check_navigation_buttons(continue_button=True, back_button=True,
-                                       quit_button=False, skip_button=False)
+                                       quit_button=True, skip_button=False)
 
     def user_info_page_tests(self, username, pwd,
-                             encrypted=False, autologin=False):
+                             autologin=False):
         """ Runs tests for the User Info Page
 
         :param username:*String*, name of user
 
         :param pwd: *String*, password for user
-
-        :param encrypted: *Bool* if true encypts the home directory
 
         :param autologin: *Bool* if true sets the user account to login
                            automagically
@@ -584,7 +605,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         self._update_page_titles()
         logger.debug("Selecting stepUserInfo page")
         user_info_page = self.main_window.select_single(
-            'GtkBox',
+            GtkBox,
             BuilderName='stepUserInfo')
 
         objects = ['hostname_label', 'username_label', 'password_label',
@@ -595,8 +616,6 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
 
         user_info_page.create_user(username, pwd)
         # TODO: get these working
-        if encrypted:
-            user_info_page.encrypt_home_dir(encrypt=True)
         if autologin:
             user_info_page.set_auto_login()
 
@@ -628,7 +647,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         # self.expectThat(webkitwindow.visible, Equals(True))
         # print("Webkit window found and is visible")
         print("Selecting Progress bar")
-        progress_bar = self.main_window.select_single('GtkProgressBar',
+        progress_bar = self.main_window.select_single(GtkProgressBar,
                                                       name='install_progress')
 
         # Copying files progress bar
@@ -723,7 +742,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("_track_install_progress_bar()")
         print("_track_install_progress()")
         print("selecting progress bar")
-        progress_bar = self.main_window.select_single('GtkProgressBar',
+        progress_bar = self.main_window.select_single(GtkProgressBar,
                                                       name='install_progress')
         progress = 0.0
         while progress < 1.0:
@@ -791,7 +810,7 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
             pass
 
     def _get_dialog_message(self, dlg_object):
-        dialog_labels = dlg_object.select_many('GtkLabel')
+        dialog_labels = dlg_object.select_many(GtkLabel)
         message = ''
         for gtklabel in dialog_labels:
             # only add labels longer than 'Continue' so we avoid button labels
@@ -804,9 +823,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         """ adds a new partition """
         logger.debug("_add_new_partition()")
         custom_page = self.main_window.select_single(
-            'GtkAlignment',
+            GtkAlignment,
             BuilderName='stepPartAdvanced')
-        tree_view = custom_page.select_single('GtkTreeView')
+        tree_view = custom_page.select_single(GtkTreeView)
         item = tree_view.select_item(u'  free space')
         self.pointing_device.click_object(item)
         self.assertThat(item.selected, Equals(True),
@@ -824,9 +843,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         """
         logger.debug("Checking partition was created.....")
         custom_page = self.main_window.select_single(
-            'GtkAlignment',
+            GtkAlignment,
             BuilderName='stepPartAdvanced')
-        tree_view = custom_page.select_single('GtkTreeView')
+        tree_view = custom_page.select_single(GtkTreeView)
         # assert a new row has been added to the partition table
         total_rows = self._update_table_row_count(config)
         logger.debug("TOTAL NUMBER OF ROWS: {0}".format(self.part_table_rows))
@@ -899,16 +918,16 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         logger.debug("check_window_constants({0}, {1}, {2}, {3})".format(
             continue_button, back_button, quit_button, skip_button))
 
-        con_button = self.main_window.select_single('GtkButton', name='next')
+        con_button = self.main_window.select_single(GtkButton, name='next')
         self.assertThat(con_button.visible, Equals(continue_button))
 
-        bk_button = self.main_window.select_single('GtkButton', name='back')
+        bk_button = self.main_window.select_single(GtkButton, name='back')
         self.assertThat(bk_button.visible, Equals(back_button))
 
-        qt_button = self.main_window.select_single('GtkButton', name='quit')
+        qt_button = self.main_window.select_single(GtkButton, name='quit')
         self.assertThat(qt_button.visible, Equals(quit_button))
 
-        skp_button = self.main_window.select_single('GtkButton', name='skip')
+        skp_button = self.main_window.select_single(GtkButton, name='skip')
         self.assertThat(skp_button.visible, Equals(skip_button))
 
     def _update_current_step(self, name):
@@ -922,9 +941,9 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
         " Returns number of rows in table"
 
         custom_page = self.main_window.select_single(
-            'GtkAlignment',
+            GtkAlignment,
             BuilderName='stepPartAdvanced')
-        tree_view = custom_page.select_single('GtkTreeView')
+        tree_view = custom_page.select_single(GtkTreeView)
         num = tree_view.get_number_of_rows()
         if num == self.total_number_partitions:
             # TODO: assert 'free space' changes to a partition
@@ -955,12 +974,12 @@ class UbiquityAutopilotTestCase(UbiquityTestCase):
     def _update_page_titles(self, ):
         self.previous_page_title = self.current_page_title
         self.current_page_title = self.main_window.select_single(
-            'GtkLabel',
+            GtkLabel,
             BuilderName='page_title').label
 
     def _check_page_titles(self, ):
         current_page_title = self.main_window.select_single(
-            'GtkLabel',
+            GtkLabel,
             BuilderName='page_title')
         if self.current_step in self.english_config:
             if self.english_install and (

@@ -24,7 +24,8 @@ import subprocess
 import sys
 
 from ubiquity import i18n, misc, osextras, plugin, upower
-from ubiquity.install_misc import archdetect, is_secure_boot
+from ubiquity.install_misc import (archdetect, is_secure_boot,
+                                   minimal_install_rlist_path)
 
 NAME = 'prepare'
 AFTER = 'wireless'
@@ -104,6 +105,9 @@ class PageGtk(PreparePageBase):
         self.secureboot_box.set_sensitive(False)
         self.password_grid.set_sensitive(False)
 
+        self.minimal_install_vbox.set_visible(
+            os.path.exists(minimal_install_rlist_path))
+
         self.prepare_page = builder.get_object('stepPrepare')
         self.insufficient_space_page = builder.get_object('stepNoSpace')
         self.current_page = self.prepare_page
@@ -124,7 +128,9 @@ class PageGtk(PreparePageBase):
     def set_using_secureboot(self, secureboot):
         self.using_secureboot = secureboot
         self.secureboot_box.set_visible(secureboot)
+        self.disable_secureboot.set_active(True)
         self.on_nonfree_toggled(None)
+        self.info_loop(None)
 
     def enable_download_updates(self, val):
         if (val):
@@ -140,6 +146,12 @@ class PageGtk(PreparePageBase):
 
     def get_download_updates(self):
         return self.prepare_download_updates.get_active()
+
+    def set_minimal_install(self, val):
+        self.prepare_minimal_install.set_active(val)
+
+    def get_minimal_install(self):
+        return self.prepare_minimal_install.get_active()
 
     def set_allow_nonfree(self, allow):
         if not allow:
@@ -174,6 +186,7 @@ class PageGtk(PreparePageBase):
     def on_nonfree_toggled(self, widget):
         enabled = self.get_use_nonfree()
         self.secureboot_box.set_sensitive(enabled)
+        self.info_loop(None)
 
     def on_secureboot_toggled(self, widget):
         enabled = self.get_disable_secureboot()
@@ -181,6 +194,11 @@ class PageGtk(PreparePageBase):
         self.info_loop(None)
 
     def info_loop(self, unused_widget):
+        if not self.get_use_nonfree() \
+                or not self.password_grid.get_sensitive():
+            self.controller.allow_go_forward(True)
+            return True
+
         complete = False
         passw = self.password.get_text()
         vpassw = self.verified_password.get_text()
@@ -195,7 +213,10 @@ class PageGtk(PreparePageBase):
             self.password_strength.set_current_page(
                 self.password_strength_pages['too_short'])
 
-        if passw != vpassw or (passw and len(passw) < 8):
+        if len(passw) == 0 or len(vpassw) == 0:
+            self.password_match.set_current_page(
+                self.password_match_pages['empty'])
+        elif passw != vpassw or (passw and len(passw) < 8):
             self.password_match.set_current_page(
                 self.password_match_pages['empty'])
             if len(passw) >= 8 and (not passw.startswith(vpassw) or
@@ -241,9 +262,11 @@ class PageKde(PreparePageBase):
             return
         self.controller = controller
         try:
-            from PyQt4 import uic
-            from PyQt4 import QtGui
+            from PyQt5 import uic
+            from PyQt5 import QtGui
             self.page = uic.loadUi('/usr/share/ubiquity/qt/stepPrepare.ui')
+            self.prepare_minimal_install = self.page.prepare_minimal_install
+            self.qt_label_minimal_install = self.page.qt_label_minimal_install
             self.prepare_download_updates = self.page.prepare_download_updates
             self.prepare_nonfree_software = self.page.prepare_nonfree_software
             self.prepare_foss_disclaimer = self.page.prepare_foss_disclaimer
@@ -267,6 +290,9 @@ class PageKde(PreparePageBase):
             except Exception as e:
                 # TODO use an inconsistent state?
                 print('unable to set up power source watch:', e)
+            if not os.path.exists(minimal_install_rlist_path):
+                self.qt_label_minimal_install.hide()
+                self.prepare_minimal_install.hide()
             try:
                 self.prepare_network_connection = StateBox(self.page)
             except Exception as e:
@@ -279,6 +305,11 @@ class PageKde(PreparePageBase):
         self.plugin_widgets = self.page
 
     def show_insufficient_space_page(self, required, free):
+        from PyQt5 import QtWidgets
+        QtWidgets.QMessageBox.critical(self.page,
+                                       free,
+                                       required)
+        sys.exit(1)
         return
 
     def set_using_secureboot(self, secureboot):
@@ -318,8 +349,16 @@ class PageKde(PreparePageBase):
         self.prepare_download_updates.setChecked(val)
 
     def get_download_updates(self):
-        from PyQt4.QtCore import Qt
+        from PyQt5.QtCore import Qt
         return self.prepare_download_updates.checkState() == Qt.Checked
+
+    def set_minimal_install(self, val):
+        self.prepare_minimal_install.setChecked(val)
+
+    def get_minimal_install(self):
+        if self.prepare_minimal_install.isChecked():
+            return True
+        return False
 
     def set_allow_nonfree(self, allow):
         if not allow:
@@ -335,7 +374,7 @@ class PageKde(PreparePageBase):
             self.set_allow_nonfree(False)
 
     def get_use_nonfree(self):
-        from PyQt4.QtCore import Qt
+        from PyQt5.QtCore import Qt
         return self.prepare_nonfree_software.checkState() == Qt.Checked
 
     def plugin_translate(self, lang):
@@ -370,6 +409,8 @@ class Page(plugin.Plugin):
 
         download_updates = self.db.get('ubiquity/download_updates') == 'true'
         self.ui.set_download_updates(download_updates)
+        minimal_install = self.db.get('ubiquity/minimal_install') == 'true'
+        self.ui.set_minimal_install(minimal_install)
         self.apply_debconf_branding()
         self.setup_sufficient_space()
         command = ['/usr/share/ubiquity/simple-plugins', 'prepare']
@@ -410,10 +451,12 @@ class Page(plugin.Plugin):
 
     def ok_handler(self):
         download_updates = self.ui.get_download_updates()
+        minimal_install = self.ui.get_minimal_install()
         use_nonfree = self.ui.get_use_nonfree()
         secureboot_key = self.ui.get_secureboot_key()
         self.preseed_bool('ubiquity/use_nonfree', use_nonfree)
         self.preseed_bool('ubiquity/download_updates', download_updates)
+        self.preseed_bool('ubiquity/minimal_install', minimal_install)
         if self.ui.using_secureboot and secureboot_key:
             self.preseed('ubiquity/secureboot_key', secureboot_key, seen=True)
         if use_nonfree:

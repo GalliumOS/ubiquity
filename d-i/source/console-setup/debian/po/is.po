@@ -9,6 +9,7 @@
 # Copyright (C) 2003 Software in the Public Interest, Inc.
 #
 # Copyright (C) 2010 Free Software Foundation
+# Sveinn í Felli <sv1@fellsnet.is>, 2018.
 #
 # Translations from iso-codes:
 # Copyright (C) 2002,2003, 2010, 2011, 2012 Free Software Foundation, Inc.
@@ -21,18 +22,17 @@
 # Alastair McKinstry <mckinstry@computer.org>, 2002.
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer_packages_po_sublevel1_is\n"
+"Project-Id-Version: Icelandic (Debian Installer)\n"
 "Report-Msgid-Bugs-To: console-setup@packages.debian.org\n"
-"POT-Creation-Date: 2014-07-14 18:35-0700\n"
-"PO-Revision-Date: 2013-10-03 13:25+0000\n"
-"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"POT-Creation-Date: 2016-02-29 19:44+0300\n"
+"PO-Revision-Date: 2018-01-04 06:20+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-">\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. Type: text
 #. Description
@@ -189,7 +189,7 @@ msgstr ". Samsett - Latneskt; slavneskt kýrilískt; gríska"
 #. :sl3:
 #: ../console-setup.templates:5001
 msgid ". Combined - Latin; Slavic and non-Slavic Cyrillic"
-msgstr ". Samsett - Latneskt; slavneskt og ekki-slavneskt kýrilískt;"
+msgstr ". Samsett - Latneskt; slavneskt og ekki-slavneskt kýrilískt"
 
 #. Type: select
 #. Choices
@@ -886,13 +886,13 @@ msgstr ""
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "American English"
-msgstr "Bandarísk enskt"
+msgstr "Bandarísk-enskt"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Albanian"
-msgstr "Албански"
+msgstr "Albanskt"
 
 #. Type: select
 #. Choices
@@ -947,19 +947,25 @@ msgstr "Brasilískt"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "British English"
-msgstr "Bresk enskt"
+msgstr "Bresk-enskt"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
-msgid "Bulgarian"
-msgstr "Búlgarskt"
+msgid "Bulgarian (BDS layout)"
+msgstr "Búlgarskt (BDS-uppsetning)"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Bulgarian (phonetic layout)"
 msgstr "Búlgarskt (phonetic uppsetning)"
+
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
+msgid "Burmese"
+msgstr "Búrmískt"
 
 #. Type: select
 #. Choices
@@ -977,7 +983,7 @@ msgstr "Kanadískt fjöltyngt"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Catalan"
-msgstr "Katalónska"
+msgstr "Katalónskt"
 
 #. Type: select
 #. Choices
@@ -1055,7 +1061,7 @@ msgstr "Franskt"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Georgian"
-msgstr "Georgísk skrift"
+msgstr "Georgískt"
 
 #. Type: select
 #. Choices
@@ -1073,7 +1079,7 @@ msgstr "Grískt"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Gujarati"
-msgstr "Gújaratí"
+msgstr "Gujaratískt"
 
 #. Type: select
 #. Choices
@@ -1228,6 +1234,12 @@ msgstr "Persneskt"
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
+msgid "Philippines"
+msgstr "Filippseyskt"
+
+#. Type: select
+#. Choices
+#: ../keyboard-configuration.templates:16001
 msgid "Polish"
 msgstr "Pólskt"
 
@@ -1277,13 +1289,13 @@ msgstr "Sinhala"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Slovak"
-msgstr "Slóvakíska"
+msgstr "Slóvakískt"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Slovenian"
-msgstr "Slóvenska"
+msgstr "Slóvenskt"
 
 #. Type: select
 #. Choices
@@ -1301,13 +1313,13 @@ msgstr "Sænskt"
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Swiss French"
-msgstr "Svissnensk franskt"
+msgstr "Svissnensk-franskt"
 
 #. Type: select
 #. Choices
 #: ../keyboard-configuration.templates:16001
 msgid "Swiss German"
-msgstr "Svissnesk þýskt"
+msgstr "Svissnesk-þýskt"
 
 #. Type: select
 #. Choices
@@ -1378,8 +1390,9 @@ msgstr "Lyklaborðsvörpun sem á að nota:"
 #. Type: boolean
 #. Description
 #: ../keyboard-configuration.templates:22001
+#, fuzzy
 msgid "Detect keyboard layout?"
-msgstr "Láta skynja tegund lyklaborðsins?"
+msgstr "Skipulag lyklaborðs:"
 
 #. Type: boolean
 #. Description
@@ -1389,21 +1402,20 @@ msgid ""
 "keys. If you do not want to do this, you will be able to select your "
 "keyboard layout from a list."
 msgstr ""
-"Þú getur látið tölvuna finna hvernig lyklaborð þú notar með því að ýta á "
-"nokkra lykla. Ef þú vilt ekki gera þetta þá getur þú valið tegund lyklaborðs "
-"út frá lista."
 
 #. Type: detect-keyboard
 #. Description
 #: ../keyboard-configuration.templates:23001
+#, fuzzy
 msgid "Detecting your keyboard layout"
-msgstr "Komast að uppsetningu lyklaborðsins"
+msgstr "Sjálfgefið í lyklaborðsuppsetningu"
 
 #. Type: note
 #. Description
 #: ../keyboard-configuration.templates:24001
+#, fuzzy
 msgid "Keyboard layout detection complete"
-msgstr "Búið að komast að uppsetningu lyklaborðsins"
+msgstr "Skipulag lyklaborðs:"
 
 #. Type: note
 #. Description
@@ -1413,7 +1425,3 @@ msgid ""
 "\"${LAYOUT}\". If this is not correct, you can go back and select your "
 "layout from the full list instead."
 msgstr ""
-"Það er líklegt að þú sért að nota „${LAYOUT}“ samkvæmt tökkunum sem þú ýttir "
-"á. Ef þetta er ekki rétt þá getur þú farið til baka og valið uppsetningu úr "
-"lista."
-

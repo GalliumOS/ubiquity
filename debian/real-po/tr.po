@@ -6,22 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: ubiquity@packages.debian.org\n"
-"POT-Creation-Date: 2016-02-16 02:13-0500\n"
-"PO-Revision-Date: 2014-11-03 17:23+0000\n"
-"Last-Translator: Yiğit Ateş <Unknown>\n"
+"POT-Creation-Date: 2018-03-28 08:52-0400\n"
+"PO-Revision-Date: 2018-03-24 07:17+0000\n"
+"Last-Translator: Butterfly <Unknown>\n"
 "Language-Team: Debian L10n Turkish <debian-l10n-turkish@lists.debian.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-12 18:56+0000\n"
-"X-Generator: Launchpad (build 17990)\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2018-04-22 09:52+0000\n"
+"X-Generator: Launchpad (build 18617)\n"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:3001
 msgid "Connecting..."
-msgstr "Bağlanıyor..."
+msgstr "Bağlanılıyor..."
 
 #. Type: text
 #. Description
@@ -112,8 +112,8 @@ msgid ""
 "You may wish to read the <a href=\"release-notes\">release notes</a> or <a "
 "href=\"update\">update this installer</a>."
 msgstr ""
-"<a href=\"release-notes\">Sürüm notlarını okumak</a> veya <a "
-"href=\"update\">bu kurulum aracını güncelleştirmek</a> isteyebilirsiniz."
+"<a href=\"release-notes\">Sürüm notlarını okumak</a> veya <a href=\"update"
+"\">bu kurulum aracını güncelleştirmek</a> isteyebilirsiniz."
 
 #. Type: text
 #. Description
@@ -214,8 +214,7 @@ msgstr "Küçük harfle başlamak zorunda."
 #. Type: text
 #. Description
 #: ../ubiquity.templates:29001
-msgid ""
-"May only contain lower-case letters, digits, hyphens, and underscores."
+msgid "May only contain lower-case letters, digits, hyphens, and underscores."
 msgstr "Sadece küçük harf, rakam, tire ve alt tire içerebilir."
 
 #. Type: text
@@ -300,8 +299,7 @@ msgstr "Noktayla başlayamaz ya da bitemez veya \"..\" dizilimini içeremez."
 #. Description
 #: ../ubiquity.templates:42001
 msgid "You are running in debugging mode. Do not use a valuable password!"
-msgstr ""
-"Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
+msgstr "Hata ayıklama kipinde çalışıyorsunuz. Değerli bir parola kullanmayın!"
 
 #. Type: text
 #. Description
@@ -414,8 +412,7 @@ msgstr "Önyükleyici kurulumu başarısız oldu"
 msgid ""
 "Sorry, an error occurred and it was not possible to install the bootloader "
 "at the specified location."
-msgstr ""
-"Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
+msgstr "Üzgünüz, bir hata oluştu ve belirtilen konumda önyükleyici kurulamadı."
 
 #. Type: text
 #. Description
@@ -564,7 +561,7 @@ msgstr "Sil"
 #. An action, displayed on a button or as a menu item.
 #. Type: text
 #. Description
-#: ../ubiquity.templates:84001 ../ubiquity.templates:279001
+#: ../ubiquity.templates:84001 ../ubiquity.templates:288001
 msgid "Revert"
 msgstr "Geri Al"
 
@@ -742,7 +739,7 @@ msgstr "Durdur"
 #. Translators, this text will appear on a button, so KEEP IT SHORT
 #: ../ubiquity.templates:110001
 msgid "Continue in UEFI mode"
-msgstr ""
+msgstr "UEFİ kipinde Devam Et"
 
 #. Type: text
 #. Description
@@ -1039,20 +1036,19 @@ msgstr "İzleyen paketler bozuk durumda:"
 #: ../ubiquity.templates:146001 ../ubiquity.templates:147001
 msgid ""
 "This may be due to using an old installer image, or it may be due to a bug "
-"in some of the packages listed above. More details may be found in "
-"/var/log/syslog. The installer will try to continue anyway, but may fail at "
-"a later point, and will not be able to install or remove other packages "
-"(possibly including itself) from the installed system. You should first look "
-"for newer versions of your installer image, or failing that report the "
-"problem to your distributor."
+"in some of the packages listed above. More details may be found in /var/log/"
+"syslog. The installer will try to continue anyway, but may fail at a later "
+"point, and will not be able to install or remove other packages (possibly "
+"including itself) from the installed system. You should first look for newer "
+"versions of your installer image, or failing that report the problem to your "
+"distributor."
 msgstr ""
 "Bu durum, eski bir kurulum dosyası kullanmanızdan veya yukarıda sıralanan "
-"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi, "
-"/var/log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak "
-"ilerleyen bir aşamada başarısız olabilir ve kurulu sistemde (muhtemelen "
-"kendisi de dahil) diğer paketleri yükleyemeyebilir veya kaldıramayabilir. "
-"Öncelikle yükleme dosyanızın yeni sürümlerini aramalı veya sorunu "
-"yayımcısına bildirmelisiniz."
+"bazı paketlerdeki hatalardan kaynaklanıyor olabilir. Ayrıntılı bilgi, /var/"
+"log/syslog dosyasında bulunabilir. Kurulum devam edecek; ancak ilerleyen bir "
+"aşamada başarısız olabilir ve kurulu sistemde (muhtemelen kendisi de dahil) "
+"diğer paketleri yükleyemeyebilir veya kaldıramayabilir. Öncelikle yükleme "
+"dosyanızın yeni sürümlerini aramalı veya sorunu yayımcısına bildirmelisiniz."
 
 #. Type: error
 #. Description
@@ -1162,8 +1158,7 @@ msgstr "Bu bağlama noktalarını kullan uygulamaları lütfen kapatın."
 #. Type: boolean
 #. Description
 #: ../ubiquity.templates:165001
-msgid ""
-"Would you like the installer to try to unmount these partitions again?"
+msgid "Would you like the installer to try to unmount these partitions again?"
 msgstr ""
 "Kurulum programının bu bölümleri yeniden ayırmayı denemesini ister misiniz?"
 
@@ -1203,7 +1198,7 @@ msgstr "Sistem Yapılandırması"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:174001 ../ubiquity.templates:243001
+#: ../ubiquity.templates:174001 ../ubiquity.templates:252001
 msgid "Welcome"
 msgstr "Hoş Geldiniz"
 
@@ -1236,8 +1231,8 @@ msgstr "Kablosuz"
 #. Type: text
 #. Description
 #: ../ubiquity.templates:179001
-msgid "Prepare"
-msgstr "Hazırla"
+msgid "Software"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1379,10 +1374,9 @@ msgstr ""
 
 #. Type: text
 #. Description
-#. RELEASE is a variable substituted into this string, and may be 'Ubuntu'
 #: ../ubiquity.templates:201001
-msgid "Preparing to install ${RELEASE}"
-msgstr "${RELEASE} kurulumu için hazırlanılıyor"
+msgid "Updates and other software"
+msgstr ""
 
 #. Type: text
 #. Description
@@ -1422,46 +1416,46 @@ msgstr "Bu ağa bağlan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:211001
+#: ../ubiquity.templates:212001
 msgid "Select drive:"
 msgstr "Sürücü seçin:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:212001
+#: ../ubiquity.templates:213001
 msgid "Allocate drive space by dragging the divider below:"
 msgstr "Aşağıdaki ayracı sürükleyerek sürücü alanını ayırın:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:213001
+#: ../ubiquity.templates:214001
 msgid "The entire disk will be used:"
 msgstr "Tüm disk kullanılacak:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:214001
+#: ../ubiquity.templates:215001
 #, no-c-format
 msgid ""
 "<small>%d smaller partitions are hidden, use the <a href=\"\">advanced "
 "partitioning tool</a> for more control</small>"
 msgstr ""
-"<small>%d adet daha küçük bölüm gizlendi, daha fazla kontrol için <a "
-"href=\"\">gelişmiş bölümleme aracını</a> kullanınız</small>"
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:215001
-msgid ""
-"<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
-"partitioning tool</a> for more control</small>"
-msgstr ""
-"<small>1 adet daha küçük bölüm gizlendi, daha fazla kontrol için <a "
-"href=\"\">gelişmiş bölümleme aracını</a> kullanınız</small>"
+"<small>%d adet daha küçük bölüm gizlendi, daha fazla kontrol için <a href="
+"\"\">gelişmiş bölümleme aracını</a> kullanınız</small>"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:216001
+msgid ""
+"<small>1 smaller partition is hidden, use the <a href=\"\">advanced "
+"partitioning tool</a> for more control</small>"
+msgstr ""
+"<small>1 adet daha küçük bölüm gizlendi, daha fazla kontrol için <a href="
+"\"\">gelişmiş bölümleme aracını</a> kullanınız</small>"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:217001
 #, no-c-format
 msgid ""
 "%d partitions will be deleted, use the <a href=\"\">advanced partitioning "
@@ -1472,7 +1466,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:217001
+#: ../ubiquity.templates:218001
 msgid ""
 "1 partition will be deleted, use the <a href=\"\">advanced partitioning "
 "tool</a> for more control"
@@ -1482,122 +1476,173 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:218001
+#: ../ubiquity.templates:219001
 msgid "Split Largest Partition"
 msgstr "En Geniş Bölümü Bölümlendir"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:220001
+#: ../ubiquity.templates:221001
 msgid "For best results, please ensure that this computer:"
 msgstr "En iyi sonuç için, bilgisayarınızın şunları sağladığına emin olun:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:221001
+#: ../ubiquity.templates:222001
 msgid "Sorry"
-msgstr ""
+msgstr "Üzgünüz"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
 #. RELEASE is a variable substituted into this string, the Ubuntu flavor'
-#: ../ubiquity.templates:222001
+#: ../ubiquity.templates:223001
 msgid "You need at least ${SIZE} disk space to install ${RELEASE}."
-msgstr ""
+msgstr "${RELEASE} yüklemek için gereken alan: ${SIZE}"
 
 #. Type: text
 #. Description
 #. SIZE is a variable substituted into this string, and may be '3.7 GB'
-#: ../ubiquity.templates:223001
+#: ../ubiquity.templates:224001
 msgid "This computer has only ${SIZE}."
-msgstr ""
+msgstr "Bu bilgisayarın sahip olduğu alan: ${SIZE} ."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:224001
+#: ../ubiquity.templates:225001
 msgid "is plugged in to a power source"
 msgstr "güç kaynağına bağlı"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:225001
+#: ../ubiquity.templates:226001
 msgid "is connected to the Internet"
 msgstr "internete bağlı"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:226001
+#: ../ubiquity.templates:227001
 msgid ""
 "This software is subject to license terms included with its documentation. "
 "Some is proprietary."
 msgstr ""
-
-#. Type: text
-#. Description
-#: ../ubiquity.templates:227001
-msgid ""
-"Fluendo MP3 plugin includes MPEG Layer-3 audio decoding technology licensed "
-"from Fraunhofer IIS and Technicolor SA."
-msgstr ""
-"Fluendo MP3 eklentisi, Fraunhofer IIS ve Technicolor SA'nın lisansı altında "
-"bulunan MPEG Layer-3 ses çözme teknolojisi içerir."
+"Bu yazılımlar, belgelerinde belirtilmiş lisans şartlarına tabidir. Bazıları "
+"sahiplidir."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:228001
 msgid ""
-"Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and "
-"other media"
+"Install third-party software for graphics and Wi-Fi hardware and additional "
+"media formats"
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:229001
 msgid "Download updates while installing ${RELEASE}"
-msgstr ""
+msgstr "${RELEASE} yüklenirken güncellemeleri indirin"
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:230001
 msgid "This saves time after installation."
-msgstr ""
+msgstr "Bu, kurulumdan sonra zaman kazandırır."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:231001
 msgid "Not available because there is no Internet connection."
-msgstr ""
+msgstr "Erişilebilir değil çünkü internet bağlantısı yok."
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:232001
-msgid ""
-"Installing third-party drivers requires turning off Secure Boot. To do this, "
-"you need to choose a security key now, and enter it when the system restarts."
+msgid "What apps would you like to install to start with?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:233001
+msgid "Which applications would you like to start with?"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:234001
+msgid "Minimal installation"
+msgstr "Minimal kurulum"
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:235001
+msgid "Web browser and basic utilities."
 msgstr ""
 
 #. Type: text
 #. Description
 #: ../ubiquity.templates:236001
+msgid "Web browser plus basic utilities and applications."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:237001
+msgid "Normal installation"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:238001
+msgid "Web browser, utilities, office software, games, and media players."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:239001
+msgid ""
+"Web browser, utilities, office software, KDE PIM suite plus additional "
+"internet applications and media players."
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:240001
+msgid "Other options"
+msgstr ""
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:241001
+msgid ""
+"Installing third-party drivers requires turning off Secure Boot. To do this, "
+"you need to choose a security key now, and enter it when the system restarts."
+msgstr ""
+"Üçüncü parti sürücüleri yüklemek Güvenli Başlatma'nın kapatılmasını "
+"gerektiriyor. Bunu yapmak için, şimdi bir güvenlik anahtarı seçmeniz ve "
+"sistem yeniden başladığında girmeniz gerekiyor."
+
+#. Type: text
+#. Description
+#: ../ubiquity.templates:245001
 msgid "Layout:"
 msgstr "Düzen:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:237001
+#: ../ubiquity.templates:246001
 msgid "Variant:"
 msgstr "Değişik biçim:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:238001
+#: ../ubiquity.templates:247001
 msgid "Below is an image of your current layout:"
 msgstr "Aşağıdaki, geçerli yerleşimin bir görüntüsüdür:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:239001
+#: ../ubiquity.templates:248001
 msgid ""
 "Select your location, so that the system can use appropriate display "
 "conventions for your country, fetch updates from sites close to you, and set "
@@ -1609,19 +1654,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:240001
+#: ../ubiquity.templates:249001
 msgid "Time Zone:"
 msgstr "Zaman Dilimi:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:241001
+#: ../ubiquity.templates:250001
 msgid "Region:"
 msgstr "Bölge:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:242001
+#: ../ubiquity.templates:251001
 msgid "[type here to change]"
 msgstr "[değiştirmek için buraya yazın]"
 
@@ -1629,14 +1674,14 @@ msgstr "[değiştirmek için buraya yazın]"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:254001
 msgid "Replace ${OS} with ${DISTRO}"
 msgstr "${OS} işletim sistemini  ${DISTRO} ile değiştir"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:245001
+#: ../ubiquity.templates:254001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all of your "
 "${OS} programs, documents, photos, music, and any other files."
@@ -1649,7 +1694,7 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:246001
+#: ../ubiquity.templates:255001
 msgid "Install ${DISTRO} alongside ${OS}"
 msgstr "${DISTRO} dağıtımını ${OS} işletim sisteminin yanına kur"
 
@@ -1661,8 +1706,8 @@ msgstr "${DISTRO} dağıtımını ${OS} işletim sisteminin yanına kur"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:246001 ../ubiquity.templates:247001
-#: ../ubiquity.templates:251001 ../ubiquity.templates:256001
+#: ../ubiquity.templates:255001 ../ubiquity.templates:256001
+#: ../ubiquity.templates:260001 ../ubiquity.templates:265001
 msgid ""
 "Documents, music, and other personal files will be kept. You can choose "
 "which operating system you want each time the computer starts up."
@@ -1674,20 +1719,20 @@ msgstr ""
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:247001
+#: ../ubiquity.templates:256001
 msgid "Install ${DISTRO} inside ${OS}"
 msgstr "${OS} içine ${DISTRO} kur"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:257001
 msgid "Something else"
 msgstr "Başka bir şey"
 
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:248001
+#: ../ubiquity.templates:257001
 msgid ""
 "You can create or resize partitions yourself, or choose multiple partitions "
 "for ${DISTRO}."
@@ -1698,14 +1743,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:258001
 msgid "Erase ${CURDISTRO} and reinstall"
 msgstr "${CURDISTRO} sürümünü sil ve  yeniden yükle"
 
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:249001
+#: ../ubiquity.templates:258001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "${CURDISTRO} programs, documents, photos, music, and any other files."
@@ -1718,7 +1763,7 @@ msgstr ""
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
 #. VER is a variable substituted into this string, and may be '11.04'
-#: ../ubiquity.templates:250001
+#: ../ubiquity.templates:259001
 msgid "Upgrade ${CURDISTRO} to ${VER}"
 msgstr "${CURDISTRO} sürümünü ${VER} sürümüne yükselt"
 
@@ -1726,7 +1771,7 @@ msgstr "${CURDISTRO} sürümünü ${VER} sürümüne yükselt"
 #. Description
 #. Type: text
 #. Description
-#: ../ubiquity.templates:250001 ../ubiquity.templates:254001
+#: ../ubiquity.templates:259001 ../ubiquity.templates:263001
 msgid ""
 "Documents, music, and other personal files will be kept. Installed software "
 "will be kept where possible. System-wide settings will be cleared."
@@ -1739,7 +1784,7 @@ msgstr ""
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
 #. VER is a variable substituted into this string, and may be '11.04'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:251001
+#: ../ubiquity.templates:260001
 msgid "Install ${DISTRO} ${VER} alongside ${CURDISTRO}"
 msgstr "${DISTRO} ${VER} sürümünü ${CURDISTRO} sürümünün yanına kur"
 
@@ -1749,13 +1794,13 @@ msgstr "${DISTRO} ${VER} sürümünü ${CURDISTRO} sürümünün yanına kur"
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:252001 ../ubiquity.templates:255001
+#: ../ubiquity.templates:261001 ../ubiquity.templates:264001
 msgid "Erase disk and install ${DISTRO}"
 msgstr "Diski sil ve ${DISTRO} yükle"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:252001
+#: ../ubiquity.templates:261001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete any files on "
 "the disk."
@@ -1765,7 +1810,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:262001
 msgid "Erase everything and reinstall"
 msgstr "Her şeyi sil ve yeniden yükle"
 
@@ -1773,7 +1818,7 @@ msgstr "Her şeyi sil ve yeniden yükle"
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:253001
+#: ../ubiquity.templates:262001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and other files in both ${OS} and "
@@ -1786,13 +1831,13 @@ msgstr ""
 #. Type: text
 #. Description
 #. CURDISTRO is a variable substituted into this string, and may be 'Ubuntu 10.10'
-#: ../ubiquity.templates:254001
+#: ../ubiquity.templates:263001
 msgid "Reinstall ${CURDISTRO}"
 msgstr "${CURDISTRO} sürümünü tekrar yükle"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:255001
+#: ../ubiquity.templates:264001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> This will delete all your "
 "programs, documents, photos, music, and any other files in all operating "
@@ -1805,14 +1850,14 @@ msgstr ""
 #. Type: text
 #. Description
 #. DISTRO is a variable substituted into this string, and may be 'Ubuntu'
-#: ../ubiquity.templates:256001
+#: ../ubiquity.templates:265001
 msgid "Install ${DISTRO} alongside them"
 msgstr "${DISTRO}'yu diğer işletim sistemlerinin yanına yükle"
 
 #. Type: text
 #. Description
 #. OS is a variable substituted into this string, and may be 'Windows 7'
-#: ../ubiquity.templates:257001
+#: ../ubiquity.templates:266001
 msgid "This computer currently has ${OS} on it. What would you like to do?"
 msgstr ""
 "Bu bilgisayarda, şu anda ${OS} işletim sistemi var. Ne yapmak istersiniz?"
@@ -1821,7 +1866,7 @@ msgstr ""
 #. Description
 #. OS1 is a variable substituted into this string, and may be 'Windows 7'
 #. OS2 is a variable substituted into this string, and may be 'Mac OS X'
-#: ../ubiquity.templates:258001
+#: ../ubiquity.templates:267001
 msgid ""
 "This computer currently has ${OS1} and ${OS2} on it. What would you like to "
 "do?"
@@ -1831,7 +1876,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:259001
+#: ../ubiquity.templates:268001
 msgid ""
 "This computer currently has multiple operating systems on it. What would you "
 "like to do?"
@@ -1841,7 +1886,7 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:260001
+#: ../ubiquity.templates:269001
 msgid ""
 "This computer currently has no detected operating systems. What would you "
 "like to do?"
@@ -1850,37 +1895,37 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:261001
+#: ../ubiquity.templates:270001
 msgid "Before:"
 msgstr "Önce:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:262001
+#: ../ubiquity.templates:271001
 msgid "After:"
 msgstr "Sonra:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:263001
+#: ../ubiquity.templates:272001
 msgid "Encrypt the new ${RELEASE} installation for security"
 msgstr "${RELEASE} kurulumunu güvenlik için şifrele"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:264001
+#: ../ubiquity.templates:273001
 msgid "You will choose a security key in the next step."
 msgstr "Bir sonraki adımda bir güvenlik anahtarı seçeceksiniz."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:265001
+#: ../ubiquity.templates:274001
 msgid "Use LVM with the new ${RELEASE} installation"
 msgstr "Yeni ${RELEASE} kurulumunda LVM kullan"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:266001
+#: ../ubiquity.templates:275001
 msgid ""
 "This will set up Logical Volume Management. It allows taking snapshots and "
 "easier partition resizing."
@@ -1890,19 +1935,19 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:267001
+#: ../ubiquity.templates:276001
 msgid "Confirm the security key:"
 msgstr "Güvenlik anahtarını doğrulayın:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:268001
+#: ../ubiquity.templates:277001
 msgid "Choose a security key:"
 msgstr "Bir güvenlik anahtarı seçin:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:269001
+#: ../ubiquity.templates:278001
 msgid ""
 "Disk encryption protects your files in case you lose your computer. It "
 "requires you to enter a security key each time the computer starts up."
@@ -1913,13 +1958,13 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:270001
+#: ../ubiquity.templates:279001
 msgid "Any files outside of ${RELEASE} will not be encrypted."
 msgstr "${RELEASE} dışarısındaki hiçbir dosya şifrelenmeyecek."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:271001
+#: ../ubiquity.templates:280001
 msgid ""
 "<span foreground=\"darkred\">Warning:</span> If you lose this security key, "
 "all data will be lost. If you need to, write down your key and keep it in a "
@@ -1931,61 +1976,61 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:272001
+#: ../ubiquity.templates:281001
 msgid "For more security:"
 msgstr "Daha yüksek güvenlik için:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:273001
+#: ../ubiquity.templates:282001
 msgid "Overwrite empty disk space"
 msgstr "Boş disk alanının üzerine yaz"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:274001
+#: ../ubiquity.templates:283001
 msgid "The installation may take much longer."
 msgstr "Bu kurulum daha çok sürebilir."
 
 #. Type: text
 #. description
-#: ../ubiquity.templates:275001
+#: ../ubiquity.templates:284001
 msgid "LVM..."
 msgstr "LVM..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:276001
+#: ../ubiquity.templates:285001
 msgid "Volume groups:"
 msgstr "Birim grupları:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:277001
+#: ../ubiquity.templates:286001
 msgid "Encryption Options"
 msgstr "Şifreleme Seçenekleri"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:278001
+#: ../ubiquity.templates:287001
 msgid "Physical volumes:"
 msgstr "Fiziksel Birimler:"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:280001
+#: ../ubiquity.templates:289001
 msgid "Encrypt this partition (LUKS)"
 msgstr "Bu bölümlemeyi şifrele (LUKS)"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:281001
+#: ../ubiquity.templates:290001
 msgid "MB"
 msgstr "MB"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:282001
+#: ../ubiquity.templates:291001
 msgid ""
 "Logical Volume Management (LVM) lets ${RELEASE} treat multiple physical "
 "volumes as a single volume."
@@ -1995,57 +2040,70 @@ msgstr ""
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:283001
+#: ../ubiquity.templates:292001
 msgid "Logical Volume Management"
 msgstr "Mantıksal Birim Yönetimi"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:284001
+#: ../ubiquity.templates:293001
 msgid "Encryption options..."
 msgstr "Şifreleme seçenekleri..."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:285001
+#: ../ubiquity.templates:294001
 msgid "UEFI Secure Boot"
-msgstr ""
+msgstr "UEFI Güvenli Başlatma"
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286001
+#: ../ubiquity.templates:295001
 msgid ""
 "You have chosen to enable third-party software as part of your install, "
 "which for this system includes hardware drivers for graphics and/or wi-fi "
 "hardware. Your system also has UEFI Secure Boot enabled. UEFI Secure Boot is "
 "not compatible with the use of these third-party drivers."
 msgstr ""
+"Yüklemenizin bir parçası olarak; bu sistemin grafik ve/veya wi-fi yazılımı "
+"için kapsadığı yazılım sürücüleri için üçüncü parti yazılımları "
+"etkinleştirdiniz. Sisteminizde aynı zamanda UEFI Güvenli Başlatma etkin. "
+"UEFI Güvenli Başlatma bu üçüncü parti uygulamalarıyla uyumlu değil."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286001
+#: ../ubiquity.templates:295001
 msgid ""
 "After installation completes, Ubuntu will assist you in disabling UEFI "
 "Secure Boot. To ensure that this change is being made by you as an "
 "authorized user, and not by an attacker, you must choose a password now and "
 "then use the same password after reboot to confirm the change."
 msgstr ""
+"Yükleme tamamlandıktan sonra, Ubuntu UEFI Güvenli Başlatma'yı kapatmanızda "
+"size yardımcı olacaktır. Bu değişikliğin sizin tarafınızdan yetkili "
+"kullanıcı olarak yapıldığını ve bir saldırgan tarafından yapılmadığını "
+"doğrulamak için, şimdi bir parola seçmeniz ve sistem yeniden başlatıldıktan "
+"sonra aynı parolayı kullanıp değişikliği doğrulamanız gerekmektedir."
 
 #. Type: text
 #. Description
-#: ../ubiquity.templates:286001
+#: ../ubiquity.templates:295001
 msgid ""
 "<span foreground=\"darkred\">Warning</span>: If you choose not to install "
 "these drivers, or if you proceed but do not confirm the password upon "
 "reboot, Ubuntu will still be able to boot on your system but these third-"
 "party drivers will not be available for your hardware."
 msgstr ""
+"<span foreground=\"darkred\">Warning</span>: Eğer bu sürücüleri yüklemeyi "
+"seçmezseniz, veya devam edip yeniden başlatma sonrasında parolayı "
+"doğrulamazsanız, Ubuntu sisteminizde başlatılabilecek fakat bu üçüncü parti "
+"sürücüler yazılımınız için kullanılabilir olmayacaktır."
 
 #. Type: password
 #. Description
-#: ../ubiquity.templates:287001
+#: ../ubiquity.templates:296001
 msgid "SecureBoot key for MokPW"
-msgstr ""
+msgstr "MokPW için Güvenli Başlatma Anahtarı"
 
 #. Type: title
 #. Description
@@ -2110,35 +2168,3 @@ msgstr ""
 #: ../oem-config.templates:2001
 msgid "Removing packages"
 msgstr "Paketler kaldırılıyor"
-
-#~ msgid "Username"
-#~ msgstr "Kullanıcı Adı"
-
-#~ msgid "Your name"
-#~ msgstr "Adınız"
-
-#~ msgid "has at least ${SIZE} available drive space"
-#~ msgstr "en az ${SIZE} boş disk alanı mevcut"
-
-#~ msgid "Download updates while installing"
-#~ msgstr "Güncelleştirmeleri kurulum sırasında indir"
-
-#~ msgid "Retype password"
-#~ msgstr "Parolanızı tekrar yazın"
-
-#~ msgid "At least 8 characters password"
-#~ msgstr "Parolanız en az 8 karakter içermeli"
-
-#~ msgid "Install this third-party software"
-#~ msgstr "Bu üçüncü parti yazılımları kur"
-
-#~ msgid ""
-#~ "${RELEASE} uses third-party software to play Flash, MP3 and other media, and "
-#~ "to work with some graphics and wi-fi hardware. Some of this software is "
-#~ "proprietary. The software is subject to license terms included with its "
-#~ "documentation."
-#~ msgstr ""
-#~ "${RELEASE}; Flash, MP3 ve diğer ortamları oynatmak, bazı grafikler ve "
-#~ "kablosuz (wi-fi) donanımlarla çalışmak için üçüncü parti yazılımlar "
-#~ "kullanıyor. Bu yazılımların bazıları sahiplidir ve yazılımlar "
-#~ "belgelendirmelerinde belirtilen lisans şartlarına tabidir."

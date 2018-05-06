@@ -25,7 +25,8 @@ import signal
 
 import debconf
 
-from ubiquity import misc, osextras, parted_server, plugin, validation
+from ubiquity import (misc, osextras, parted_server, plugin,
+                      telemetry, validation)
 from ubiquity.install_misc import archdetect
 
 
@@ -585,18 +586,18 @@ class PageGtk(PageBase):
     def set_grub_options(self, default, grub_installable):
         from gi.repository import Gtk, GObject
         self.grub_options = misc.grub_options()
-        l = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
-        self.grub_device_entry.set_model(l)
+        ret = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
+        self.grub_device_entry.set_model(ret)
         selected = False
         for opt in self.grub_options:
             path = opt[0]
             if grub_installable.get(path, False):
-                i = l.append(opt)
+                i = ret.append(opt)
                 if path == default:
                     self.grub_device_entry.set_active_iter(i)
                     selected = True
         if not selected:
-            i = l.append([default, ''])
+            i = ret.append([default, ''])
             self.grub_device_entry.set_active_iter(i)
 
     def get_grub_choice(self):
@@ -673,22 +674,24 @@ class PageGtk(PageBase):
 
     def get_autopartition_choice(self):
         if self.reuse_partition.get_active():
-            return self.extra_options['reuse'][0][0], None
+            return self.extra_options['reuse'][0][0], None, 'reuse_partition'
 
         if self.replace_partition.get_active():
-            return self.extra_options['replace'][0], None
+            return (self.extra_options['replace'][0], None,
+                    'reinstall_partition')
 
         elif self.custom_partitioning.get_active():
-            return self.extra_options['manual'], None
+            return self.extra_options['manual'], None, 'manual'
 
         elif self.resize_use_free.get_active():
             if 'biggest_free' in self.extra_options:
                 choice = self.extra_options['biggest_free'][0]
-                return choice, None
+                return choice, None, 'resize_use_free'
             else:
                 disk_id = self.get_current_disk_partman_id()
                 choice = self.extra_options['resize'][disk_id][0]
-                return choice, '%s B' % self.resizewidget.get_size()
+                return (choice, '%s B' % self.resizewidget.get_size(),
+                        'resize_use_free')
 
         elif self.use_device.get_active():
             def choose_recipe():
@@ -702,13 +705,15 @@ class PageGtk(PageBase):
 
                 if not ((want_crypto and have_crypto) or
                         (want_lvm and have_lvm)):
-                    return self.extra_options['use_device'][0]
+                    return self.extra_options['use_device'][0], 'use_device'
 
                 if want_crypto:
-                    return self.extra_options['some_device_crypto']
+                    return (self.extra_options['some_device_crypto'],
+                            'use_crypto')
 
                 if want_lvm:
-                    return self.extra_options['some_device_lvm']
+                    return (self.extra_options['some_device_lvm'],
+                            'use_lvm')
 
                 # Something went horribly wrong, we should have returned
                 # earlier
@@ -717,9 +722,9 @@ class PageGtk(PageBase):
             i = self.part_auto_select_drive.get_active_iter()
             m = self.part_auto_select_drive.get_model()
             disk = m.get_value(i, 0)
-            choice = choose_recipe()
+            choice, method = choose_recipe()
             # Is the encoding necessary?
-            return choice, misc.utf8(disk, errors='replace')
+            return choice, misc.utf8(disk, errors='replace'), method
 
         else:
             raise AssertionError("Couldn't get autopartition choice")
@@ -1670,6 +1675,7 @@ class Page(plugin.Plugin):
             '^partman-target/choose_method$',
             ('^partman-basicfilesystems/'
              '(fat_mountpoint|mountpoint|mountpoint_manual)$'),
+            '^partman-basicfilesystems/no_swap$',
             '^partman-uboot/mountpoint$',
             '^partman/exception_handler$',
             '^partman/exception_handler_note$',
@@ -2071,20 +2077,6 @@ class Page(plugin.Plugin):
                     desc = self.extended_description(q)
                     return PartitioningOption(title, desc)
 
-                if current_version <= new_version:
-                    # "Windows (or Mac, ...) and an older version of Ubuntu are
-                    # present" case
-
-                    # Only allow reuse with newer install media
-                    # also block reuse when invalid version number or codename
-
-                    q = 'ubiquity/partitioner/ubuntu_upgrade'
-                    self.db.subst(q, 'CURDISTRO', ubuntu)
-                    self.db.subst(
-                        q, 'VER', "%s %s" % (release.name, release.version))
-                    title = self.description(q)
-                    desc = self.extended_description(q)
-                    return PartitioningOption(title, desc)
         return None
 
     def calculate_autopartitioning_heading(self, operating_systems,
@@ -3135,6 +3127,10 @@ class Page(plugin.Plugin):
             self.preseed_bool(question, True, seen=False)
             return True
 
+        elif question == 'partman-basicfilesystems/no_swap':
+            self.preseed_bool(question, False, seen=False)
+            return True
+
         elif question.startswith('partman-crypto/passphrase'):
             # Go forward rather than back in response to passphrase and
             # passphrase-again questions if the UI is not available but they
@@ -3244,10 +3240,11 @@ class Page(plugin.Plugin):
             self.preseed('grub-installer/bootdev', self.ui.get_grub_choice())
 
         if self.current_question.endswith('automatically_partition'):
-            (autopartition_choice, self.extra_choice) = \
+            (autopartition_choice, self.extra_choice, method) = \
                 self.ui.get_autopartition_choice()
             self.preseed_as_c(self.current_question, autopartition_choice,
                               seen=False)
+            telemetry.get().set_partition_method(method)
             # Don't exit partman yet.
         else:
             self.finish_partitioning = True
