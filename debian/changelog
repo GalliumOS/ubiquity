@@ -542,87 +542,6 @@ ubiquity (16.10.10) yakkety; urgency=medium
     installer without noticing, only to find their systems not all working
     correctly. (LP: #1606393)
 
-ubiquity (2.21.63.3-galliumos1) xenon; urgency=medium
-
-  * Rebase on upstream 2.21.63.3
-  * Re-apply GalliumOS patches
-
- -- reynhout <reynhout@galliumos.org>  Sat, 28 Jan 2017 03:14:46 +0000
-
-ubiquity (2.21.63.3) xenial; urgency=medium
-
-  * d-i/sources.list: add xenial-updates to sources.list to pick up any SRUs
-    of d-i components that are no longer in flight.
-  * Automatic update of included source packages: apt-setup
-    1:0.104ubuntu4.1, base-installer 1.158ubuntu2.1, netcfg
-    1.135ubuntu4.1. (LP: #1590358)
-  * bin/ubiquity-dm: wait for the DBus signals telling us that xsettings are
-    ready before continuing with preparing ubiquity-dm; this avoids starting
-    too quickly and incorrectly applying scale ratios for HiDPI screens.
-    (LP: #1560162)
-
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 02 Sep 2016 11:17:13 -0400
-
-ubiquity (2.21.63.2) xenial; urgency=high
-
-  [ Shih-Yuan Lee (FourDollars) ]
-  * Some places doesn't have the location information. (LP: #1584417)
-
-  [ Dimitri John Ledkov ]
-  * Fix substitution variables syntax from $() -> ${} in
-    translations. (LP: #1603926)
-  * Automatic update of included source packages: console-setup
-    1.108ubuntu15.2, partman-base 187ubuntu2.1.
-
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 18 Jul 2016 14:28:29 +0100
-
-ubiquity (2.21.63.1) xenial; urgency=medium
-
-  [ Iain Lane ]
-  * misc.py: Ask for the 'State' property instead of 'state'. Fixes display
-    of wireless page. (LP: #1572793)
-
- -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Apr 2016 13:40:33 -0400
-
-ubiquity (2.21.63-galliumos5) xenon; urgency=medium
-
-  * new patch: galliumos-efi-noswap.diff
-    - do not include swap partition in default layout for EFI installs
-
- -- reynhout <reynhout@galliumos.org>  Sat, 10 Dec 2016 03:02:26 +0000
-
-ubiquity (2.21.63-galliumos4) xenon; urgency=medium
-
-  * disable jfs and xfs
-
- -- reynhout <reynhout@galliumos.org>  Tue, 31 May 2016 17:03:04 +0000
-
-ubiquity (2.21.63-galliumos3) xenon; urgency=medium
-
-  * Fixed variable in d-i/source/partman-basicfilesystems/get_mountoptions
-
- -- Hugh Greenberg <hugh@galliumos.org>  Tue, 10 May 2016 00:38:58 +0000
-
-ubiquity (2.21.63-galliumos2) xenon; urgency=medium
-
-  * Set discard and relatime as default mount options for ext4
-
- -- Hugh Greenberg <hugh@galliumos.org>  Thu, 28 Apr 2016 00:38:58 +0000
-
-ubiquity (2.21.63-galliumos1) xenon; urgency=medium
-
-  * re-apply GalliumOS patches
-
-     - do not create swap partition
-     - add relatime,discard flags to fstab
-     - do not uncomment session config for LXDM
-     - resize installation progress window
-     - do not allow resizing partitions which will damage ChromeOS
-     - add debian/galliumos/upstream
-
- -- reynhout <reynhout@galliumos.org>  Thu, 21 Apr 2016 00:38:58 +0000
-=======
-
   [ Jeremy Bicha ]
   * gtk/ubiquity.ui: Right align Skip button (LP: #1612455)
 
@@ -751,7 +670,86 @@ ubiquity (16.10.1) yakkety; urgency=medium
     2.65ubuntu7, console-setup 1.142ubuntu1, preseed 1.71ubuntu2.
 
  -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Apr 2016 16:28:50 -0400
->>>>>>> vendor
+
+ubiquity (2.21.63.3-galliumos1) xenon; urgency=medium
+
+  * Rebase on upstream 2.21.63.3
+  * Re-apply GalliumOS patches
+
+ -- reynhout <reynhout@galliumos.org>  Sat, 28 Jan 2017 03:14:46 +0000
+
+ubiquity (2.21.63.3) xenial; urgency=medium
+
+  * d-i/sources.list: add xenial-updates to sources.list to pick up any SRUs
+    of d-i components that are no longer in flight.
+  * Automatic update of included source packages: apt-setup
+    1:0.104ubuntu4.1, base-installer 1.158ubuntu2.1, netcfg
+    1.135ubuntu4.1. (LP: #1590358)
+  * bin/ubiquity-dm: wait for the DBus signals telling us that xsettings are
+    ready before continuing with preparing ubiquity-dm; this avoids starting
+    too quickly and incorrectly applying scale ratios for HiDPI screens.
+    (LP: #1560162)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 02 Sep 2016 11:17:13 -0400
+
+ubiquity (2.21.63.2) xenial; urgency=high
+
+  [ Shih-Yuan Lee (FourDollars) ]
+  * Some places doesn't have the location information. (LP: #1584417)
+
+  [ Dimitri John Ledkov ]
+  * Fix substitution variables syntax from $() -> ${} in
+    translations. (LP: #1603926)
+  * Automatic update of included source packages: console-setup
+    1.108ubuntu15.2, partman-base 187ubuntu2.1.
+
+ -- Dimitri John Ledkov <xnox@ubuntu.com>  Mon, 18 Jul 2016 14:28:29 +0100
+
+ubiquity (2.21.63.1) xenial; urgency=medium
+
+  [ Iain Lane ]
+  * misc.py: Ask for the 'State' property instead of 'state'. Fixes display
+    of wireless page. (LP: #1572793)
+
+ -- Mathieu Trudel-Lapierre <cyphermox@ubuntu.com>  Fri, 29 Apr 2016 13:40:33 -0400
+
+ubiquity (2.21.63-galliumos5) xenon; urgency=medium
+
+  * new patch: galliumos-efi-noswap.diff
+    - do not include swap partition in default layout for EFI installs
+
+ -- reynhout <reynhout@galliumos.org>  Sat, 10 Dec 2016 03:02:26 +0000
+
+ubiquity (2.21.63-galliumos4) xenon; urgency=medium
+
+  * disable jfs and xfs
+
+ -- reynhout <reynhout@galliumos.org>  Tue, 31 May 2016 17:03:04 +0000
+
+ubiquity (2.21.63-galliumos3) xenon; urgency=medium
+
+  * Fixed variable in d-i/source/partman-basicfilesystems/get_mountoptions
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Tue, 10 May 2016 00:38:58 +0000
+
+ubiquity (2.21.63-galliumos2) xenon; urgency=medium
+
+  * Set discard and relatime as default mount options for ext4
+
+ -- Hugh Greenberg <hugh@galliumos.org>  Thu, 28 Apr 2016 00:38:58 +0000
+
+ubiquity (2.21.63-galliumos1) xenon; urgency=medium
+
+  * re-apply GalliumOS patches
+
+     - do not create swap partition
+     - add relatime,discard flags to fstab
+     - do not uncomment session config for LXDM
+     - resize installation progress window
+     - do not allow resizing partitions which will damage ChromeOS
+     - add debian/galliumos/upstream
+
+ -- reynhout <reynhout@galliumos.org>  Thu, 21 Apr 2016 00:38:58 +0000
 
 ubiquity (2.21.63) xenial; urgency=medium
 
