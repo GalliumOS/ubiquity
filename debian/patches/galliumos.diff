@@ -64,7 +64,7 @@
              status_gz.close()
              status.close()
 -        except IOError:
-+        except:
++        except BaseException:
              pass
          try:
              if self.db.get('oem-config/enable') == 'true':
