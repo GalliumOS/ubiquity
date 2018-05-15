@@ -21,37 +21,32 @@
          # Make sure ibus works
 --- a/d-i/source/partman-auto/recipes/atomic
 +++ b/d-i/source/partman-auto/recipes/atomic
-@@ -21,8 +21,3 @@
+@@ -21,10 +21,3 @@ partman-auto/text/atomic_scheme ::
+ 	use_filesystem{ }
  	$default_filesystem{ }
  	mountpoint{ / } .
- 
+-
 -100% 512 200% linux-swap
+-	$defaultignore{ }
 -	$lvmok{ }
 -	$reusemethod{ }
 -	method{ swap }
 -	format{ } .
 --- a/d-i/source/partman-basicfilesystems/check.d/check_swap
 +++ b/d-i/source/partman-basicfilesystems/check.d/check_swap
-@@ -26,11 +26,11 @@
+@@ -25,12 +25,3 @@ for dev in $DEVICES/*; do
+ 		fi
  	done
  done
- 
+-
 -if ! $swap; then
--	db_input critical partman-basicfilesystems/no_swap || true
+-	db_input medium partman-basicfilesystems/no_swap || true
 -	db_go || true
 -	db_get partman-basicfilesystems/no_swap
 -	if [ "$RET" = true ]; then
 -		exit 1
 -	fi
 -fi
-+#if ! $swap; then
-+#	db_input critical partman-basicfilesystems/no_swap || true
-+#	db_go || true
-+#	db_get partman-basicfilesystems/no_swap
-+#	if [ "$RET" = true ]; then
-+#		exit 1
-+#	fi
-+#fi
 --- a/d-i/source/user-setup/user-setup-apply
 +++ b/d-i/source/user-setup/user-setup-apply
 @@ -293,7 +293,6 @@
