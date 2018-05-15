@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-partman-base (187ubuntu2.1) xenial; urgency=medium
-=======
 partman-base (192ubuntu1) bionic; urgency=medium
 
   * Resynchronise with Debian.  Remaining changes:
@@ -86,7 +83,6 @@ partman-base (188) unstable; urgency=medium
  -- Christian Perrier <bubulle@debian.org>  Fri, 02 Oct 2015 12:31:01 +0200
 
 partman-base (187ubuntu3) yakkety; urgency=medium
->>>>>>> vendor
 
   * On s390[x], Prevent using extended partitions on DASD drives that can
     only hold 3 partitions. Parted doesn't have special knowledge about

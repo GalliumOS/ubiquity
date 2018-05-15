@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-netcfg (1.135ubuntu4.1) xenial; urgency=medium
-=======
 netcfg (1.142ubuntu7) bionic; urgency=medium
 
   * Write out nameservers without a domain, for example when preseeding a
@@ -196,7 +193,6 @@ netcfg (1.136) unstable; urgency=medium
  -- Colin Watson <cjwatson@debian.org>  Wed, 20 Jan 2016 13:43:39 +0000
 
 netcfg (1.135ubuntu6) yakkety; urgency=medium
->>>>>>> vendor
 
   * With vlan connection type, finish-install.d would decide to purge
     network configuration and writeout loopback interfaces only, due to
@@ -205,23 +201,16 @@ netcfg (1.135ubuntu6) yakkety; urgency=medium
     settings propagate through to the system, after additional
     network-manager changes were added. LP: #1567687
 
-<<<<<<< HEAD
-=======
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 12 May 2016 12:26:10 +0100
 
 netcfg (1.135ubuntu5) yakkety; urgency=medium
 
->>>>>>> vendor
   * When DHCP is disabled via preseed, do not ask the DHCP question on
     s390x by propagating the seen flags from preseed-only keys to the
     interactive question. This is a side-effect / regression from
     1.135ubuntu3. LP: #1572607
 
-<<<<<<< HEAD
- -- Dimitri John Ledkov <xnox@ubuntu.com>  Thu, 19 May 2016 11:34:16 +0100
-=======
  -- Dimitri John Ledkov <xnox@ubuntu.com>  Wed, 11 May 2016 11:44:18 +0100
->>>>>>> vendor
 
 netcfg (1.135ubuntu4) xenial; urgency=medium
 

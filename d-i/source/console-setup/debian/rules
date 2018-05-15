@@ -68,15 +68,6 @@ deb-install-linux: build
 	dh_prep -p console-setup-linux
 	$(MAKE) etcdir=debian/console-setup-linux/etc \
 		prefix=debian/console-setup-linux/usr install-common-linux
-<<<<<<< HEAD
-ifneq (,$(filter console-setup-linux, $(shell dh_listpackages)))
-	dh_installinit -pconsole-setup-linux \
-		--no-start --name setvtrgb -- start 49 S .
-	dh_link -pconsole-setup-linux
-	install -m 644 debian/vtrgb debian/console-setup-linux/etc/console-setup/
-	install -m 644 debian/vtrgb.vga debian/console-setup-linux/etc/console-setup/
-endif
-=======
 	dh_install -p console-setup-linux \
 		init/90-console-setup.rules lib/udev/rules.d/
 	dh_install -p console-setup-linux \
@@ -103,7 +94,6 @@ endif
 		--no-start --name setvtrgb
 	sed -i 's/RUNLEVEL/2 3 4 5/' \
 		debian/console-setup-linux/etc/init.d/console-setup.sh
->>>>>>> vendor
 
 .PHONY : deb-install-freebsd
 deb-install-freebsd: build
@@ -144,15 +134,10 @@ deb-install-main: build
 		prefix=debian/console-setup/usr install-ckbcomp
 	dh_install -pconsole-setup Keyboard/pc105.tree \
 		usr/share/console-setup
-<<<<<<< HEAD
-	dh_installinit -pconsole-setup \
-		--no-start --name console-font
-=======
 ifneq (,$(filter console-setup-linux, $(shell dh_listpackages)))
 	install -m 644 debian/vtrgb debian/console-setup-linux/etc/console-setup/
 	install -m 644 debian/vtrgb.vga debian/console-setup-linux/etc/console-setup/
 endif
->>>>>>> vendor
 	$(MAKE) etcdir=debian/console-setup-mini/etc \
 		prefix=debian/console-setup-mini/usr install-common
 	$(MAKE) etcdir=debian/console-setup-mini/etc \
@@ -180,13 +165,6 @@ endif
 		usr/share/console-setup/
 	dh_link -pkeyboard-configuration usr/share/X11/xkb/rules/xorg.lst \
 		usr/share/doc/keyboard-configuration/xorg.lst
-<<<<<<< HEAD
-	dh_installinit -pkeyboard-configuration \
-		--no-start --name keyboard-setup -- start 49 S .
-	dh_installinit -pkeyboard-configuration \
-		--no-start --name console-setup -- start 49 S .
-=======
->>>>>>> vendor
 	install -d debian/keyboard-configuration/usr/share/initramfs-tools/hooks \
 		debian/keyboard-configuration/usr/share/initramfs-tools/scripts/init-top \
 		debian/keyboard-configuration/usr/share/initramfs-tools/scripts/panic
