@@ -22,3 +22,10 @@ partman-auto/text/atomic_scheme ::
 	use_filesystem{ }
 	$default_filesystem{ }
 	mountpoint{ / } .
+
+100% 512 200% linux-swap
+	$defaultignore{ }
+	$lvmok{ }
+	$reusemethod{ }
+	method{ swap }
+	format{ } .
