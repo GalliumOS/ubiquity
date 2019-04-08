@@ -1,3 +1,10 @@
+ubiquity (18.04.14-galliumos1) bismuth; urgency=medium
+
+  * Add patch:
+    - galliumos-skip-swapfile
+
+ -- reynhout <reynhout@galliumos.org>  Mon, 08 Apr 2019 00:44:59 +0000
+
 ubiquity (18.04.14-galliumos0) bismuth; urgency=medium
 
   * Prepare for GalliumOS 3.0

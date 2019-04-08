@@ -1,0 +1,24 @@
+diff --git a/d-i/source/partman-swapfile/finish.d/create_swapfile b/d-i/source/partman-swapfile/finish.d/create_swapfile
+index 046a990..72d0573 100755
+--- a/d-i/source/partman-swapfile/finish.d/create_swapfile
++++ b/d-i/source/partman-swapfile/finish.d/create_swapfile
+@@ -1,5 +1,7 @@
+ #!/bin/sh
+ 
++return 0
++
+ . /lib/partman/lib/base.sh
+ 
+ swap_partition () {
+diff --git a/d-i/source/partman-swapfile/finish.d/fstab_swapfile b/d-i/source/partman-swapfile/finish.d/fstab_swapfile
+index af0ad35..40b631e 100755
+--- a/d-i/source/partman-swapfile/finish.d/fstab_swapfile
++++ b/d-i/source/partman-swapfile/finish.d/fstab_swapfile
+@@ -1,5 +1,7 @@
+ #!/bin/sh
+ 
++return 0
++
+ . /lib/partman/lib/base.sh
+ 
+ # No swapfile
